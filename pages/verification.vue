@@ -1,10 +1,71 @@
 <script>
+import { useAuthStore } from '~~/store/auth'
+
 export default {
-  computed: {
-    referringRoute() {
-      return this.$router.options.history.state.back;
+    data() {
+        return {
+            first: "",
+            second: "",
+            third: "",
+            fourth: "",
+            fifth: "",
+            sixth: "",
+        }
+    },
+    methods: {
+        async verifyOTP() {
+            const email = useAuthStore().$state.user.email
+            console.log(useAuthStore().$state.user)
+            const config = useRuntimeConfig()
+            const res = await useFetch(
+                `${config.public.baseURL}/users/otp/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        action: 'verify',
+                        email: email,
+                        otp: `${this.first}${this.second}${this.third}${this.fourth}${this.fifth}${this.sixth}`
+                    }
+                }
+            )
+            if (res.data.value) {
+                if (this.referringRoute == '/signup') {
+                    this.$router.push('/personal_information')
+                } else if (this.referringRoute == '/forgot_password') {
+                    this.$router.push('/reset_password')
+                }
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
+            }
+        },
+        async resendOTP() {
+            const email = useAuthStore().$state.user.email
+            const config = useRuntimeConfig()
+            const res = await useFetch(
+                `${config.public.baseURL}/users/otp/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        action: 'send',
+                        email: 'ezenwankwog@gmail.com',
+                    }
+                }
+            )
+            if (res.data.value) {
+                useNotification().toast.success('OTP resend successful.')
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
+            }
+        },
+    },
+    computed: {
+        referringRoute() {
+            return this.$router.options.history.state.back;
+        }
+        // setUser() {
+        //     return useAuthStore().$state.user;
+        // }
     }
-  }
 }
 </script>
 
@@ -17,27 +78,23 @@ export default {
             <p class="to">
                 Kindly enter the 6-digit code sent to your email <br /><span class='ap'> gb********43@gmail.com</span>
             </p>
-            <form action="" class='form2'>
+            <form class='form2' @submit.prevent="verifyOTP">
                 <span class="ct">
-                    <input type="number" name="" id="" maxlength="1" />
-                    <input type="number" name="" id="" min="0" max="9" step="1" />
-                    <input type="number" name="" id="" min="0" max="9" step="1" />
-                    <input type="number" name="" id="" min="0" max="9" step="1" />
-                    <input type="number" name="" id="" min="0" max="9" step="1" />
-                    <input type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="first" type="number" name="" id="" maxlength="1" />
+                    <input v-model.trim="second" type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="third" type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="fourth" type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="fifth" type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="sixth" type="number" name="" id="" min="0" max="9" step="1" />
                 </span>
-
                 <p class="to to2">Expires in <span class='ap'> 00:34</span> </p>
                 <p class="to to2">Didn’t get the code?
-                    <a to="" class='a'>Resend</a>
+                    <a class='a' @click="resendOTP">Resend</a>
                 </p>
-
-                <button v-show="referringRoute == '/signup'" type='submit'><NuxtLink to="/personal_information">Proceed</NuxtLink></button>
-                <button v-show="referringRoute == '/forgot_password'" type='submit'><NuxtLink to="/reset_password">Proceed</NuxtLink></button>
+                <button type='submit'>Proceed</button>
                 <p class="already">Remember Password?
                     <NuxtLink to="/login">Login</NuxtLink>
                 </p>
-
             </form>
         </section>
         <section class="section2">
@@ -674,5 +731,4 @@ main .section2 div .role {
        border: solid black !important;
     } */
 
-}
-</style>
+}</style>

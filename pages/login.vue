@@ -1,5 +1,4 @@
 <script>
-
 export default {
     data() {
         return {
@@ -10,29 +9,20 @@ export default {
     methods: {
         async loginWithFinstack() {
             const config = useRuntimeConfig()
-            try {
-                const res = await useFetch(
-                    `${config.public.baseURL}/users/login/`, 
-                    {
-                        'method': 'post',
-                        'body': {
-                            email: this.email,
-                            password: this.password
-                        }
+            const res = await useFetch(
+                `${config.public.baseURL}/users/login/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        email: this.email,
+                        password: this.password
                     }
-                )
-                console.log(res)
-                if (res.data.value) {
-                    this.$router.push('/profile')
-                } else {
-                    const toast = useToast()
-                    toast('error')
                 }
-            } catch (e) {
-                e.response.data.message
-                // const { $toast } = useNuxtApp()
-                // $toast.success('Yay!!!')
-                //this.$toast.error(e.response.data.message, { position: 'top-center' })
+            )
+            if (res.data.value) {
+                this.$router.push('/profile')
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
             }
         }
     }
@@ -53,7 +43,8 @@ export default {
 
                 <span class="spf">
                     <label htmlFor="password">Password</label>
-                    <span class='inp'><input v-model.trim="password" type="password" name="" id="pass" placeholder='Password' required />
+                    <span class='inp'><input v-model.trim="password" type="password" name="" id="pass"
+                            placeholder='Password' required />
                         <Icon name="bi:eye" />
                     </span>
                     <NuxtLink to="/forgot_password" class="forgot">Forgot Password?</NuxtLink>
@@ -61,7 +52,7 @@ export default {
                 </span>
 
                 <button type="submit">
-                    <button to="/profile">Log in</button>
+                    <button>Log in</button>
                 </button>
 
                 <div class="or"><span></span>

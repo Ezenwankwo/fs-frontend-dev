@@ -1,23 +1,72 @@
+<script>
+import { useAuthStore } from '~~/store/auth'
+
+export default {
+    data() {
+        return {
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        async signupWithFinstack() {
+            const config = useRuntimeConfig()
+            const res = await useFetch(
+                `${config.public.baseURL}/users/signup/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        email: this.email,
+                        password: this.password,
+                        user_type: 'Buyer',
+                    }
+                }
+            )
+            if (res.data.value) {
+                const user = res.data.value.data
+                useAuthStore().setUser(user)
+                // send otp
+                const sendOtpRes = await useFetch(
+                    `${config.public.baseURL}/users/otp/`,
+                    {
+                        'method': 'post',
+                        'body': {
+                            action: 'send',
+                            email: this.email 
+                        }
+                    }
+                )
+                this.$router.push('/verification')
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
+            }
+        }
+    }
+}
+</script>
+
 <template>
     <main>
         <section class="sectioni">
             <img src="~/assets/logo.png" alt="" class="logo" />
             <p class="t1">Welcome, Let's get you onboard</p>
             <p class="t2">Fill in your email address to continue.</p>
-            <form action="">
+            <form @submit.prevent="signupWithFinstack">
                 <div class="spf">
                     <label htmlFor="email">Email address</label>
-                    <input type="email" name="" id="" placeholder='Email address' />
+                    <input v-model.trim="email" type="email" name="" id="" placeholder='Email address' required />
                 </div>
 
                 <div class="spf">
                     <label htmlFor="password">Password</label>
-                    <span class='inp'><input type="password" name="" id="pass" placeholder='Password' />
+                    <span class='inp'><input v-model.trim="password" type="password" name="" id="pass" placeholder='Password' />
                         <Icon name="bi:eye" />
                     </span>
                 </div>
 
-                <button type="submit"><NuxtLink to="/verification">Create account</NuxtLink></button>
+                <button type="submit">
+                    <button>Create account</button>
+                </button>
                 <p class="tc">By continuing you agree to our <a href="">Terms and conditions</a> and <a href="">Privacy
                         Policy</a> </p>
                 <div class="or"><span></span>

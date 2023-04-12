@@ -21,7 +21,4 @@ export default defineNuxtConfig({
            baseURL: 'http://localhost:8000'
         }
     },
-    // build : {
-    //     transpile: ['vue-toastification']
-    // },
 })
