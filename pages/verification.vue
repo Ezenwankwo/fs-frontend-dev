@@ -15,7 +15,6 @@ export default {
     methods: {
         async verifyOTP() {
             const email = useAuthStore().$state.user.email
-            console.log(useAuthStore().$state.user)
             const config = useRuntimeConfig()
             const res = await useFetch(
                 `${config.public.baseURL}/users/otp/`,
@@ -33,6 +32,8 @@ export default {
                     this.$router.push('/personal_information')
                 } else if (this.referringRoute == '/forgot_password') {
                     this.$router.push('/reset_password')
+                } else if (this.referringRoute == '/login') {
+                    this.$router.push('/personal_information')
                 }
             } else {
                 useNotification().toast.error(res.error.value.data.message)
@@ -47,7 +48,7 @@ export default {
                     'method': 'post',
                     'body': {
                         action: 'send',
-                        email: 'ezenwankwog@gmail.com',
+                        email: email,
                     }
                 }
             )

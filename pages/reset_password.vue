@@ -1,40 +1,59 @@
+<script>
+import { useAuthStore } from '~~/store/auth'
+
+export default {
+    data() {
+        return {
+            password1: "",
+            password2: "",
+        }
+    },
+    methods: {
+        async resetPassword() {
+            const email = useAuthStore().$state.user.email
+            const config = useRuntimeConfig()
+            const res = await useFetch(
+                `${config.public.baseURL}/users/reset-password/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        email: email,
+                        password: this.password1
+                    }
+                }
+            )
+            if (res.data.value) {
+                this.$router.push('/reset_password_successful')
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
+            }
+        }
+    }
+}
+</script>
+
 <template>
     <main>
         <section class="sectioni">
             <img src="~/assets/logo.png" alt="" class="logo" />
             <p class="t1">Reset Password</p>
             <p class="t2">Fill in your details to continue</p>
-            <form action="">
+            <form @submit.prevent="resetPassword">
                 <span class="spf">
                     <label htmlFor="password">Enter new password</label>
-                    <span class='inp'><input type="password" name="" id="" placeholder='Password' /><Icon name="bi:eye" /></span>
+                    <span class='inp'><input v-model.trim="password1" type="password" name="" id="" placeholder='Password' required />
+                        <Icon name="bi:eye" />
+                    </span>
                 </span>
 
                 <span class="spf">
                     <label htmlFor="password">Confirm new password</label>
-                    <span class='inp'><input type="password" name="" id="" placeholder='Password' /></span>
+                    <span class='inp'><input v-model.trim="password2" type="password" name="" id="" placeholder='Password' required /></span>
                 </span>
 
-                <div class="pass">
-                    <span class="sp">
-                        <h3>
-                            <div class='bll'></div> At least one uppercase
-                        </h3>
-                        <h3>
-                            <div class='ggg'></div> At least one alphanumeric
-                        </h3>
-                    </span>
-                    <span class="sp">
-                        <h3>
-                            <div class='ggg'></div> At least one lowercase
-                        </h3>
-                        <h3>
-                            <div class='bll'></div> At least one other thing
-                        </h3>
-                    </span>
-                </div>
-
-                <button type="submit"><NuxtLink to="/reset_password_successful">Reset password</NuxtLink></button>
+                <button type="submit">
+                    Reset password
+                </button>
             </form>
         </section>
         <section class="section2">

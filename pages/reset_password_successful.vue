@@ -5,11 +5,11 @@
             <img src="~/assets/success.svg" alt="" class="email_img" />
             <p class="et1">Password reset successful</p>
             <p class="et2">Password reset successful</p>
-            <a to="/login">
-                <form action="">
-                    <button><NuxtLink to="/login">Proceed to login</NuxtLink></button>
-                </form>
-            </a>
+            <form action="">
+                <button>
+                    <NuxtLink to="/login">Proceed to login</NuxtLink>
+                </button>
+            </form>
 
         </section>
         <section class="section2">

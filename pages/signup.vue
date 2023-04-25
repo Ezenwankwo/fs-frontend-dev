@@ -18,7 +18,6 @@ export default {
                     'body': {
                         email: this.email,
                         password: this.password,
-                        user_type: 'Buyer',
                     }
                 }
             )
@@ -65,7 +64,7 @@ export default {
                 </div>
 
                 <button type="submit">
-                    <button>Create account</button>
+                    Create account
                 </button>
                 <p class="tc">By continuing you agree to our <a href="">Terms and conditions</a> and <a href="">Privacy
                         Policy</a> </p>

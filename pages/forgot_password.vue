@@ -1,21 +1,57 @@
+<script>
+import { useAuthStore } from '~~/store/auth'
+
+export default {
+    data() {
+        return {
+            email: "",
+        }
+    },
+    methods: {
+        async forgotPassword() {
+            const config = useRuntimeConfig()
+            const res = await useFetch(
+                `${config.public.baseURL}/users/forgot-password/`,
+                {
+                    'method': 'post',
+                    'body': {
+                        email: this.email,
+                    }
+                }
+            )
+            if (res.data.value) {
+                const user = {"email": this.email}
+                useAuthStore().setUser(user)
+                this.$router.push('/verification')
+            } else {
+                useNotification().toast.error(res.error.value.data.message)
+            }
+        }
+    }
+}
+</script>
+
 <template>
     <main>
-<section class="sectioni">
-                <img src="~/assets/logo.png" alt="" class="logo" />
-                <p class="t1">Forgot Password</p>
-                <p class="t2">Fill in your details to continue</p>
-                <form action="">
-                    <span class='spf'>
-                        <label htmlFor="email">Email address</label>
-                        <input type="email" name="" id="" placeholder='Email address'/>
-                    </span>
+        <section class="sectioni">
+            <img src="~/assets/logo.png" alt="" class="logo" />
+            <p class="t1">Forgot Password</p>
+            <p class="t2">Fill in your details to continue</p>
+            <form @submit.prevent="forgotPassword">
+                <span class='spf'>
+                    <label htmlFor="email">Email address</label>
+                    <input v-model.trim="email" type="email" name="" id="" placeholder='Email address' required />
+                </span>
 
-                    <button type="submit"><NuxtLink to="/verification">Send reset code</NuxtLink></button>                    
-                
-                    <p class="already">Remember Password? <NuxtLink to="/login">Login</NuxtLink></p>
-                </form>
-            </section> 
-            <section class="section2">
+                <button type="submit">
+                    Send reset code
+                </button>
+
+                <p class="already">Remember Password? <NuxtLink to="/login">Login</NuxtLink>
+                </p>
+            </form>
+        </section>
+        <section class="section2">
             <div>
                 <p class='q'><em>"</em></p>
                 <p class='quote'>Creating seamless exchange procedure for everyone. Buy, sell, save, trade and exchange
@@ -24,7 +60,7 @@
                 <p class="role">Founder, GirlsInTech</p>
             </div>
         </section>
-</main>
+    </main>
 </template>
 
 <style scoped>

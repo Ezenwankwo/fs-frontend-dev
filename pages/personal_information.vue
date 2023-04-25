@@ -1,5 +1,9 @@
 <template>
     <div>
-        <InternalHeader />
+        Personal Information
     </div>
 </template>
+
+<style scoped>
+ 
+</style>

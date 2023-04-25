@@ -23,6 +23,9 @@ export default {
                 this.$router.push('/profile')
             } else {
                 useNotification().toast.error(res.error.value.data.message)
+                if (res.error.value.data.message == "Email not verified.") {
+                    this.$router.push('/verification')
+                }
             }
         }
     }
@@ -52,7 +55,7 @@ export default {
                 </span>
 
                 <button type="submit">
-                    <button>Log in</button>
+                    Log in
                 </button>
 
                 <div class="or"><span></span>
