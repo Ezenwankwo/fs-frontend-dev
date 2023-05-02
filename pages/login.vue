@@ -1,4 +1,5 @@
 <script>
+import { useAuthStore } from '~~/store/auth';
 export default {
     data() {
         return {
@@ -20,6 +21,8 @@ export default {
                 }
             )
             if (res.data.value) {
+                const user = res.data.value.data
+                useAuthStore().setUser(user)
                 this.$router.push('/profile')
             } else {
                 useNotification().toast.error(res.error.value.data.message)

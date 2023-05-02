@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    css: [
+        '~/assets/css/conversion.css',
+        '~/assets/css/home.css',
+    ],      
     modules: [
         '@nuxtjs/tailwindcss',
         'nuxt-icon',
@@ -9,6 +13,7 @@ export default defineNuxtConfig({
                 autoImports: ['defineStore', 'acceptHMRUpdate'],
             },
         ],
+        '@pinia-plugin-persistedstate/nuxt',
     ],
     googleFonts: {
         families: {
