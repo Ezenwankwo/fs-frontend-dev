@@ -576,8 +576,8 @@ const currenciesRes = await useFetch(
             </section>
             <section class="section9">
                 <div class="back">
-                    <img src={big_logo} alt="" />
-                    <img src={big_logo} alt="" class='img2' />
+                    <img src="" alt="" />
+                    <img src="" alt="" class='img2' />
                 </div>
                 <div class="text">
                     <p class="t1">Ready to join the train?</p>
