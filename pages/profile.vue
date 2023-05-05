@@ -9,7 +9,7 @@
             </section>
             <section class="sectionfin_stck">
                 <div class="bck">
-                    <img src={big_logo2} alt="" />
+                    <img src="" alt="" />
                 </div>
                 <section class="mn">
                     <NameProfile />
