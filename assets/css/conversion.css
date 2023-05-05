@@ -5509,7 +5509,8 @@ nav .user .dwn{
 
 .Aumain .section .cnt .frm .qs .spq .links .a3{
     width: 100%;
-    display: flex; justify-content: center;
+    /* display: flex;  */
+    justify-content: center;
 }
 
 .Aumain .section .cnt .frm .qs .spq .links .a3 b{

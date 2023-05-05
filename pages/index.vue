@@ -20,9 +20,6 @@ const { data, pending, error, refresh } = await useFetch(
             "to_currency": toCurrency.value,
             "amount": amount.value,
         },
-        onRequestError({ request, options, error }) {
-            console.log('request error')
-        },
         onResponse({ request, response, options }) {
             const data = response._data.data
             data.amount = amount.value

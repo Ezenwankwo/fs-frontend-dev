@@ -6,12 +6,13 @@
                     account details below</p>
                 <div class="w-full text-center">
                     <img src="~/assets/success.svg" alt="" class="mx-auto" />
+                    <!-- <nuxt-img src="/nuxt.png" /> -->
                     <div class="mb-6">
-                        <p class="text-[#373D4A] font-bold">You’ve been credited ₤1,200.00</p>
+                        <p class="text-[#373D4A] font-bold">You’ve been credited {{ exchange.to_currency }} {{ trade.purchase_amount }}</p>
                         <p class="text-lg text-[#373D4A]">Please confirm the credit transaction</p>
                     </div>
-                    <NuxtLink to="rating"><button class="btn block rounded-full normal-case bg-[#2F67FA] mb-6 border border-0 mx-auto">Yes, I have
-                        received ₤1,200.00</button></NuxtLink>
+                    <button class="btn block rounded-full normal-case bg-[#2F67FA] mb-6 border border-0 mx-auto" @click="updateTradeStatus">Yes, I have
+                        received {{ exchange.to_currency }} {{ trade.purchase_amount }}</button>
                     <p class="mb-2">Didn’t get the credit?</p>
                     <p class="text-[#2F67FA]">Reach out to our customer support</p>
                 </div>
@@ -21,7 +22,40 @@
 </template>
 
 <script setup>
+import { useConversionStore } from '~~/store/conversion';
+import { useAuthStore } from '~~/store/auth';
 definePageMeta({
     layout: "conversion",
 });
+
+const token = useAuthStore().$state.user.access
+const config = useRuntimeConfig()
+const trade = useConversionStore().$state.trade
+const exchange = useConversionStore().$state.exchange
+const updateTradeStatus = () => {
+    const res = useFetch(
+        `${config.public.baseURL}/trades/${trade.public_id}/`,
+        {
+            'method': 'PATCH',
+            'body': {
+                "status": "Completed",
+            },
+            onRequest({ request, options }) {
+                options.headers = options.headers || {}
+                options.headers.authorization = `Bearer ${token}`
+            },
+            onResponse({ request, response, options }) {
+                if (response.ok) {
+                    useConversionStore().setTrade(response._data.data)
+                    useConversionStore().setEscrowAccount({})
+                    useConversionStore().setOriginatingAccount({})
+                    useConversionStore().setReceivingAccount({})
+                    navigateTo('/rating')
+                } else {
+                    useNotification().toast.error(response._data.message)
+                }
+            }
+        }
+    )
+}
 </script>

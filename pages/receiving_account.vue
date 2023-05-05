@@ -4,27 +4,8 @@
         <p class="t2">How do you intend receiving the payment?</p>
 
         <div class="qs">
-            <span class="spq">
-                <span class="sp sp2">
-                    <label>Currency type</label>
-                    <span class="els">
-                        <span class="el">
-                            <input v-model="currencyType" type="radio" value="fiat" @change="changeMethod('fiat')" />
-                            <label>Fiat</label>
-                        </span>
-                        <span class="el">
-                            <input v-model="currencyType" type="radio" value="crypto" @change="changeMethod('crypto')" />
-                            <label>Crypto</label>
-                        </span>
-                    </span>
-                </span>
-            </span>
             <!-- FIAT SECTION -->
             <span v-if="isFiat" class="qs fiat_div">
-
-                <span class="spq">
-                    <div class="line"></div>
-                </span>
 
                 <span class="spq">
                     <span class="sp sp2">
@@ -81,7 +62,7 @@
 
             <span class="spq">
                 <div class="links">
-                    <NuxtLink to="/review_amount" Class="a a1">
+                    <NuxtLink to="/review_amount" class="a a1">
                         Back
                     </NuxtLink>
                     <NuxtLink class="a a2" @click="createAccount">
@@ -106,10 +87,14 @@ const accountOrAddress = ref('')
 const changeMethod = (value) => {
   currencyType.value = value
 }
-const isFiat = computed(() => currencyType.value === 'fiat')
-const isCrypto = computed(() => currencyType.value === 'crypto')
 
 const exchange = useConversionStore().$state.exchange
+
+const fiat = ["NGN", "USD", "GBP", "EUR", "GHS", "XAF", "XOF"]
+const crypto = ["BTC", "ETH", "USDT", "USDC", "MATIC", "XRP", "BUSD"]
+const isFiat = computed(() => fiat.includes(exchange.to_currency))
+const isCrypto = computed(() => crypto.includes(exchange.to_currency))
+
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
 
@@ -131,7 +116,8 @@ const createAccount = () => {
             },
             onResponse({ request, response, options }) {
                 if (response.ok) {
-                    navigateTo('/processing')
+                    useConversionStore().setReceivingAccount(response._data.data)
+                    navigateTo('/escrow_account')
                 } else {
                     useNotification().toast.error(response._data.message)
                 }
