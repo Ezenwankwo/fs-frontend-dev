@@ -71,21 +71,21 @@
                 <div class="crds">
                     <div class="crd">
                         <a class='a'>
-                            <img src={wallet_img} alt="" />
+                            <img src="" alt="" />
                             <span class="sp">
                                 <p>Wallet</p>
                                 <i class='material-icons'>arrow_forward_ios</i>
                             </span>
                         </a>
                         <a class='a'>
-                            <img src={tran_img} alt="" />
+                            <img src="" alt="" />
                             <span class="sp">
                                 <p>Transactions</p>
                                 <i class='material-icons'>arrow_forward_ios</i>
                             </span>
                         </a>
                         <a class='a'>
-                            <img src={ad_img} alt="" />
+                            <img src="" alt="" />
                             <span class="sp">
                                 <p>Ad list</p>
                                 <i class='material-icons'>arrow_forward_ios</i>
