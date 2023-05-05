@@ -99,7 +99,7 @@
             <section class="section_accts">
                 <p class="save">
                     Saved accounts
-                <p class="p1" onClick={openNew}>
+                <p class="p1">
                 <p class='spp'>+</p> Add new</p>
                 </p>
 
