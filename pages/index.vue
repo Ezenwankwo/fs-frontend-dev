@@ -76,7 +76,7 @@ const currenciesRes = await useFetch(
                 <div class='sp'>
                     <a to='/blog_index' class='link'>Our blog</a>
                     <a to='/contactus' class='link'>Contact us</a>
-                    <NuxtLink to="/seller_signup" class='link'>Become a seller</NuxtLink>
+                    <NuxtLink to="/identity" class='link'>Become a seller</NuxtLink>
                     <a to='' class='link'>P2P marketplace</a>
                 </div>
                 <span class='log'>
