@@ -96,9 +96,9 @@ const currenciesRes = await useFetch(
                         currencies with 3 simple steps. </p>
                     <span class='links'>
                         <NuxtLink to="/signup" class='a1'>Get Started</NuxtLink>
-                        <a href='' class='a2'>Buy/Sell Currency
+                        <NuxtLink to="/identity" href='' class='a2'>Buy/Sell Currency
                             <Icon name="fa6-solid:angle-right" class="material-icons" />
-                        </a>
+                        </NuxtLink>
                     </span>
                 </div>
                 <div class='div2'>

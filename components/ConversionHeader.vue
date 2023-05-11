@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav class="nav-fixed">
-            <div class="not_bar" id="Note">
+            <!-- <div class="not_bar" id="Note">
                 <p class="top">Notification<i class="fa-solid fa-x"></i></p>
                 <div class="nots">
                     <a class="inf" href="/seller_details">
@@ -149,7 +149,7 @@
                         <div class="dot"></div>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <div class="sidebar" id="sidebar">
                 <div class="sd">
                     <div class="main_sidenav">

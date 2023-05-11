@@ -3,7 +3,7 @@
         <nav class="nav-fixed">
             <Notification_bar />
             <Sidenav />
-            <a to='/' class='logo_a'> <img src="~/assets/logo.png" alt="wame" class='logo' /></a>
+            <NuxtLink to='/' class='logo_a'> <img src="~/assets/logo.png" alt="wame" class='logo' /></NuxtLink>
             <div class='sp'>
                 <a to='/blog_index' class='a'>Our blog</a>
                 <a to='/contactus' class='a'>Contact us</a>
@@ -11,13 +11,13 @@
                 <a to='' class='a'>P2P marketplace</a>
             </div>
             <div class="user">
-                <div class="n_icon" onClick={openNote}>
+                <div class="n_icon">
                     <i class="material-icons-outlined bell">notifications</i>
                     <div class="not"></div>
                 </div>
 
                 <div class="profile">
-                    <div class='prof' onClick={handleProfile} ref={profRef}>
+                    <div class='prof'>
                         <div class="user_descrpt">
                             <p class="username">Maverick Egubson</p>
                             <p class="usermail">maverick.eth@gmail.com</p>
@@ -41,7 +41,7 @@
                 </div>
 
             </div>
-            <i class="i ii material-icons" id='i' onClick={sidebarOpen}>menu</i>
+            <i class="i ii material-icons" id='i'>menu</i>
             <!--{/* <i class="x ii material-icons" id='x'>close</i> */}-->
 
         </nav>

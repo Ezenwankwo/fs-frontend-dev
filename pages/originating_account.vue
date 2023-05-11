@@ -10,11 +10,13 @@
                 <span class="spq">
                     <span class="sp sp2">
                         <label>Bank</label>
-                        <select v-model.trim="bankOrNetwork" style="height: 55px; padding: 25px;" class='w-full rounded-full bg-white border border-[#DCDEE5]'>
+                        <select v-model.trim="bankOrNetwork" class="select w-full max-w-xs font-medium" style="border-radius: 30px; border: solid 1px #DCDEE5; padding: 0 25px; height: 55px; outline: none;" >
                             <option>First bank</option>
                             <option>First bank</option>
-                            <option>First bank</option>
+                            <option>Other</option>
                         </select>
+                        <input v-show="other" type="text" name="fname" id="" placeholder="Bank name" />
+                        <span v-show="other" class="text-xs ml-4 p-0 text-[#2F67FA]">This will take longer to process</span>
                     </span>
                 </span>
 
@@ -91,7 +93,7 @@ const accountOrAddress = ref('')
 const changeMethod = (value) => {
   currencyType.value = value
 }
-
+const other = computed(() => bankOrNetwork.value == 'Other')
 const exchange = useConversionStore().$state.exchange
 
 const fiat = ["NGN", "USD", "GBP", "EUR", "GHS", "XAF", "XOF"]

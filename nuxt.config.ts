@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-           baseURL: 'https://finstack.herokuapp.com' //'http://localhost:8000'
+           baseURL: 'http://localhost:8000' //'https://finstack.herokuapp.com'
         }
     },
 })
