@@ -219,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <i class="i ii material-icons" id="i">menu</i>
+            <Icon name="solar:hamburger-menu-line-duotone" class="text-4xl" />
         </nav>
     </header>
 </template>
