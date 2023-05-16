@@ -46,7 +46,7 @@
           </div>
              
         </div>
-      <i class="i ii material-icons" id='i' onClick={sidebarOpen}>menu</i>
+      <Icon name="solar:hamburger-menu-line-duotone" class="text-4xl" />
         <!-- {/* <i class="x ii material-icons" id='x'>close</i> */} -->
   
     </nav>
@@ -100,12 +100,12 @@
                 </div>
             </section>
             <section class="sectionu2">
-                <a class='a a1' to='/wallet_history'>View transaction history <Icon name="ic:baseline-arrow-forward-ios" class="ml-2" /></a>
-                <span class='spa'>
-                  <a class='a a2' to='/WalletDepositAuth' >Make deposit</a>
-                  <a class='a a2' to='/WalletWithdrawAuth'>Withdraw</a>
-                  <a class='a a2' onClick={openNew}>Convert currency</a>
-                </span>
+              <a class='a a1' href="javascript:void(0)">View transaction history <Icon name="ic:baseline-arrow-forward-ios" class="ml-2" /></a>
+              <span class='spa'>
+                <a class='a a2' to='/WalletDepositAuth' >Make deposit</a>
+                <a class='a a2' to='/WalletWithdrawAuth'>Withdraw</a>
+                <a class='a a2' onClick={openNew}>Convert currency</a>
+              </span>
             </section>
         </div>
     </header>
