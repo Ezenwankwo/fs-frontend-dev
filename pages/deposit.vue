@@ -12,7 +12,7 @@
             <span class="sp1">
               <i class="material-icons-outlined">close</i>
             </span>
-            <img src="/static/media/qmark.efab86979ad52a61e7ce1eb5da22b079.svg" alt="">
+            <!-- <img src="/static/media/qmark.efab86979ad52a61e7ce1eb5da22b079.svg" alt=""> -->
             <p class="p1">Are you sure to cancel ?</p>
             <p class="p2">You wil lose your data.</p>
             <span class="links">
@@ -171,7 +171,8 @@
                         <div class="box">
                           <select name="" id="" style="width: 100%; height: 55px; border-radius: 30px;" v-model="deposit.wallet">
                             <option value="ngn">Naira NGN</option>
-                            <!-- <option value="usd">Dollar USD</option> -->
+                            <option value="usd">Dollar USD</option>
+                            <option value="eth">Ethereum</option>
                           </select>
                           
                         </div>
@@ -200,7 +201,7 @@
                   <p class="t2">How do you intend paying into your wallet?</p>
           
                   <div class="qs">
-                  <span class="spq">
+                  <!-- <span class="spq">
                       <span class="sp sp2">
                       <label htmlFor="fname">Method of payment</label>
                       <span class="els">
@@ -228,21 +229,39 @@
                           </span>
                       </span>
                       </span>
-                  </span>
+                  </span> -->
           <!-- FIAT SECTION -->
                   <span class="qs fiat_div" v-if="deposit.payment.method === 'fiat'">    
                       <span class="spq">
                           <span class="sp sp2">
                           <label htmlFor="fname">Select type</label>
-                          <input type="text" name="account_number" id="" placeholder="Account number" v-model="deposit.payment.account_number" @keyup="error.account_number = ''"/>
-                          <span v-show="error.account_number" class="text-red-500 font-bold">{{ error.account_number }}</span>
+                          <input type="text" name="account_number" id="" placeholder="Account number" :value="transferOption" readonly/>
                           </span>
                       </span>
           
                       <span class="spq">
                           <div class="line"></div>
                       </span>
-          
+                      <span class="spq">
+                          <span class="sp sp2">
+                          <label htmlFor="fname">Account name</label>
+                          <input type="text" name="account_number" id="" placeholder="Account name" @keyup="error.account_name = ''" v-model="deposit.payment.account_name"/>
+                          <span v-show="error.account_name" class="text-red-500 font-bold">{{ error.account_name }}</span>
+                          </span>
+                      </span>
+                      <span class="spq">
+                          <div class="line"></div>
+                      </span>
+                      <span class="spq">
+                          <span class="sp sp2">
+                          <label htmlFor="fname">Account number</label>
+                          <input type="number" name="account_number" id="" placeholder="Account number" @keyup="error.account_number = ''" v-model="deposit.payment.account_number"/>
+                          <span v-show="error.account_number" class="text-red-500 font-bold">{{ error.account_number }}</span>
+                          </span>
+                      </span>
+                      <span class="spq">
+                          <div class="line"></div>
+                      </span>
                       <span class="spq">
                         <span class="sp sp2">
                         <label htmlFor="fname">Bank</label>
@@ -259,6 +278,14 @@
                           <label htmlFor="fname">Network</label>
                           <input type="text" name="network" id="" placeholder="e.g tron" v-model="deposit.payment.network" @keyup="error.network = ''"/>
                           <span v-show="error.network" class="text-red-500 font-bold">{{ error.network }}</span>
+                          </span>
+                      </span>
+
+                      <span class="spq">
+                          <span class="sp sp2">
+                          <label htmlFor="fname">Wallet Address</label>
+                          <input type="text" name="address" id="" placeholder="e.g 0x7f00xddcbdfs552d" v-model="deposit.payment.address" @keyup="error.address = ''"/>
+                          <span v-show="error.address" class="text-red-500 font-bold">{{ error.address }}</span>
                           </span>
                       </span>
           
@@ -418,6 +445,12 @@
 </template>
 
 <script setup>
+  import { useAuthStore } from '~~/store/auth'
+
+  const config = useRuntimeConfig()
+  const email = useAuthStore().$state.user.email
+  
+  const fiat = ref(["ngn", 'usd'])
   const current = ref({
     wallet: true,
     payment: false,
@@ -429,50 +462,91 @@
     payment: {
       method: 'fiat',
       account_number: null,
+      account_name: null,
       bank: '',
-      network: ''
+      network: '',
+      address: ''
     }
   })
   const copy = ref(false)
   const error = ref({
     amount: '',
     account_number: '',
+    account_name: '',
+    address: '',
     bank: ''
   })
-  const transferOption = ref('Bank transfer')
+  const transferOption = deposit.value.payment.method === 'fiat' ? 'Bank transfer' : 'Cryptocurrency'
   const amount = ref(null)
   const walletProceed = () => {
     if(deposit.value.wallet !== '' || deposit.wallet.value !== null) {
       Object.keys(current.value).map((a) => {
         if(a !== 'payment') {
           current.value[a] = false
-        } else current.value[a] = true
+        } else {
+          current.value[a] = true
+          deposit.value.payment.method = fiat.value.includes(deposit.value.wallet) ? 'fiat' : 'crypto'
+        }
       }) 
     }
+    Object.keys(error.value).map((err) => error.value[err] = '')
   }
-  const paymentProceed = () => {
-    if(deposit.value.payment.method === 'fiat') {
-      if(deposit.value.payment.account_number !== null && deposit.value.payment.bank !== null && deposit.value.payment.account_number !== '' && deposit.value.payment.bank !== '') {
+  const paymentProceed = async () => {
+    // if(deposit.value.payment.method === 'fiat') {
+    //   if(deposit.value.payment.account_number !== null && deposit.value.payment.bank !== null && deposit.value.payment.account_number !== '' && deposit.value.payment.bank !== '' && deposit.value.payment.account_name !== null && deposit.value.payment.account_name !== '') {
+    //     Object.keys(current.value).map((a) => {
+    //       if(a !== 'amount') {
+    //         current.value[a] = false
+    //       } else current.value[a] = true
+    //     })
+    //   } else if(Object.keys(deposit.value.payment).some((val) => deposit.value.payment[val] === null || deposit.value.payment[val] === '')) {
+    //     Object.keys(deposit.value.payment).filter((val) => {
+    //       if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val !== 'network' && val !== 'address') {
+    //         error.value[val] = 'This field is required'
+    //       }
+    //     })
+    //   }
+    // } 
+    if(Object.keys(deposit.value.payment).some((val) => deposit.value.payment[val] === null || deposit.value.payment[val] === '')) {
+      Object.keys(deposit.value.payment).filter((val) => {
+        if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val !== 'network' && val !== 'address') {
+          error.value[val] = 'This field is required'
+        } else if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val === 'network' || val === 'address') {
+          error.value[val] = 'This field is required'
+        }
+      })
+    }
+    // if(deposit.value.payment.method === 'crypto' && deposit.value.payment.network !== null && deposit.value.payment.network !== '') {
+    //   Object.keys(current.value).map((a) => {
+    //     if(a !== 'amount') {
+    //       current.value[a] = false
+    //     } else current.value[a] = true
+    //   })
+    // } else {
+    //   error.value.network = 'This field is required'
+    //   error.value.address = 'This field is required'
+    // }
+    if(Object.keys(error.value).every((err) => error.value[err] === '' || error.value[err] === null)) {
+      const { data } = await useFetch(
+        `${config.public.baseURL}/wallets/account`,
+        {
+          method: "POST",
+          body: {
+            account_type: deposit.value.payment.method,
+            currency: deposit.value.wallet,
+            holder_name: deposit.value.payment.account_name,
+            bank_or_network: deposit.value.payment.bank ? deposit.value.payment.bank : deposit.value.payment.network,
+            number_or_address: deposit.value.payment.account_number ? JSON.stringify(deposit.value.payment.account_number) : deposit.value.payment.address
+          }
+        }
+      )
+      if(data.value) {
         Object.keys(current.value).map((a) => {
           if(a !== 'amount') {
             current.value[a] = false
           } else current.value[a] = true
         })
-      } else if(Object.keys(deposit.value.payment).some((val) => deposit.value.payment[val] === null || deposit.value.payment[val] === '')) {
-        Object.keys(deposit.value.payment).filter((val) => {
-          if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val !== 'network') {
-            error.value[val] = 'This field is required'
-          }
-        })
       }
-    } else if(deposit.value.payment.method === 'crypto' && deposit.value.payment.network !== null && deposit.value.payment.network !== '') {
-      Object.keys(current.value).map((a) => {
-        if(a !== 'amount') {
-          current.value[a] = false
-        } else current.value[a] = true
-      })
-    } else {
-      error.value.network = 'This field is required'
     }
   }
   const amountProceed = () => {

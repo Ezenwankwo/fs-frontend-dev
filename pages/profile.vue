@@ -99,9 +99,8 @@
             <section class="section_accts">
                 <p class="save">
                     Saved accounts
-                <p class="p1">
-                <p class='spp'>+</p> Add new</p>
-                </p>
+								</p>
+								<p class='spp'>+ <span>Add new</span></p>
 
 
                 <!--<div class="accts">
@@ -119,6 +118,10 @@
     </div>
 </template>
 
+<script setup>
+import { useAuthStore } from '~~/store/auth'
+
+</script>
 <style scoped>
 .blg_main .sectionprof_top {
     justify-content: space-between;
@@ -466,10 +469,10 @@
         margin-left: 5px;
     }
 
-    .blg_main .sectionfin_stck .mn .t4 {
-        /* font-size: 0px */
-        /* width: 330px; */
-    }
+    /* .blg_main .sectionfin_stck .mn .t4 {
+        font-size: 0px
+        width: 330px;
+    } */
 
     .blg_main .sectionprof_input {
         flex-direction: column;

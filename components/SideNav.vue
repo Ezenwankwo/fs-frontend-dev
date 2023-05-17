@@ -31,9 +31,9 @@
                     <span className="sp">
                         <a to="/listings" className='a'>All currency listings</a>
                     </span>
-                    {/* <span className="sp">
+                    <span className="sp">
                         <a to="" className='a'>Our blog <i className="material-icons">navigate_next</i></a>
-                    </span> */}
+                    </span>
                     <div className="st">
                         <span className="sp1">
                             <a href=""><i className="fa-brands fa-facebook"></i></a>
