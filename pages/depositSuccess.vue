@@ -4,7 +4,7 @@
       <div class="cnt">
         <div class="fl1">
           <div class="success">
-            <img src='~/assets/images/success.Gif' alt="" class='gif'/>
+            <img src='~/assets/images/success.svg' alt="" class='gif'/>
             <p class="p1">Deposit Order Submitted</p>
             <p class="p2">You'll be notified once you've been credited</p>
             <a href="Wallet-index.html" class='a a1'>View Wallet</a>
@@ -18,10 +18,9 @@
   </main>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+const email = useAuthStore().$state.user.email
+console.log(email)
 </script>
 
 <style>

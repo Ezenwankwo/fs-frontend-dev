@@ -1,8 +1,8 @@
 <template>
     <header class="blog_head">
         <nav class="nav-fixed">
-            <Notification_bar />
-            <Sidenav />
+            <!-- <Notification_bar /> -->
+            <!-- <Sidenav /> -->
             <NuxtLink to='/' class='logo_a'> <img src="~/assets/logo.png" alt="wame" class='logo' /></NuxtLink>
             <div class='sp'>
                 <a to='/blog_index' class='a'>Our blog</a>
@@ -28,7 +28,7 @@
                         </div>
                         <i class="material-icons-outlined dwn">arrow_forward_ios</i>
                     </div>
-                    {profModal && <div class="profile_modal" id='profile_modal'>
+                    <div class="profile_modal" id='profile_modal'>
                         <a to={-1} class='a'><i class="material-icons-outlined">person</i> My Profile</a>
                         <a class='a'><i class="material-icons-outlined">payment</i> Deposit</a>
                         <a class='a'><i class="material-icons-outlined">sell</i> Sell</a>
@@ -37,7 +37,6 @@
                         <a class='a'><i class="material-icons-outlined">logout</i> Logout</a>
 
                     </div>
-                    }
                 </div>
 
             </div>
@@ -49,9 +48,7 @@
 </template>
 
 <style scoped>
-* {
-    /* outline: solid 1px greenyellow; */
-}
+
 
 
 .blog_head nav {
@@ -80,7 +77,6 @@
     align-items: center;
 }
 
-.sp {}
 
 .sp .link {
     margin: 0 15px;
@@ -312,16 +308,16 @@ nav .user .dwn {
 }
 
 
-.disp_none {
-    /* display: none !important; */
-}
+/* .disp_none {
+    display: none !important;
+} */
 
 
 @media screen and (min-width: 1300px) {
-    nav {
-        /* padding: 0 5%; */
-        /* border: solid; */
-    }
+    /* nav {
+        padding: 0 5%;
+        border: solid;
+    } */
 }
 
 @media screen and (max-width: 1100px) {

@@ -167,7 +167,7 @@ header {
     align-items: flex-start;
     justify-content: flex-start;
     height: fit-content;
-    background-image: url(/src/Assets/Components/images/back_pic.svg);
+    background-image: url(../blog_img1.svg);
 }
 
 header section {
