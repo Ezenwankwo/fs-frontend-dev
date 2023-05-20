@@ -18,10 +18,9 @@
   </main>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+const email = useAuthStore().$state.user.email
+console.log(email)
 </script>
 
 <style>
