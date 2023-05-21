@@ -2,6 +2,15 @@
   <div>
     <!-- <ConvertModal /> -->
     <ConversionHeader />
+    <!-- <div v-if="loading" class="loader">
+      <div class="lds-ellipsis">
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div> -->
+    <Spinner v-if="loading"/>
     <!-- Sidenav -->
     <!-- <WalletNav /> -->
     <!-- Sidenav -->
@@ -10,7 +19,7 @@
         <div class="Close_auth" id="close_auth">
           <div class="modal">
             <span class="sp1">
-              <i class="material-icons-outlined">close</i>
+              <Icon name="material-symbols:close" />
             </span>
             <!-- <img src="/static/media/qmark.efab86979ad52a61e7ce1eb5da22b079.svg" alt=""> -->
             <p class="p1">Are you sure to cancel ?</p>
@@ -170,9 +179,7 @@
                         <label htmlFor="fname">Choose wallet</label>
                         <div class="box">
                           <select name="" id="" style="width: 100%; height: 55px; border-radius: 30px;" v-model="deposit.wallet">
-                            <option value="ngn">Naira NGN</option>
-                            <option value="usd">Dollar USD</option>
-                            <option value="eth">Ethereum</option>
+                            <option :value="wallet.public_id" v-for="(wallet, index) in wallets" :key="index">{{ wallet.currency }}</option>
                           </select>
                           
                         </div>
@@ -231,7 +238,7 @@
                       </span>
                   </span> -->
           <!-- FIAT SECTION -->
-                  <span class="qs fiat_div" v-if="deposit.payment.method === 'fiat'">    
+                  <span class="qs fiat_div" v-if="deposit.payment.method === 'Fiat'">    
                       <span class="spq">
                           <span class="sp sp2">
                           <label htmlFor="fname">Select type</label>
@@ -316,7 +323,7 @@
                         <label htmlFor="fname">Amount to deposit</label>
                         <span class="spq">
                           <span class="sp sp2">
-                          <input type="number" name="amount" id="" placeholder="Amount" v-model="amount" @keyup="error.amount = ''" />
+                          <input type="number" name="amount" id="" placeholder="Amount" v-model="amount" @keyup="error.amount = '', transaction_fee = amount * 0.02" />
                           <span class="text-red-600 font-bold" v-show="error.amount">{{ error.amount }}</span>
                           </span>
                         </span>
@@ -335,7 +342,7 @@
                             </div>
                             <div class="tt">
                               <p class="p1">Transaction fee</p>
-                              <p class="p2">₦00.0</p>
+                              <p class="p2">{{ transaction_fee }}</p>
                             </div>
                             <div class="tt">
                               <div class="p1">Actual payment 
@@ -373,7 +380,7 @@
               <!-- ENDS HERE -->
 
               <!-- TRANSFER DETAILS -->
-              <form action="" class="frm Idi" v-if="current.transfer" @submit.prevent>
+              <form action="" class="frm Idi" v-if="current.transfer" @submit.prevent="transfer">
                 <div class="qs qs2 text-center">
                   <span class="spq spq2">
                     <span class="sp sp2 sp3">
@@ -418,13 +425,13 @@
           
                   <span class="spq">
                     <div class="links text-center">
-                      <button class="a a2 a3" onClick={handleLinkClick}> I have made the transfer!</button>
+                      <button class="a a2 a3"> I have made the transfer!</button>
                     </div>
                   </span>
           
                   <span class="spq">
                     <p class="pr">
-                      Having issues? <a class="a" onclick={backclick} >Try another account</a>
+                      Having issues? <a class="a">Try another account</a>
                     </p>
                   </span>
           
@@ -435,7 +442,7 @@
               </form>
               <!-- ENDS HERE -->
               </div>
-              <p class="cl" @click="close"><i class="fa-solid fa-x"></i> Close</p>
+              <p class="cl" @click="close"><Icon name="material-symbols:close" /> Close</p>
             </div>
           </section>
         </main>
@@ -449,8 +456,17 @@
 
   const config = useRuntimeConfig()
   const email = useAuthStore().$state.user.email
-  
-  const fiat = ref(["ngn", 'usd'])
+  const userid = useAuthStore().$state.userID
+
+  const wallets = ref([])
+  const defaultCurrency = ref("")
+  const public_id = ref("")
+  const escrow = ref("")
+  const transactionDetails = ref({})
+  const transaction_fee = ref(null)
+  const fiat = ref([])
+  const loading = ref(false)
+  const currency = ref("")
   const current = ref({
     wallet: true,
     payment: false,
@@ -458,14 +474,14 @@
     transfer: false
   })
   const deposit = ref({
-    wallet: 'ngn',
+    wallet: '',
     payment: {
-      method: 'fiat',
+      method: 'Fiat',
       account_number: null,
       account_name: null,
-      bank: '',
       network: '',
-      address: ''
+      address: '',
+      bank: ''
     }
   })
   const copy = ref(false)
@@ -476,71 +492,55 @@
     address: '',
     bank: ''
   })
-  const transferOption = deposit.value.payment.method === 'fiat' ? 'Bank transfer' : 'Cryptocurrency'
+  const transferOption = deposit.value.payment.method === 'Fiat' ? 'Bank transfer' : 'Cryptocurrency'
   const amount = ref(null)
   const walletProceed = () => {
     if(deposit.value.wallet !== '' || deposit.wallet.value !== null) {
+      const data = wallets.value.filter((wallet) => wallet.public_id === deposit.value.wallet)
+      currency.value = data[0].currency
+      public_id.value = data[0].public_id
       Object.keys(current.value).map((a) => {
         if(a !== 'payment') {
           current.value[a] = false
         } else {
           current.value[a] = true
-          deposit.value.payment.method = fiat.value.includes(deposit.value.wallet) ? 'fiat' : 'crypto'
+          deposit.value.payment.method = fiat.value.includes(currency.value) ? 'Fiat' : 'crypto'
         }
       }) 
     }
     Object.keys(error.value).map((err) => error.value[err] = '')
   }
   const paymentProceed = async () => {
-    // if(deposit.value.payment.method === 'fiat') {
-    //   if(deposit.value.payment.account_number !== null && deposit.value.payment.bank !== null && deposit.value.payment.account_number !== '' && deposit.value.payment.bank !== '' && deposit.value.payment.account_name !== null && deposit.value.payment.account_name !== '') {
-    //     Object.keys(current.value).map((a) => {
-    //       if(a !== 'amount') {
-    //         current.value[a] = false
-    //       } else current.value[a] = true
-    //     })
-    //   } else if(Object.keys(deposit.value.payment).some((val) => deposit.value.payment[val] === null || deposit.value.payment[val] === '')) {
-    //     Object.keys(deposit.value.payment).filter((val) => {
-    //       if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val !== 'network' && val !== 'address') {
-    //         error.value[val] = 'This field is required'
-    //       }
-    //     })
-    //   }
-    // } 
-    if(Object.keys(deposit.value.payment).some((val) => deposit.value.payment[val] === null || deposit.value.payment[val] === '')) {
-      Object.keys(deposit.value.payment).filter((val) => {
-        if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val !== 'network' && val !== 'address') {
-          error.value[val] = 'This field is required'
-        } else if(deposit.value.payment[val] === null || deposit.value.payment[val] === '' && val === 'network' || val === 'address') {
-          error.value[val] = 'This field is required'
-        }
-      })
-    }
-    // if(deposit.value.payment.method === 'crypto' && deposit.value.payment.network !== null && deposit.value.payment.network !== '') {
-    //   Object.keys(current.value).map((a) => {
-    //     if(a !== 'amount') {
-    //       current.value[a] = false
-    //     } else current.value[a] = true
-    //   })
-    // } else {
-    //   error.value.network = 'This field is required'
-    //   error.value.address = 'This field is required'
-    // }
-    if(Object.keys(error.value).every((err) => error.value[err] === '' || error.value[err] === null)) {
-      const { data } = await useFetch(
-        `${config.public.baseURL}/wallets/account`,
+    Object.keys(deposit.value.payment).map((val) => {
+      if(deposit.value.payment.method === 'Fiat' && deposit.value.payment[val] === null || deposit.value.payment[val] === '') {
+        error.value[val] = val !== 'address' && val !== 'network' ? 'This field is required' : ''
+      }
+      if(deposit.value.payment.method === 'crypto' && deposit.value.payment[val] === '') {
+        error.value[val] = val !== 'bank' && val !== 'account_name' && val !== 'account_number' ? 'This field is required' : ''
+        error.value.bank = ''
+      }
+    })
+    if(Object.keys(error.value).every((err) => error.value[err] === '')) {
+      loading.value = true
+      const { data, error } = await useFetch(
+        `${config.public.baseURL}` + '/wallets/accounts/',
         {
           method: "POST",
           body: {
             account_type: deposit.value.payment.method,
-            currency: deposit.value.wallet,
+            currency: currency.value,
             holder_name: deposit.value.payment.account_name,
             bank_or_network: deposit.value.payment.bank ? deposit.value.payment.bank : deposit.value.payment.network,
             number_or_address: deposit.value.payment.account_number ? JSON.stringify(deposit.value.payment.account_number) : deposit.value.payment.address
-          }
+          },
+          headers: {
+            Authorization: useAuthStore().$state.access
+          },
         }
       )
       if(data.value) {
+        loading.value = false
+        transactionDetails.value = data.value.data
         Object.keys(current.value).map((a) => {
           if(a !== 'amount') {
             current.value[a] = false
@@ -549,13 +549,30 @@
       }
     }
   }
-  const amountProceed = () => {
+  const amountProceed = async () => {
     if(amount.value !== null && amount.value !== 0 && amount.value !== '') {
-      Object.keys(current.value).map((a) => {
-        if(a !== 'transfer') {
-          current.value[a] = false
-        } else current.value[a] = true
+      loading.value = true
+      const { data } = await useFetch(`${config.public.baseURL}` + '/wallets/transactions/escrow-account/', {
+        method: "POST",
+        body: {
+          account_type: deposit.value.payment.method,
+          currency: currency.value,
+          bank_or_network: deposit.value.payment.bank ? deposit.value.payment.bank : deposit.value.payment.network
+        },
+        headers: {
+          Authorization: useAuthStore().$state.access
+        }
       })
+      if(data.value) {
+        loading.value = false
+        escrow.value = data.value.data.public_id
+        console.log(escrow.value)
+        Object.keys(current.value).map((a) => {
+          if(a !== 'transfer') {
+            current.value[a] = false
+          } else current.value[a] = true
+        })
+      }
     } else {
       error.value.amount = 'Please input an amount'
     }
@@ -579,10 +596,10 @@
       current.value['wallet'] = true
     }
   }
-  const setTransferOption = (val) => {
-    transferOption.value = val === 'fiat' ? 'Bank transfer' : 'Cryptocurrency'
-    Object.keys(error.value).map((val) => error.value[val] = '')
-  }
+  // const setTransferOption = (val) => {
+  //   transferOption.value = val === 'fiat' ? 'Bank transfer' : 'Cryptocurrency'
+  //   Object.keys(error.value).map((val) => error.value[val] = '')
+  // }
   const copyURL = async (text) => {
     await navigator.clipboard.writeText(text)
     copy.value = true
@@ -591,12 +608,53 @@
     }, 800)
   }
   const transfer = async () => {
-
+    loading.value = true
+    transaction_fee.value = amount.value * 0.02
+    const { data } = await useFetch(`${config.public.baseURL}` + '/wallets/transactions/', {
+      method: "POST",
+      body: {
+        wallet: deposit.value.wallet,
+        user_account: transactionDetails.value.public_id,
+        escrow: escrow.value,
+        transaction_type: "Deposit",
+        transaction_method: "Transfer",
+        transaction_amount: amount.value,
+        transaction_fee: transaction_fee.value,
+        status: "Completed"
+      },
+      headers: {
+        Authorization: useAuthStore().$state.access
+      }
+    })
+    if(data.value) {
+      loading.value = false
+      await navigateTo('/depositSuccess')
+    }
   }
   const close = () => {
     Object.keys(current.value).map((a) => current.value[a] = false)
-    console.log(current.value)
   }
+  onMounted(async () => {
+    await nextTick(async () => {
+      const { data } = await useFetch(`${config.public.baseURL}` + '/wallets/', {
+        headers: {
+          Authorization: useAuthStore().$state.access
+        }
+      })
+      wallets.value = data.value.data
+      wallets.value.map((wallet, index) => {
+        if(index === 0) {
+          defaultCurrency.value = wallet.currency
+        }
+      })
+      const { data: currencies } = await useFetch(`${config.public.baseURL}` + '/trades/currencies', {
+        headers: {
+          Authorization: useAuthStore().$state.access
+        }
+      })
+      fiat.value = currencies.value.data
+    })
+  })
 </script>
 
 <style>

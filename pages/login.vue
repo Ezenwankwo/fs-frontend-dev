@@ -23,6 +23,8 @@ export default {
             if (res.data.value) {
                 const user = res.data.value.data
                 useAuthStore().setUser(user)
+                useAuthStore().setToken(user.access)
+                useAuthStore().setUserID(user.public_id)
                 this.$router.push('/profile')
             } else {
                 useNotification().toast.error(res.error.value.data.message)

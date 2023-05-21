@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     css: [
         '~/assets/css/conversion.css',
         '~/assets/css/home.css',
+        '~/assets/css/wallet.css',
     ],      
     modules: [
         '@nuxtjs/tailwindcss',
