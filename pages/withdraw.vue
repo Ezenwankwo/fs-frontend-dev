@@ -10,7 +10,7 @@
 					<span class="sp1">
 						<i class="material-icons-outlined">close</i>
 					</span>
-					<img src="~/assets/qmark.svg" alt="">
+					<!-- <img src="~/assets/qmark.svg" alt=""> -->
 					<p class="p1">Are you sure to cancel ?</p>
 					<p class="p2">You wil lose your data.</p>
 					<span class="links">
