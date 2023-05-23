@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         '~/assets/css/sellerdetails.css',
         '~/assets/css/other.css',
         '~/assets/css/authcontent.css',
-        '~/assets/css/walletindex.css',
+        '~/assets/css/wallet.css',
         '~/assets/css/sellerprofile.css',
         '~/assets/css/nameprofile.css',
         '~/assets/css/dynamichistorycard.css',
