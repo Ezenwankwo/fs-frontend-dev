@@ -6,7 +6,7 @@
                     {{ trade.listing.seller_initials }}
                 </div>
                 <div class="u_txt">
-                    <p class="u_name">{{ trade.listing.seller_name }} <img src='images/verified_img.svg' alt=""></p>
+                    <p class="u_name">{{ trade.listing.seller_name }}<Icon name="bi:check-circle-fill" /></p>
                     <p class="orders">1040 orders • 99.60% completion</p>
                 </div>
             </div>
