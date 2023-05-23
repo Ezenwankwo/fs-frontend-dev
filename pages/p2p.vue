@@ -9,7 +9,7 @@
                         <div class="u_img">
                             {{ selectedListing.seller_initials }}
                         </div>
-                        <div class="username">{{ selectedListing.seller_name }} <img src={verfified_img} alt="" /></div>
+                        <div class="username">{{ selectedListing.seller_name }} <Icon name="bi:check-circle-fill" /></div>
                         <p class="udescrpt">1040 orders • 99.60% completion</p>
                         <div class="price-details">
                             <div class="item">
