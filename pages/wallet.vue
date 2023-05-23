@@ -24,7 +24,7 @@
             <div  class='prof' onClick={handleProfile} ref={profRef}>
               <div class="user_descrpt">
                 <p class="username">Maverick Egubson</p>
-                <p class="usermail">maverick.eth@gmail.com</p>
+                <p class="usermail">{{ email }}</p>
               </div>
               <div class="userimage">
                 <p class="me">ME</p>
@@ -54,7 +54,7 @@
         <div class="blg_main">
             <section class="sectionprof_top">
             <p class="p1">My Profile</p>
-            <p class="p2">Wallet ID: <span> TNF/82T38RT904-01</span></p>
+            <p class="p2">Wallet ID: <span> TNF/{{ userid }}</span></p>
             </section>
             <section class="sectionu1">
                 <div class='name_profile'>
@@ -102,8 +102,8 @@
             <section class="sectionu2">
               <a class='a a1' href="javascript:void(0)">View transaction history <Icon name="ic:baseline-arrow-forward-ios" class="ml-2" /></a>
               <span class='spa'>
-                <a class='a a2' to='/WalletDepositAuth' >Make deposit</a>
-                <a class='a a2' to='/WalletWithdrawAuth'>Withdraw</a>
+                <NuxtLink class='a a2' to='/deposit' >Make deposit</NuxtLink>
+                <NuxtLink class='a a2' to='/withdraw'>Withdraw</NuxtLink>
                 <a class='a a2' onClick={openNew}>Convert currency</a>
               </span>
             </section>
@@ -135,8 +135,8 @@
             <span class="top">
               <span class="txt"><p class="t1">Recent Transactions</p> <p class="t2">Your recent transactions</p></span>
               <span class="options">
-                <p class='none'>Deposits</p>
-                <p class='actit'>Withdrawals</p>
+                <p :class='{actit: current.deposit}' @click="current.deposit = true, current.withdrawal = false">Deposits</p>
+                <p :class='{actit: current.withdrawal}' @click="current.deposit = false, current.withdrawal = true">Withdrawals</p>
               </span>
             </span>
             <div class="deposits_div">
@@ -156,12 +156,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                      <tr >
-
-
-
+                      <tr v-for="(transaction, index) in transactions" :key="index">
                         <td class="dateTime">
-                            <p class='txt'>30 Jan 2023 | 15:43</p>
+                            <p class='txt'>{{ transaction.created.split('T')[0] }}</p>
                         </td>
           
                         <td class="txnId">   
@@ -178,7 +175,7 @@
           
                         <td class="typ">
                             <div  class="type credit text-center rounded-b-xl rounded-t-xl mr-7">
-                              <p class="px-4">credit</p>
+                              <p class="px-4">{{ transaction.transaction_type }}</p>
                             </div>
                           
                         </td>
@@ -197,11 +194,12 @@
                         </td>
 
                         <td class="amt">
-                            <div class="">$1,500,000.00</div>
+                            <div class="">{{ Number(transaction.transaction_amount).toLocaleString() }}</div>
                         </td>
 
                         <td class="status">
-                            <div class="type canceled text-center rounded-b-xl rounded-t-xl">canceled</div>
+                            <div class="type credit text-center rounded-b-xl rounded-t-xl" v-if="transaction.status === 'Completed'">{{ transaction.status }}</div>
+                            <div class="type canceled text-center rounded-b-xl rounded-t-xl" v-if="transaction.status === 'Canceled'">{{ transaction.status }}</div>
                             
                         </td>
 
@@ -306,7 +304,30 @@
 </template>
 
 <script setup>
+import { useAuthStore } from '~~/store/auth'
 
+const config = useRuntimeConfig()
+const email = useAuthStore().$state.user.email
+const userid = useAuthStore().$state.userID
+
+const transactions = ref([])
+const current = ref({
+  deposit: false,
+  withdrawal: true
+})
+
+onMounted(async () => {
+  await nextTick(async () => {
+    const { data } = await useFetch(`${config.public.baseURL}` + '/wallets/transactions/', {
+      method: "GET",
+      headers: {
+        Authorization: useAuthStore().$state.access
+      }
+    })
+    transactions.value = data.value.data
+    console.log(transactions.value)
+  })
+})
 </script>
 
 <style scoped>
