@@ -3,15 +3,15 @@
         <div class="top_section">
             <div class="user_description">
                 <div class="u_img">
-                    ME
+                    {{ trade.listing.seller_initials }}
                 </div>
                 <div class="u_txt">
-                    <p class="u_name">Mavrick.eth <img src='images/verified_img.svg' alt=""></p>
+                    <p class="u_name">{{ trade.listing.seller_name }} <img src='images/verified_img.svg' alt=""></p>
                     <p class="orders">1040 orders • 99.60% completion</p>
                 </div>
             </div>
             <div class="order_description">
-                <p class="regular_txt">Order ID: 872478349</p>
+                <p class="regular_txt">Order ID: {{ trade.public_id }}</p>
                 <p class="regular_txt">Time created: Aug 02, 2023 • 15:43</p>
                 <p class="regular_txt">View terms & conditions</p>
             </div>
@@ -27,19 +27,19 @@
                 <div class="dash_order_details">
                     <div class="crd">
                         <p class="p1">You’ll be paying</p>
-                        <p class="p2">₦512,735.90</p>
+                        <p class="p2">{{ trade.buy_currency }} {{ trade.price * trade.amount }}</p>
                     </div>
                     <div class="crd">
                         <p class="p1">@ Unit price</p>
-                        <p class="p2">₦512,735.90</p>
+                        <p class="p2">{{ trade.price }}</p>
                     </div>
                     <div class="crd">
                         <p class="p1">To recieve</p>
-                        <p class="p2">₦512,735.90</p>
+                        <p class="p2">{{ trade.listing.sell_currency }} {{ trade.amount }}</p>
                     </div>
                 </div>
             </div>
-            <div class="dash_card">
+            <!-- <div class="dash_card">
                 <div class="dash_top">
                     <i class="material-icons-outlined">
                         <Icon name="tabler:wallet" />
@@ -48,15 +48,15 @@
                     <p class="addtowish">+ Add to wallet</p>
                 </div>
                 <div class="dash_price">
-                    <p class="currency">NGN</p>
-                    <p class="amount">₦512,735.90</p>
+                    <p class="currency">{{ wallet.currency }}</p>
+                    <p class="amount">{{ wallet.amount }}</p>
                 </div>
                 <div class="dash_view_all_users">
                     <p>View all assets <i class="material-icons">
                             <Icon name="bi:chevron-right" />
                         </i></p>
                 </div>
-            </div>
+            </div> -->
 
         </div>
         <div class="dash">
@@ -89,17 +89,48 @@
         </div>
         <span class="process">
             <div class="process-position">
-                <button @click="backClick" class="process-item process-back">Go Back</button>
-                <button @click="amountProceed" type="submit" class="process-item process-forward">Save & continue</button>
+                <NuxtLink to="/p2p" class="process-item process-back">Go Back</NuxtLink>
+                <NuxtLink to="/processing" class="process-item process-forward">Save & continue</NuxtLink>
             </div>
         </span>
     </form>
 </template>
 
 <script setup>
+import { useAuthStore } from '~~/store/auth';
+import { useConversionStore } from '~~/store/conversion';
 definePageMeta({
     layout: "p2p",
 });
+
+const token = useAuthStore().$state.user.access
+const config = useRuntimeConfig()
+
+const tradeId = useRoute().query.trade
+const getTrade = await useFetch(
+    `${config.public.baseURL}/trades/${tradeId}/`,
+    {
+        'method': 'get',
+        onRequest({ request, options }) {
+            options.headers = options.headers || {}
+            options.headers.authorization = `Bearer ${token}`
+        }
+    }
+)
+const trade = ref(getTrade.data.value.data)
+
+const accountId = useRoute().query.account
+const getAccount = await useFetch(
+    `${config.public.baseURL}/wallets/accounts/${accountId}/`,
+    {
+        'method': 'get',
+        onRequest({ request, options }) {
+            options.headers = options.headers || {}
+            options.headers.authorization = `Bearer ${token}`
+        }
+    }
+)
+const account = ref(getAccount.data.value.data)
 </script>
 
 <style scoped>
@@ -110,6 +141,7 @@ definePageMeta({
     flex-direction: row;
     width: 100%;
     margin-top: 45px;
+    margin-bottom: 45px;
 }
 
 .process-position {

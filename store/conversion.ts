@@ -6,6 +6,7 @@ export const useConversionStore = defineStore('conversion', {
         receivingAccount: {},
         escrowAccount: {},
         trade: {},
+        wallet: {},
       }
     },
     persist: true,
@@ -24,6 +25,9 @@ export const useConversionStore = defineStore('conversion', {
       },
       setTrade(trade: any[]) {
         this.trade = trade
+      },
+      setWallet(wallet: any[]) {
+        this.wallet = wallet
       },
     },
 })
