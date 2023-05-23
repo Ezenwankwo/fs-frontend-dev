@@ -251,7 +251,7 @@
                                 <div class="pdiv">
                                     <p class="uimg">{{ item.seller_initials }}</p>
                                     <div class="content">
-                                        <p class="uname">{{ item.seller_name }} <img src='images/verified_img.svg' alt="" />
+                                        <p class="uname">{{ item.seller_name }} <Icon name="bi:check-circle-fill" />
                                         </p>
                                         <p class="udescrpt">1040 orders • 99.60% completion</p>
                                     </div>
@@ -306,8 +306,7 @@
 
                             <div class="sect1">
                                 <div class="source_div">
-                                    <div class="source">Jane Cooper</div> <img src='images/verified_img.svg' alt="" />
-                                </div>
+                                    <div class="source">Jane Cooper</div><Icon name="bi:check-circle-fill" />                                </div>
                                 <p class="amount" style='font-family: "lora"' ;> 735.90 NGN</p>
                             </div>
 
@@ -327,7 +326,7 @@
 
                             <span class="amount_div">
                                 <div class="top">
-                                    <p class='status'>Jane Cooper</p> <img src='images/verified_img.svg' alt="" />
+                                    <p class='status'>Jane Cooper</p><Icon name="bi:check-circle-fill" />
                                 </div>
                                 <span class="amt">
                                     <p class="amount"> 735.49 NGN</p>
