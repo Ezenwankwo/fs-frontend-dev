@@ -105,7 +105,7 @@
 												</select>
 											</div>
 											<div class='AvailableBalance'>
-												<img src='~/assets/wallet_img_gray.svg' alt="" />
+												<!-- <img src='~/assets/wallet_img_gray.svg' alt="" /> -->
 												<div class="txt">
 													<p class="amount">$00.0</p>
 													<p class="sub_txt">Available balance</p>
