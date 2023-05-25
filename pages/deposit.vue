@@ -78,25 +78,25 @@
                   <span>
                       <i class="material-icons-outlined"><Icon name="tabler:wallet" class="text-4xl"/></i> 
                   </span>
-                  <p>Choose wallet <i class="material-icons ic">check</i></p> 
+                  <p>Choose wallet <Icon name="ic:round-check" class="relative left-20 text-2xl" style="color: grey;" v-if="completed.wallet"/></p> 
                 </li>
                 <li class="" @click="changeView('payment')" :class="{ active: current.payment}">
                   <span>
                     <i class="material-icons-outlined"><Icon name="majesticons:money-line" /></i> 
                   </span>
-                  <p>Payment method  </p> 
+                  <p>Payment method <Icon name="ic:round-check" class="relative left-14 text-2xl" style="color: grey;" v-if="completed.payment"/></p> 
                 </li>
                 <li class="last" @click="changeView('amount')" :class="{ active: current.amount}">
                   <span>
                     <i class="material-icons-outlined"><Icon name="solar:folder-line-duotone" /></i> 
                   </span>
-                  <p>Enter amount  </p>
+                  <p>Enter amount <Icon name="ic:round-check" class="relative left-20 text-2xl" style="color: grey;" v-if="completed.amount"/></p>
                 </li>
                 <li class="last" @click="changeView('transfer')" :class="{ active: current.transfer}">
                   <span>
                     <i class="material-icons-outlined"><Icon name="bi:bank" /></i> 
                   </span>
-                  <p>Make transfer </p>
+                  <p>Make transfer <Icon name="ic:round-check" class="relative left-20 text-2xl" style="color: grey;" v-if="completed.transfer"/></p>
                 </li>
               </ul>
             </div>
@@ -272,7 +272,10 @@
                       <span class="spq">
                         <span class="sp sp2">
                         <label htmlFor="fname">Bank</label>
-                        <input type="text" name="bank" id="" placeholder="Bank" v-model="deposit.payment.bank" @keyup="error.bank = ''"/>
+                        <select name="" id="" style="width: 100%; height: 55px; border-radius: 30px;" v-model="deposit.payment.bank">
+                          <option value="Select bank" selected>Select Bank</option>
+												  <option :value="bank" v-for="bank in banks" :key="bank">{{ bank }}</option>
+                        </select>
                         <span v-show="error.bank" class="text-red-500 font-bold">{{ error.bank }}</span>
                         </span>
                       </span>
@@ -481,7 +484,7 @@
       account_name: null,
       network: '',
       address: '',
-      bank: ''
+      bank: 'Select bank'
     }
   })
   const copy = ref(false)
@@ -494,8 +497,16 @@
   })
   const transferOption = deposit.value.payment.method === 'Fiat' ? 'Bank transfer' : 'Cryptocurrency'
   const amount = ref(null)
+  const completed = ref({
+    wallet: false,
+    payment: false,
+    amount: false,
+    transfer: false
+  })
+  const banks = ref([])
+
   const walletProceed = () => {
-    if(deposit.value.wallet !== '' || deposit.wallet.value !== null) {
+    if(deposit.value.wallet !== '' || deposit.wallet.value !== null && deposit.value.wallet !== 'Choose wallet') {
       const data = wallets.value.filter((wallet) => wallet.public_id === deposit.value.wallet)
       currency.value = data[0].currency
       public_id.value = data[0].public_id
@@ -504,9 +515,12 @@
           current.value[a] = false
         } else {
           current.value[a] = true
+          completed.value.wallet = true
           deposit.value.payment.method = fiat.value.includes(currency.value) ? 'Fiat' : 'crypto'
         }
       }) 
+    } else {
+      completed.value.wallet = false
     }
     Object.keys(error.value).map((err) => error.value[err] = '')
   }
@@ -514,13 +528,15 @@
     Object.keys(deposit.value.payment).map((val) => {
       if(deposit.value.payment.method === 'Fiat' && deposit.value.payment[val] === null || deposit.value.payment[val] === '') {
         error.value[val] = val !== 'address' && val !== 'network' ? 'This field is required' : ''
+        completed.value.payment = false
       }
       if(deposit.value.payment.method === 'crypto' && deposit.value.payment[val] === '') {
         error.value[val] = val !== 'bank' && val !== 'account_name' && val !== 'account_number' ? 'This field is required' : ''
         error.value.bank = ''
+        completed.value.payment = false
       }
     })
-    if(Object.keys(error.value).every((err) => error.value[err] === '')) {
+    if(Object.keys(error.value).every((err) => error.value[err] === '') && deposit.value.payment.bank !== 'Select bank') {
       loading.value = true
       const { data, error } = await useFetch(
         `${config.public.baseURL}` + '/wallets/accounts/',
@@ -540,13 +556,20 @@
       )
       if(data.value) {
         loading.value = false
+        completed.value.payment = true
         transactionDetails.value = data.value.data
         Object.keys(current.value).map((a) => {
           if(a !== 'amount') {
             current.value[a] = false
           } else current.value[a] = true
         })
+      } else {
+        loading.value = false
+			  useNotification().toast.error('Error processing your request')
       }
+    } else {
+      error.value.bank = 'Choose a bank'
+      completed.value.payment = false
     }
   }
   const amountProceed = async () => {
@@ -565,6 +588,7 @@
       })
       if(data.value) {
         loading.value = false
+        completed.value.amount = true
         escrow.value = data.value.data.public_id
         console.log(escrow.value)
         Object.keys(current.value).map((a) => {
@@ -572,9 +596,13 @@
             current.value[a] = false
           } else current.value[a] = true
         })
+      } else {
+        loading.value = false
+			  useNotification().toast.error('Error processing your request')
       }
     } else {
       error.value.amount = 'Please input an amount'
+      completed.value.amount = false
     }
   }
   const backClick = () => {
@@ -590,11 +618,12 @@
     })
   }
   const changeView = (value) => {
-    if(current.value.transfer === true) {
-      Object.keys(current.value).map((a) => a === value ? current.value[a] = true : current.value[a] = false)
-    } else if(Object.keys(current.value).every((a) => current.value[a] === false)) {
-      current.value['wallet'] = true
-    }
+    // if(current.value.transfer === true) {
+    //   Object.keys(current.value).map((a) => a === value ? current.value[a] = true : current.value[a] = false)
+    // } else if(Object.keys(current.value).every((a) => current.value[a] === false)) {
+    //   current.value['wallet'] = true
+    // }
+    Object.keys(current.value).map((a, index) => a === value && completed.value[a] === true ? current.value[a] = true : current.value[a] = false)
   }
   // const setTransferOption = (val) => {
   //   transferOption.value = val === 'fiat' ? 'Bank transfer' : 'Cryptocurrency'
@@ -629,6 +658,9 @@
     if(data.value) {
       loading.value = false
       await navigateTo('/depositSuccess')
+    } else {
+      loading.value = false
+      useNotification().toast.error('Error processing your request')
     }
   }
   const close = () => {
@@ -647,12 +679,21 @@
           defaultCurrency.value = wallet.currency
         }
       })
+      deposit.value.wallet = defaultCurrency.value
+      
       const { data: currencies } = await useFetch(`${config.public.baseURL}` + '/trades/currencies', {
         headers: {
           Authorization: useAuthStore().$state.access
         }
       })
       fiat.value = currencies.value.data
+
+      const { data: bank } = await useFetch(`${config.public.baseURL}` + '/wallets/accounts/banks', {
+        headers: {
+          Authorization: useAuthStore().$state.access
+        }
+      })
+      banks.value = bank.value.data
     })
   })
 </script>

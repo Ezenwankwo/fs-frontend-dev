@@ -92,7 +92,7 @@ const token = useAuthStore().$state.access
                         currencies with 3 simple steps. </p>
                     <span class='links'>
                         <NuxtLink to="/signup" class='a1'>Get Started</NuxtLink>
-                        <NuxtLink to="/identity" href='' class='a2'>Buy/Sell Currency
+                        <NuxtLink to="/identity" class='a2'>Buy/Sell Currency
                             <Icon name="fa6-solid:angle-right" class="material-icons" />
                         </NuxtLink>
                     </span>
@@ -110,7 +110,7 @@ const token = useAuthStore().$state.access
                                 <span class='sp1'>
                                     <p class='txt'>Currency</p>
                                     <select v-model.trim="fromCurrency" class='input select' @change="getRate">
-                                        <option v-for="item in currencies">{{ item }}</option>
+                                        <option v-for="item in currencies" :key="item">{{ item }}</option>
                                     </select>
                                 </span>
                             </div>
@@ -126,7 +126,7 @@ const token = useAuthStore().$state.access
                                 <span class='sp1'>
                                     <p class='txt'>Currency</p>
                                     <select v-model.trim="toCurrency" class='input select' @change="getRate">
-                                        <option v-for="item in currencies">{{ item }}</option>
+                                        <option v-for="item in currencies" :key="item">{{ item }}</option>
                                     </select>
                                 </span>
                             </div>
@@ -203,17 +203,14 @@ const token = useAuthStore().$state.access
                     <span class='sp1'>
                         <p class='t1'>Currency Price Listings</p>
                         <p>
-                            <Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
+													<Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
                         </p>
                     </span>
                     <form>
-                        <select>
-                            <option class='opt'>Select Currency</option>
-                            <option class='opt'>2</option>
-                            <option class='opt'>3</option>
-                            <option class='opt'>4</option>
-                            <option class='opt'>5</option>
-                        </select>
+											<select>
+												<option class='opt'>Select Currency</option>
+												<option value="" v-for="currency in currencies" :key="currency">{{ currency }}</option>
+											</select>
                     </form>
                 </div>
                 <div class='wame'>
@@ -236,15 +233,16 @@ const token = useAuthStore().$state.access
                                     <p>USD</p>
                                 </span></span>
                             <span class="c c2">
-                                <p class='price'>
-                                <p class="N">N</p> 730</p>
-                            </span>
+															<p class='price'>
+																<span class="N">₦ 730</span>
+															</p>
+															</span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -255,14 +253,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 905</p>
+                                <span class="N">₦ 905</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -273,14 +271,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 745</p>
+                                <span class="N">₦ 745</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -291,14 +289,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -309,14 +307,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -340,14 +338,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -358,14 +356,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 905</p>
+                                <span class="N">₦ 905</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -376,14 +374,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 745</p>
+                                <span class="N">₦ 745</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -394,14 +392,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -412,14 +410,14 @@ const token = useAuthStore().$state.access
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -528,21 +526,21 @@ const token = useAuthStore().$state.access
                         <p class="t1">CBN on Digital Asset Tax</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                     <a to="/blog_index">
                         <div class="img" style="background-image: url('~/assets/blog_img1.svg');"></div>
                         <p class="t1">Future of Gold and Silver</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                     <a to="/blog_index">
                         <div class="img" style="background-image: url('~/assets/blog_img1.svg');"></div>
                         <p class="t1">Impact of Emmigration on Currencyfkgfkg</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                 </div>
             </section>
@@ -563,6 +561,434 @@ const token = useAuthStore().$state.access
 </template>
 
 <style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans', sans-serif;
+    text-decoration: none;
+    letter-spacing: 0px;
+    transition: 300ms;
+    -webkit-tap-highlight-color: transparent;
+}
+
+nav {
+    /* background: #fff; */
+    z-index: 1;
+    width: 100%;
+    /* border-bottom: solid 1px silver; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 7%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, .98);
+    box-shadow: 5px -1px 12px -5px grey;
+    height: 85px;
+    /* top: 0;  */
+    /* z-index: 2; */
+    /* overflow: hidden; */
+    /* background-color: black; */
+    /* backdrop-filter: blur(5px); */
+    /* max-width: 2000px; */
+    /* margin: 0 auto; */
+    justify-self: center;
+}
+
+header section .div1 .txt1 {
+    font-family: 'lora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #890620;
+}
+
+.logo {
+    height: 55px;
+    width: 55px;
+    margin: 0;
+}
+
+.logo_a {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.sp .link {
+    margin: 0 15px;
+    color: #1f1f1f;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sp .link:hover {
+    color: #2F67FA;
+}
+
+.log {
+    margin-left: auto;
+}
+
+.log .link {
+    padding: 9px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.login {
+    color: #2F67FA;
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.signup {
+    /* border: solid 1px silver; */
+    /* background-color: #2F67FA; */
+    background-color: #2F67FA;
+    color: white;
+    font-size: 16px;
+}
+
+.signup:hover {
+    background-color: rgb(37, 150, 190, 0.8);
+}
+
+/* .material-icons{
+    display: none;
+} */
+
+.i {
+    display: none !important;
+    /* border: solid; */
+}
+
+.x {
+    margin-left: auto;
+    display: none !important;
+    color: #2F67FA;
+}
+
+@media screen and (max-width: 1100px) {
+    nav {
+        padding: 0 5%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /* nav{
+        padding: %;   
+    } */
+
+    .sp {
+        display: none;
+    }
+
+    .log {
+        margin-right: auto;
+    }
+
+
+    .i {
+        color: #2F67FA;
+        display: flex !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        padding: 0 7%;
+    }
+
+
+
+    .logo_a {
+        margin-right: auto;
+    }
+
+    .log {
+        display: none;
+    }
+
+    .i {
+        color: white;
+        background-color: #2F67FA;
+        border-radius: 100%;
+        padding: 10px;
+        font-size: 16px !important;
+        display: flex !important;
+    }
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: fit-content;
+    background-image: url(/src/Assets/Components/images/back_pic.svg);
+}
+
+header section {
+    width: 100%;
+    /* height: ; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10% 7%;
+    padding-bottom: 0%;
+}
+
+header section div {
+    width: 52%;
+    /* border: solid; */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header section .div1 {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+header section .div1 .txt1 {
+    font-family: 'lora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #890620;
+}
+
+header section .div1 h1 {
+    font-family: 'lora', sans-serif;
+    font-weight: 700;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 140%;
+    color: #0A1128;
+    margin: 22px 0;
+}
+
+header section .div1 .txt2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #373D4A;
+    width: 88%;
+}
+
+header section .div1 .links {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+}
+
+header section .div1 .links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    border-radius: 60px;
+    font-size: 16px;
+    height: 56px;
+}
+
+header section .div1 .links .a1 {
+    background-color: #2F67FA;
+    color: white;
+    border: solid 2px #2F67FA;
+}
+
+header section .div1 .links .a2 {
+    border: solid 2px #2F67FA;
+    color: #2F67FA;
+    margin-left: 12px;
+    font-weight: 500;
+}
+
+header section .div1 .links .a2 i {
+    font-size: 30px;
+    font-weight: 100 !important;
+}
+
+header section .div2 {
+    align-items: flex-end;
+}
+
+header section .div2 .inp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 30px;
+    padding-top: 25px;
+    /* gap: 8px; */
+    /* height: 100%; */
+    background: #FFFFFF;
+    box-shadow: 0px 0px 32px rgba(47, 103, 250, 0.12);
+    border-radius: 25px;
+    height: fit-content;
+    width: 500px;
+    /* border: solid blue; */
+}
+
+header section .div2 .inp .t1 {
+    font-family: 'lora', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #373D4A;
+    text-align: center;
+}
+
+header section .div2 .inp .t2 {
+    font-size: 14px;
+    color: #7C859D;
+    margin-top: 8px;
+    text-align: center;
+}
+
+header section .div2 .inp form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0;
+    height: 100%;
+    /* border: solid; */
+}
+
+header section .div2 .inp form .sp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* border: solid; */
+}
+
+header section .div2 .inp form .sp .sp1 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    width: 46%;
+    /* border: solid; */
+}
+
+header section .div2 .inp form .sp .sp1 .txt {
+    font-weight: 400;
+    font-size: 14px;
+    color: #373D4A;
+    margin-bottom: 10px;
+}
+
+header section .div2 .inp form .sp .sp1 .input {
+    width: 100%;
+    border-radius: 48px;
+    height: 50px;
+    border: none;
+    border: 1px solid #DCDEE5;
+    transition: 100ms;
+    outline: none;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #373D4A;
+}
+
+header section .div2 .inp form .sp .sp1 .input:focus {
+    border: 1.5px solid #c5c8cf;
+}
+
+header section .div2 .inp form .sp .sp1 .select {
+    /* border: solid blue ; */
+    /* outline: blue !important; */
+    background-color: white;
+    cursor: pointer;
+}
+
+
+.opt {
+    background-color: pink;
+    padding: 10px 0;
+}
+
+
+header section .div2 .inp form .icon {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* outline: solid 0.1px #7C859D; */
+    /* border: solid; */
+    transform: rotate(90deg);
+    margin: 20px 0;
+}
+
+header section .div2 .inp form .icon .line {
+    width: 80px;
+    position: absolute;
+    outline: solid 0.1px #dcdee5a2;
+    outline-width: 0.01px;
+}
+
+header section .div2 .inp form .icon .arrow_img {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    border: solid 0.3px #DCDEE5;
+    border-radius: 100%;
+    background-color: white;
+}
+
+
+
+header section .div2 .inp form .conv {
+    padding: 10px 15px;
+    background-color: #EBF0FF;
+    border-radius: 30px;
+    margin: 30px 0;
+    color: #2F67FA;
+}
+
+
+header section .div2 .inp form .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    background-color: #2F67FA;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* header section .div2 .inp form button:hover {
+    
+} */
+
+header .div3 {
+    width: 100%;
+    margin-top: -70px;
+}
+
+header .div3 svg {
+    display: block;
+}
 
 .Main {
     display: flex;
@@ -1499,6 +1925,106 @@ const token = useAuthStore().$state.access
 
 }
 
+@media screen and (max-width: 1200px) {
+
+    header section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12% 7%;
+        padding-bottom: 0%;
+    }
+
+
+    .Main .section_descrpt {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #0A1128;
+        height: fit-content;
+        flex-direction: column;
+        width: 100%;
+        padding: 60px 7%;
+        margin: -0.3px 0;
+        /* padding-bottom: 40px; */
+        /* margin-bottom: -40px; */
+        padding-bottom: 0;
+    }
+
+    .Main .section_descrpt div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Main .section_descrpt .img {
+        width: 80%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 17px;
+        /* align-items: flex-start; */
+    }
+
+    .Main .section_descrpt .text {
+        gap: 26px;
+        width: fit-content;
+        align-items: flex-start;
+        margin-top: 5%;
+    }
+
+    .Main .section6 .content {
+
+        flex-direction: column;
+    }
+
+    .Main .section6 .content div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Main .section6 .content .img {
+        width: 80%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 17px;
+        /* align-items: flex-start; */
+    }
+
+    /* .Main .section6 .text .t1 {
+        border: solid;
+    } */
+
+    .Main .section6 .content .text {
+        gap: 26px;
+        width: fit-content;
+        align-items: flex-start;
+        margin-top: 5%;
+        width: 80%;
+    }
+
+    .Main .section6 .text .t2 {
+        width: 100%;
+    }
+
+    .Main .section6 .text .t3 {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
 @media screen and (max-width: 1150px) {
     header section {
         padding: 14% 5%;
@@ -1661,7 +2187,7 @@ const token = useAuthStore().$state.access
         width: 98%;
     }
 
-    header section .div2 {}
+    /* header section .div2 {} */
 
     .Main .section3 .top {
         padding: 0 5%;
@@ -1950,9 +2476,9 @@ const token = useAuthStore().$state.access
         font-size: 12px;
     }
 
-    .Main .section3 form {
-        /* border: solid; */
-    }
+    /* .Main .section3 form {
+        border: solid;
+    } */
 
     .Main .section3 form select {
         height: 45px;
