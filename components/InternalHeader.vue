@@ -22,7 +22,7 @@
                             <p class="usermail">maverick.eth@gmail.com</p>
                         </div>
                         <div class="userimage">
-                            <button class="me" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><Icon name="ic:baseline-menu" class="text-xl" /></button>
+                            <button class="flex" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><Icon name="ic:baseline-menu" class="text-xl" /></button>
                             <div class="img"></div>
                         </div>
                         <!-- <i class="material-icons-outlined dwn"><Icon name="arrow_forward_ios" /></i> -->
