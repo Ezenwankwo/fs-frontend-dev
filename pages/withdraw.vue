@@ -63,29 +63,29 @@
 						<p class="p1">Wallet Withdrawal</p>
 						<p class="p2">Create or accept offers at your preferred rate.</p>
 						<ul>
-							<li :class="{active: current.wallet}" @click="changeView('wallet')">
+							<li :class="{active: current.wallet}" @click="changeView('wallet', 0)">
 								<span>
 										<i class="material-icons-outlined"><Icon name="tabler:wallet" class="text-4xl"/></i> 
 								</span>
-								<p>Choose wallet <i class="material-icons ic">check</i></p> 
+								<p class="">Choose wallet <Icon name="ic:round-check" class="relative left-20 text-2xl" style="color: grey;" v-if="completed.wallet"/></p> 
 							</li>
-							<li :class="{active: current.acceptance}" @click="changeView('acceptance')">
+							<li :class="{active: current.acceptance}" @click="changeView('acceptance', 1)">
 								<span>
 										<i class="material-icons-outlined"><Icon name="bi:bank" /></i> 
 								</span>
-								<p>Means of acceptance</p> 
+								<p>Means of acceptance <Icon name="ic:round-check" class="relative left-7 text-2xl" style="color: grey;" v-if="completed.acceptance"/></p> 
 							</li>
-							<li :class="{active: current.amount}" @click="changeView('amount')">
+							<li :class="{active: current.amount}" @click="changeView('amount', 2)">
 								<span>
 										<i class="material-icons-outlined"><Icon name="majesticons:money-line" /></i> 
 								</span>
-								<p>Withdrawal amount</p> 
+								<p>Withdrawal amount <Icon name="ic:round-check" class="relative left-10 text-2xl" style="color: grey;" v-if="completed.amount"/></p> 
 							</li>
-							<li :class="{active: current.transfer}" @click="changeView('transfer')">
+							<li :class="{active: current.transfer}" @click="changeView('transfer', 3)">
 								<span>
 										<i class="material-icons-outlined"><Icon name="solar:folder-line-duotone" /></i> 
 								</span>
-								<p>Make transfer </p> 
+								<p>Make transfer <Icon name="ic:round-check" class="relative left-20 text-2xl" style="color: grey;" v-if="completed.transfer"/></p> 
 							</li>
 						</ul>
 					</div>
@@ -106,11 +106,13 @@
 											</div>
 											<div class='AvailableBalance'>
 												<!-- <img src='~/assets/wallet_img_gray.svg' alt="" /> -->
+												<Icon name="tabler:wallet" class="text-4xl"/>
 												<div class="txt">
 													<p class="amount">$00.0</p>
 													<p class="sub_txt">Available balance</p>
 												</div>
 											</div>
+											<span v-show="walletError" class="text-red-500 font-bold">{{ walletError }}</span>
 										</span>
 									</span>
 									<span class="spq">
@@ -170,7 +172,7 @@
 										<span class="spq">
 											<span class="sp sp2">
 											<label htmlFor="fname">Account number</label>
-											<input type="number" placeholder="Account number" v-model="details.account_number" @keyup="fiatPaymentError.account_number = ''"/>
+											<input type="number" placeholder="Account number" v-model="details.account_number" @keyup="fiatPaymentError.account_number = ''" maxlength="1"/>
 											<span v-show="fiatPaymentError.account_number" class="text-red-500 font-bold">{{ fiatPaymentError.account_number }}</span>
 											</span>
 										</span>
@@ -270,12 +272,12 @@
 								</p>
 								<div action="" class='form2'>
 									<span class="ct">
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.first" maxlength="1"/>
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.second" maxlength="1"/>
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.third" maxlength="1"/>
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.fourth" maxlength="1"/>
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.fifth" maxlength="1"/>
-										<input type="number" style="border: 1px solid grey;" @keyup="changeFocus" v-model="inputField.sixth" maxlength="1"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('first')" maxlength="1" v-model="inputField.first"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('second')" maxlength="1" v-model="inputField.second"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('third')" maxlength="1" v-model="inputField.third"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('fourth')" maxlength="1" v-model="inputField.fourth"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('fifth')" maxlength="1" v-model="inputField.fifth"/>
+										<input type="text" style="border: 1px solid grey;" id="input-o" @keyup="changeFocus('sixth')" maxlength="1" v-model="inputField.sixth"/>
 									</span>
 									<span class="text-red-600 font-bold mt-5" v-show="otpError">{{ otpError }}</span>
 									<p class="to to2">Expires in <span class='ap'> 00:34</span> </p>
@@ -349,19 +351,31 @@ const inputField = ref({
 	fifth: null,
 	sixth: null,
 })
+const walletError = ref("")
 const otpError = ref("")
+const completed = ref({
+	wallet: false,
+	acceptance: false,
+	amount: false,
+	transfer: false
+})
 
 const walletProceed = () => {
-	Object.keys(current.value).map((a) => {
-		if(a !== 'acceptance') {
-			current.value[a] = false
-		} else {
-			current.value[a] = true
-		}
-	})
-	withdrawal.value.acceptance = fiat.value.includes(withdrawal.value.wallet) ? 'Fiat' : 'Crypto'
-	details.value.method = withdrawal.value.acceptance === 'Fiat' ? "Transfer" : "Crypto"
-	Object.keys(fiatPaymentError.value).map((error) => fiatPaymentError.value[error] = '')
+	if(withdrawal.value.wallet !== '' && withdrawal.value.wallet !== null) {
+		Object.keys(current.value).map((a) => {
+			if(a !== 'acceptance') {
+				current.value[a] = false
+			} else {
+				current.value[a] = true
+			}
+		})
+		completed.value.wallet = true
+		withdrawal.value.acceptance = fiat.value.includes(withdrawal.value.wallet) ? 'Fiat' : 'Crypto'
+		details.value.method = withdrawal.value.acceptance === 'Fiat' ? "Transfer" : "Crypto"
+		Object.keys(fiatPaymentError.value).map((error) => fiatPaymentError.value[error] = '')
+	} else {
+		walletError.value = "Choose a wallet"
+	}
 }
 
 const paymentProceed = async () => {
@@ -387,6 +401,7 @@ const paymentProceed = async () => {
 			})
 			if(data.value) {
 				loading.value = false
+				completed.value.acceptance = true
 				withdrawalDetails.value = data.value.data
 				Object.keys(current.value).map((a) => {
           if(a !== 'amount') {
@@ -395,14 +410,14 @@ const paymentProceed = async () => {
         })
 			} else {
 				loading.value = false
-				alert('Error processing your request')
+				useNotification().toast.error('Error processing your request')
 			}
 		}
 	}
 }
 
 const amountProceed = async () => {
-	if(amount.value !== null && amount.value !== '') {
+	if(amount.value !== null && amount.value !== '' && amount.value !== 0) {
 		loading.value = true
 		const { data } = await useFetch(`${config.public.baseURL}` + '/wallets/transactions/escrow-account/', {
 			method: "POST",
@@ -434,13 +449,14 @@ const amountProceed = async () => {
 						current.value[a] = false
 					} else current.value[a] = true
 				})
+				completed.value.amount = true
 			} else {
 				loading.value = false
-				alert('Error processing your request')
+				useNotification().toast.error('Error processing your request')
 			}
 		} else {
 			loading.value = false
-			alert('Error processing your request')
+			useNotification().toast.error('Error processing your request')
 		}
 	} else {
 		amountError.value = 'This field is required'
@@ -485,23 +501,38 @@ const transfer = async () => {
 			}
 		} else {
 			loading.value = false
-			alert('Error processing your request')
+			useNotification().toast.error('Error processing your request')
 		}
 	} else {
 		otpError.value = 'Fill in all input fields'
 	}
 }
 
-const changeFocus = () => {
+const changeFocus = (value) => {
 	otpError.value = ''
+	var inputElement = document.querySelectorAll('#input-o')
+	var i = 0
+	for(const input in inputField.value) {
+		if(input === value) {
+			if(inputField.value[input].length === 1 && i === 5) {
+				inputElement[i].blur()
+			}
+			else if(inputField.value[input].length === 1) {
+				inputElement[i].blur()
+				inputElement[i + 1].focus()
+			}
+		}
+		i += 1
+	}
 }
 
-const changeView = (value) => {
-	if(current.value.transfer === true) {
-		Object.keys(current.value).map((a) => a === value ? current.value[a] = true : current.value[a] = false)
-	} else if(Object.keys(current.value).every((a) => current.value[a] === false)) {
-		current.value['wallet'] = true
-	}
+const changeView = (value, i) => {
+	// if(current.value.transfer === true) {
+	// 	Object.keys(current.value).map((a) => a === value ? current.value[a] = true : current.value[a] = false)
+	// } else if(Object.keys(current.value).every((a) => current.value[a] === false)) {
+	// 	current.value['wallet'] = true
+	// }
+	Object.keys(current.value).map((a, index) => a === value && completed.value[a] === true ? current.value[a] = true : current.value[a] = false)
 }
 
 const backClick = () => {
