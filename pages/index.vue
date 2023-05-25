@@ -1,4 +1,5 @@
 <script setup>
+import { useAuthStore } from '~~/store/auth';
 import { useConversionStore } from '~~/store/conversion';
 definePageMeta({
     layout: "external",
@@ -6,7 +7,7 @@ definePageMeta({
 
 const fromCurrency = ref('NGN')
 const toCurrency = ref('USD')
-const amount = ref(1)
+const amount = ref(1000)
 const result = ref(0)
 const rate = ref(0)
 
@@ -65,6 +66,16 @@ const currenciesRes = await useFetch(
         },
     },
 )
+const token = useAuthStore().$state.access
+// const normalConverter = () => {
+//     const token = useAuthStore().$state.access
+//     debugger
+//     if (token != "") {
+//         navigateTo('/review_amount')
+//     } else {
+//         navigateTo('/signup')
+//     }
+// }
 </script>
 
 <template>
@@ -119,10 +130,10 @@ const currenciesRes = await useFetch(
                                     </select>
                                 </span>
                             </div>
-                            <p class='conv'>1 {{ fromCurrency }} = {{ rate }} {{ toCurrency }}</p>
-                            <NuxtLink to="/signup" class="btn">Convert Currency</NuxtLink>
+                            <p class='conv'>1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}</p>
+                            <NuxtLink v-if="token != ''" to="/review_amount" class="btn">Convert Currency</NuxtLink>
+                            <NuxtLink v-else to="/signup" class="btn">Convert Currency</NuxtLink>
                         </form>
-
                     </div>
                 </div>
 

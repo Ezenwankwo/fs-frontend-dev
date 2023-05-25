@@ -15,7 +15,7 @@
             <NuxtLink to='/P2PIndex' class='link no-underline'>P2P marketplace</NuxtLink>
         </div>
         <div class="user">
-          <div class="n_icon" onClick={openNote}>
+          <div class="n_icon">
             <Icon name="ic:round-notifications-none" class="text-9xl" />
             <!-- <div class="not -mr-px"></div> -->
           </div>

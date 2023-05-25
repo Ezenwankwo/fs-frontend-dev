@@ -73,7 +73,7 @@ export default {
 <template>
     <main>
         <section class="sectioni">
-            <img src="~/assets/logo.png" alt="" class="logo" />
+            <NuxtLink to="/"><img src="~/assets/logo.png" alt="" class="logo" /></NuxtLink>
             <p class="t1">Verify Email</p>
             <p class="t2">Fill in your details to continue</p>
             <p class="to">
@@ -81,12 +81,12 @@ export default {
             </p>
             <form class='form2' @submit.prevent="verifyOTP">
                 <span class="ct">
-                    <input v-model.trim="first" type="number" name="" id="" maxlength="1" />
-                    <input v-model.trim="second" type="number" name="" id="" min="0" max="9" step="1" />
-                    <input v-model.trim="third" type="number" name="" id="" min="0" max="9" step="1" />
-                    <input v-model.trim="fourth" type="number" name="" id="" min="0" max="9" step="1" />
-                    <input v-model.trim="fifth" type="number" name="" id="" min="0" max="9" step="1" />
-                    <input v-model.trim="sixth" type="number" name="" id="" min="0" max="9" step="1" />
+                    <input v-model.trim="first" type="number" maxlength="1" required />
+                    <input v-model.trim="second" type="number" maxlength="1" required />
+                    <input v-model.trim="third" type="number" maxlength="1" required />
+                    <input v-model.trim="fourth" type="number" maxlength="1" required />
+                    <input v-model.trim="fifth" type="number" maxlength="1" required />
+                    <input v-model.trim="sixth" type="number" maxlength="1" required />
                 </span>
                 <p class="to to2">Expires in <span class='ap'> 00:34</span> </p>
                 <p class="to to2">Didn’t get the code?
@@ -725,7 +725,6 @@ main .section2 div .role {
         border: 1.5px solid #DCDEE5;
         border-radius: 10px;
     }
-
 
     /* main{
        display: flex; flex-direction: column; justify-content: space-between; align-items: center;
