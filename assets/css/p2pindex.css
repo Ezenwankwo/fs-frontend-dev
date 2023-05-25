@@ -1,0 +1,204 @@
+.sectionp2ptop{
+    width: 100%;
+    /* border: solid; */
+    padding: 0px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-start;
+    row-gap: 20px;
+    padding-bottom: 80px;
+}
+
+.sectionp2ptop .pt1{
+    color: #890620;
+    font-size: 17px;
+    font-family: 'lora', sans-serif;
+    font-weight: 600;
+}
+
+.sectionp2ptop .pt2{
+    color: #0A1128;
+    font-size: 50px;
+    font-family: 'lora', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    width: 800px;
+}
+
+.sectionp2ptop .radioselect{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    justify-content: center;
+    background-color: #EBF0FF;
+    padding: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.sectionp2ptop .radioselect p{
+    padding: 13px 30px ;
+    color: #373D4A;
+    font-weight: 600;
+    /* border-radius: 10px; */
+}
+
+.sectionp2ptop .radioselect p.active{
+    color: white;
+    background-color: #0A1128;
+    border-radius: 30px;
+}
+.sectionp2ptop .buynsell_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'lora', sans-serif;
+}
+
+.sectionp2ptop .buynsell_div p{
+    font-size: 22px;
+    font-family: 'lora', sans-serif;
+    color: #7C859D;
+    font-weight: 500;
+    color: red;
+}
+
+.sectionp2ptop .buynsell_div p.active{
+    color: #373D4A;
+}
+
+.sectionp2ptop .wanttobuy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+}
+
+.sectionp2ptop .wanttobuy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    margin-top: 40px;
+}
+
+.sectionp2ptop .wanttobuy .txt1{ 
+    font-size: 15px;
+    color: #18191B;
+    font-weight: 600;
+}
+
+.sectionp2ptop .wanttobuy .frm{ 
+    width: 300px;
+    /* border: solid; */
+    display: flex;
+    align-items: center;
+    justify-content: cen er;
+    height: fit-content;
+}
+
+.sectionp2ptop .wanttobuy .frm .inp{ 
+    width: 100%;
+    border-radius: 30px;
+    height: 55px;
+    border: solid 1px #DCDEE5;
+    padding: 0 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+.wallet_history_div .moviesect{ 
+    width: 100%;
+    /* border: solid; */
+    height: 450px;
+    background-image: url(/src/Assets/Components/images/movie_bck.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 80px;
+}
+
+.wallet_history_div .moviesect a{ 
+    width: 100%;
+    /* background-color: white; */
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.wallet_history_div .moviesect a p{ 
+   font-size: 15px;
+   color: white;
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .sectionp2ptop .pt1{
+        font-size: 17px;
+    }
+    
+    .sectionp2ptop .pt2{
+        font-size: 40px;
+        font-weight: 900;
+        width: 600px;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .sectionp2ptop .pt1{
+        font-size: 17px;
+    }
+    
+    .sectionp2ptop .pt2{
+        font-size: 30px;
+        font-weight: 900;
+        width: 420px;
+        line-height: 150%;
+    }
+
+    .sectionp2ptop .radioselect p{
+        padding: 10px 30px ;
+    }
+
+    .sectionp2ptop .buynsell_div p{
+        font-size: 16px;
+        font-weight: 600;
+    }
+   
+}
+
+@media screen and (max-width: 500px) {
+    .sectionp2ptop{
+        padding: 0px 0;
+        row-gap: 20px;
+        padding-bottom: 80px;
+    }
+    .sectionp2ptop .pt1{
+        font-size: 14px;
+    }
+    
+    .sectionp2ptop .pt2{
+        font-size: 23px;
+        font-weight: 900;
+        width: 329px;
+        line-height: 150%;
+        /* border: solid !important; */
+        padding: 0;
+    }
+
+    .sectionp2ptop .radioselect p{
+        padding: 10px 20px ;
+        font-size: 14px;
+    }
+    
+}

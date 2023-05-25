@@ -219,7 +219,6 @@
                     </div>
                 </div>
             </div>
-            <Icon name="solar:hamburger-menu-line-duotone" class="text-4xl" />
         </nav>
     </header>
 </template>

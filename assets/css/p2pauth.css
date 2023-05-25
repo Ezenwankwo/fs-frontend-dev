@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600&family=DM+Sans:ital,wght@0,400;0,700;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;700&family=Poppins:wght@400;500;600&family=Raleway:wght@600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display:ital@0;1&family=Prata&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Climate+Crisis&family=Manrope:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Sofia&display=swap');
+
+
+.Aumain .section .cnt .frm .top_section{
+    /* border: solid; */
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.Aumain .section .cnt .frm .top_section .user_description {
+    display: flex;
+    align-items: flex-start;
+}
+
+.Aumain .section .cnt .frm .top_section .user_description .u_img {
+    padding: 27px 23px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5FA6F9;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'lora';
+    margin-right: 15px;
+}
+
+
+.Aumain .section .cnt .frm .top_section .user_description .u_txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.Aumain .section .cnt .frm .top_section .user_description .u_txt .u_name {
+    display: flex;
+    font-family: 'lora', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 13px;
+}
+
+.Aumain .section .cnt .frm .top_section .user_description .u_txt .orders {
+   padding: 9px 15px;
+   background-color: #F3F4F6;
+   border-radius: 30px;
+   margin-top: 10px;
+   font-size: 13px;
+   color: #373D4A;
+}
+
+
+.Aumain .section .cnt .frm .top_section .user_description .u_txt .u_id {
+    padding: 9px 0;
+    border-radius: 30px;
+    margin-top: 0px;
+    font-size: 16px;
+    color: #373D4A;
+ }
+ 
+
+ .Aumain .section .cnt .frm .top_section .time_description {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+    }
+
+    .Aumain .section .cnt .frm .top_section .time_description .t1{
+        background-color: #FDD8DF;
+        font-family: inherit;
+       color: #890620;
+       font-size: 14px;
+       padding: 6px 20px;
+       border-radius: 30px;
+       font-weight: 500;
+       text-align: center;
+    }
+    .Aumain .section .cnt .frm .top_section .time_description .time{
+        font-family: 'lora', sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+        border: solid 1px  #DCDEE5 ;
+        padding: 10px 18px;
+        border-radius: 8px;
+    }
+
+.Aumain .section .cnt .frm .top_section .order_description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    row-gap: 10px;
+ }
+ 
+
+ .Aumain .section .cnt .frm .top_section .order_description .regular_txt{
+    font-size: 14px;
+    font-weight: 400;
+    color: #373D4A;
+    text-align: right;
+    /* border: solid; */
+ }
+
+ .Aumain .section .cnt .frm .dash{
+    width: 100%;
+    /* border: solid; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card{ 
+    width: 450px;
+    border-radius: 15px;
+    min-height: 200px;
+    border: solid 1px #DCDEE5;
+    margin-top: 35px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+ }
+ 
+
+ .Aumain .section .cnt .frm .dash .dash_card_detail{ 
+    width: 100%;
+   
+ }
+ 
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_top{ 
+    padding: 0px 0;
+    padding-bottom: 15px;
+    border-bottom: solid 1px #DCDEE5;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 13px;
+    width: 100%;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_top i{ 
+   color: #373D4A;
+   font-size: 22px;
+ }
+ 
+ .Aumain .section .cnt .frm .dash .dash_card .dash_top .regular_txt{ 
+    color: #373D4A;
+    font-size: 16px;
+  }
+
+  .Aumain .section .cnt .frm .dash .dash_card .dash_top .addtowish{ 
+    margin-left: auto;
+    color: #2F67FA;
+  }
+  
+  
+  .Aumain .section .cnt .frm .dash .dash_card .dash_order_details{ 
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin: auto 0;
+    width: 100%;
+    gap: 15px;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd{ 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 10px;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .regular_txt{ 
+    color: #373D4A;
+    font-size: 14px;
+    font-weight: 400;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p1{ 
+    font-size: 14px;
+    color: #373D4A;
+  
+ }
+
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p2{ 
+    font-family: 'lora', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #18191B;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p2 img{ 
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_price{ 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 10px;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_price .currency{ 
+    color: #373D4A;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount{ 
+    font-family: 'lora', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #18191B;
+    text-align: right;
+ }
+
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount_price{ 
+   
+    color: #2F67FA;
+ }
+
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users{ 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: auto;
+ }
+
+ .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p{ 
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: #2F67FA;
+ }
+ 
+
+
+
+
+ .Aumain .section .cnt .frm .qs .spq .links{
+    width: 100%; display: flex; 
+    justify-content: right;
+    gap: 13px;
+}
+
+.Aumain .section .cnt .frm .qs .spq .links .a{
+   padding: 13px 30px;
+   border: solid 2px #2F67FA;
+   border-radius: 30px;
+   font-size: 16px; font-weight: 500;
+   cursor: pointer;
+
+}
+
+.Aumain .section .cnt .frm .qs .spq .links .a1{
+    color: #2F67FA;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+.Aumain .section .cnt .frm .qs .spq .links .a2{
+    background-color: #2F67FA;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* Default styles */
+
+/* Add default styles here */
+
+/* Tablet styles */
+@media (max-width: 1560px) {
+    .Aumain .section .cnt .frm .top_section .user_description .u_img {
+      font-size: 16px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_name {
+      font-size: 16px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .orders {
+      font-size: 12px;
+      padding: 6px 12px;
+      margin-top: 8px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_id {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .t1 {
+      font-size: 12px;
+      padding: 4px 12px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .time {
+      font-size: 14px;
+      padding: 8px 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top i {
+      font-size: 16px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top .regular_txt {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p1 {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p2 {
+      font-size: 16px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .currency {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount {
+      font-size: 16px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount_price {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .qs .spq .links .a {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 1000px) {
+    .Aumain .section .cnt .frm .top_section .user_description .u_img {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_name {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .orders {
+      font-size: 12px;
+      padding: 6px 12px;
+      margin-top: 8px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_id {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .t1 {
+      font-size: 10px;
+      padding: 4px 12px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .time {
+      font-size: 12px;
+      padding: 8px 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top i {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top .regular_txt {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p1 {
+      font-size: 10px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p2 {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .currency {
+      font-size: 10px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount_price {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .qs .spq .links .a {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+  }
+  
+
+
+
+
+
+
+
+/* Default styles */
+
+/* Add default styles here */
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .Aumain .section .cnt .frm .top_section {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description {
+      margin-bottom: 15px;
+      gap: 13px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_img {
+      padding: 13px 15px;
+      padding: 0;
+      width: 60px;
+      height: 60px;
+      font-size: 15px;
+      margin-right: 0;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_name {
+      font-size: 18px;
+      gap: 8px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .orders {
+      font-size: 12px;
+      padding: 6px 12px;
+      margin-top: 8px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .user_description .u_txt .u_id {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description {
+      align-items: flex-start;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .t1 {
+      font-size: 12px;
+      padding: 4px 12px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .time_description .time {
+      font-size: 14px;
+      padding: 8px 14px;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .order_description {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .Aumain .section .cnt .frm .top_section .order_description .regular_txt {
+      font-size: 12px;
+      text-align: center;
+    }
+  
+    .Aumain .section .cnt .frm .dash {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 50px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card {
+      width: 100%;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top i {
+      font-size: 18px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top .regular_txt {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_top .addtowish {
+      margin-left: 0;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd {
+      align-items: flex-start;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .regular_txt {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p1 {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_order_details .crd .p2 {
+      font-size: 18px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .currency {
+      font-size: 12px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount {
+      font-size: 18px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_price .amount_price {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users {
+      margin-top: 15px;
+    }
+  
+    .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
+      font-size: 14px;
+    }
+  
+    .Aumain .section .cnt .frm .qs .spq .links {
+      justify-content: center;
+    }
+  
+    .Aumain .section .cnt .frm .qs .spq .links .a {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  

@@ -1,0 +1,124 @@
+.DynamicHistoryCrd{
+    width: 100%;
+    /* background-color: white; */
+    /* border-radius: 5px; */
+    height: fit-content;
+    box-shadow: 0 .4px 0px 0px rgba(174, 174, 174, 0.467);
+    /* border-bottom: solid .5px rgba(174, 174, 174, 0.467); */
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap:7px;
+    /* border: solid 1px; */
+    padding: 25px 0;
+    cursor: pointer;
+}
+
+.DynamicHistoryBox{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  /* border: solid blue  !important; */
+}
+
+.DynamicHistoryBox .user_img{
+  width: 42px;
+  height: 38px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5FA6F9;
+  color: white;
+  font-size: 12px;
+}
+
+
+.DynamicHistoryCrd .sect1{
+    width: 100%;
+    /* border: solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-left: auto; */
+}
+
+
+.DynamicHistoryCrd .sect1 p{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* border: solid 1px ; */
+}
+
+.DynamicHistoryCrd .sect1 .source_div{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 6px;
+}
+
+.DynamicHistoryCrd .sect1 .source{
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap; 
+    max-width: 110px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /* border: 1px solid #000000; */
+ /* border: solid; */
+}
+
+.DynamicHistoryCrd .sect1 p.amount{
+    font-weight: 600;
+    font-size: 15px;
+    gap: 5px;
+}
+
+.DynamicHistoryCrd .sect1 p.amount i{
+    font-size: 15px;
+}
+
+.DynamicHistoryCrd .sect1 p.dateTime{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.DynamicHistoryCrd .sect1 p.status{
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.DynamicHistoryCrd .credit{
+    color: green;
+    background-color: #EDFCEE;
+  }
+  
+  .DynamicHistoryCrd .debit{
+    color: #F02864;
+    background-color: #FDD8DF;
+  }
+
+  .DynamicHistoryCrd .status{
+    border-radius: 10px;
+    padding: 1.5px 10px;
+  }
+  
+  .DynamicHistoryCrd .pending{
+    color: #7C859D;
+    background-color: #DCDEE5;
+  }
+  
+  .DynamicHistoryCrd .canceled{
+    color: #890620;
+    background-color: #FDD8DF;
+  }
+  
+  .DynamicHistoryCrd .completed{
+    color: #2F67FA;
+    background-color: #EBF0FF;
+  }
+

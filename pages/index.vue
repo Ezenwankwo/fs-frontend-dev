@@ -70,22 +70,7 @@ const currenciesRes = await useFetch(
 <template>
     <div>
         <header class='home_main'>
-            <nav class='nav-fixed'>
-                <!--<SideNav />-->
-                <NuxtLink to='/' class='logo_a'> <img src="~/assets/logo.png" alt="wame" class='logo' /></NuxtLink>
-                <div class='sp'>
-                    <a to='/blog_index' class='link'>Our blog</a>
-                    <a to='/contactus' class='link'>Contact us</a>
-                    <NuxtLink to="/identity" class='link'>Become a seller</NuxtLink>
-                    <a to='' class='link'>P2P marketplace</a>
-                </div>
-                <span class='log'>
-                    <NuxtLink to="/login" class='link login'>Login</NuxtLink>
-                    <NuxtLink to="/signup" class='link signup'>Get Started</NuxtLink>
-                </span>
-                <Icon id="i" class="i ii material-icons" name="mdi:menu" onClick={sidebarOpen} />
-
-            </nav>
+            <ExternalHeader />
             <section class="con_fix">
 
                 <div class='div1'>
@@ -433,31 +418,7 @@ const currenciesRes = await useFetch(
                     </a>
                 </div>
             </section>
-            <section class="section4">
-                <p class="t1">3 EASY STEPS</p>
-                <p class="t2">How It Works</p>
-                <p class="t3">Create or accept offers at your preferred rate on our Peer to peer marketplace</p>
-                <div class="fl">
-                    <span>
-                        <div class="box"><img src="~/assets/icon_img5.svg" alt="wame" /></div>
-                        <p class="txt1">Select currency pair</p>
-                        <p class="t">Create or accept offers at your preferred rate on our Peer to peer marketplace
-                            offers at your preferred</p>
-                    </span>
-                    <span>
-                        <div class="box"><img src="~/assets/icon_img6.svg" alt="wame" /></div>
-                        <p class="txt1">Transfer Local Money</p>
-                        <p class="t">Create or accept offers at your preferred rate on our Peer to peer marketplace
-                            offers at your preferred</p>
-                    </span>
-                    <span>
-                        <div class="box"><img src="~/assets/icon_img7.svg" alt="wame" /></div>
-                        <p class="txt1">Receive funds</p>
-                        <p class="t">Create or accept offers at your preferred rate on our Peer to peer marketplace
-                            offers at your preferred</p>
-                    </span>
-                </div>
-            </section>
+            <HowItWorks />
             <section class="section5">
                 <p class="t1">TESTIMONIAL</p>
                 <p class="t2">Hear what our customers say about us</p>

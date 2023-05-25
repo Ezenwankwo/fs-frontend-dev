@@ -4,7 +4,7 @@
       <div class="cnt">
         <div class="fl1">
           <div class="success">
-            <img src='~/assets/success.svg' alt="" class='gif'/>
+            <img src='~/assets/success.gif' alt="" class='gif'/>
             <p class="p1">Deposit Order Submitted</p>
             <p class="p2">You'll be notified once you've been credited</p>
             <NuxtLink to="/wallet" class='a a1'>View Wallet</NuxtLink>

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="flex">
+        <ConversionHeader />
+        <div class="flex mt-12">
             <div class="p-12 mx-auto">
                 <div class="w-full text-center">
                     <img src="~/assets/star.svg" alt="" class="mx-auto" />
@@ -31,9 +32,6 @@
 <script setup>
 import { useConversionStore } from '~~/store/conversion';
 import { useAuthStore } from '~~/store/auth';
-definePageMeta({
-    layout: "conversion",
-});
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
 const trade = useConversionStore().$state.trade
