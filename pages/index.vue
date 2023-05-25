@@ -96,7 +96,7 @@ const currenciesRes = await useFetch(
                         currencies with 3 simple steps. </p>
                     <span class='links'>
                         <NuxtLink to="/signup" class='a1'>Get Started</NuxtLink>
-                        <NuxtLink to="/identity" href='' class='a2'>Buy/Sell Currency
+                        <NuxtLink to="/identity" class='a2'>Buy/Sell Currency
                             <Icon name="fa6-solid:angle-right" class="material-icons" />
                         </NuxtLink>
                     </span>
@@ -114,7 +114,7 @@ const currenciesRes = await useFetch(
                                 <span class='sp1'>
                                     <p class='txt'>Currency</p>
                                     <select v-model.trim="fromCurrency" class='input select' @change="getRate">
-                                        <option v-for="item in currencies">{{ item }}</option>
+                                        <option v-for="item in currencies" :key="item">{{ item }}</option>
                                     </select>
                                 </span>
                             </div>
@@ -130,7 +130,7 @@ const currenciesRes = await useFetch(
                                 <span class='sp1'>
                                     <p class='txt'>Currency</p>
                                     <select v-model.trim="toCurrency" class='input select' @change="getRate">
-                                        <option v-for="item in currencies">{{ item }}</option>
+                                        <option v-for="item in currencies" :key="item">{{ item }}</option>
                                     </select>
                                 </span>
                             </div>
@@ -207,17 +207,14 @@ const currenciesRes = await useFetch(
                     <span class='sp1'>
                         <p class='t1'>Currency Price Listings</p>
                         <p>
-                            <Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
+													<Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
                         </p>
                     </span>
                     <form>
-                        <select>
-                            <option class='opt'>Select Currency</option>
-                            <option class='opt'>2</option>
-                            <option class='opt'>3</option>
-                            <option class='opt'>4</option>
-                            <option class='opt'>5</option>
-                        </select>
+											<select>
+												<option class='opt'>Select Currency</option>
+												<option value="" v-for="currency in currencies" :key="currency">{{ currency }}</option>
+											</select>
                     </form>
                 </div>
                 <div class='wame'>
@@ -240,15 +237,16 @@ const currenciesRes = await useFetch(
                                     <p>USD</p>
                                 </span></span>
                             <span class="c c2">
-                                <p class='price'>
-                                <p class="N">N</p> 730</p>
-                            </span>
+															<p class='price'>
+																<span class="N">₦ 730</span>
+															</p>
+															</span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -259,14 +257,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 905</p>
+                                <span class="N">₦ 905</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -277,14 +275,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 745</p>
+                                <span class="N">₦ 745</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -295,14 +293,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -313,14 +311,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -344,14 +342,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -362,14 +360,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 905</p>
+                                <span class="N">₦ 905</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -380,14 +378,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 745</p>
+                                <span class="N">₦ 745</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -398,14 +396,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -416,14 +414,14 @@ const currenciesRes = await useFetch(
                                 </span></span>
                             <span class="c c2">
                                 <p class='price'>
-                                <p class="N">N</p> 730</p>
+                                <span class="N">₦ 730</span></p>
                             </span>
                             <span class="c c3">
                                 <p class='perct'>+0.87%</p>
                             </span>
                             <span class="c c4">
                                 <a to="/signup" href="">
-                                    <p>Buy/Sell</p> <i class='material-icons'>chevron_right</i>
+                                    <p>Buy/Sell</p> <Icon name="ic:round-chevron-right" />
                                 </a>
                             </span>
                         </a>
@@ -556,21 +554,21 @@ const currenciesRes = await useFetch(
                         <p class="t1">CBN on Digital Asset Tax</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                     <a to="/blog_index">
                         <div class="img" style="background-image: url('~/assets/blog_img1.svg');"></div>
                         <p class="t1">Future of Gold and Silver</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                     <a to="/blog_index">
                         <div class="img" style="background-image: url('~/assets/blog_img1.svg');"></div>
                         <p class="t1">Impact of Emmigration on Currencyfkgfkg</p>
                         <p class="t2">Create or accept offers at your preferred rate on our Peer to peer marketplace Create
                             or...</p>
-                        <p class="t3">Read more <i class="material-icons">chevron_right</i></p>
+                        <p class="t3">Read more <Icon name="ic:round-chevron-right" /></p>
                     </a>
                 </div>
             </section>
@@ -643,8 +641,6 @@ header section .div1 .txt1 {
     display: flex;
     align-items: center;
 }
-
-.sp {}
 
 .sp .link {
     margin: 0 15px;
@@ -1009,9 +1005,9 @@ header section .div2 .inp form .btn {
     cursor: pointer;
 }
 
-header section .div2 .inp form button:hover {
-    /* background-color: rgb(47, 103, 250, 0.8); */
-}
+/* header section .div2 .inp form button:hover {
+    
+} */
 
 header .div3 {
     width: 100%;
@@ -2031,9 +2027,9 @@ header .div3 svg {
         /* align-items: flex-start; */
     }
 
-    .Main .section6 .text .t1 {
-        /* border: solid; */
-    }
+    /* .Main .section6 .text .t1 {
+        border: solid;
+    } */
 
     .Main .section6 .content .text {
         gap: 26px;
@@ -2219,7 +2215,7 @@ header .div3 svg {
         width: 98%;
     }
 
-    header section .div2 {}
+    /* header section .div2 {} */
 
     .Main .section3 .top {
         padding: 0 5%;
@@ -2508,9 +2504,9 @@ header .div3 svg {
         font-size: 12px;
     }
 
-    .Main .section3 form {
-        /* border: solid; */
-    }
+    /* .Main .section3 form {
+        border: solid;
+    } */
 
     .Main .section3 form select {
         height: 45px;
