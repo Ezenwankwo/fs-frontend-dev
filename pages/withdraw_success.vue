@@ -10,7 +10,7 @@
                         <i class="material-icons-outlined">close</i>
                     </span>
                     <!-- <img src="/static/media/qmark.efab86979ad52a61e7ce1eb5da22b079.svg" alt=""> -->
-                    <p class="p1">Are you sure to cancel ?</p>
+                    <p class="p1">Are you sure to cancel?</p>
                     <p class="p2">You wil lose your data.</p>
                     <span class="links">
                         <a class="a a1" href="/seller_details">Continue with order</a>

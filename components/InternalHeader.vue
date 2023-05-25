@@ -5,17 +5,16 @@
             <!-- <Sidenav /> -->
             <NuxtLink to='/' class='logo_a'> <img src="~/assets/logo.png" alt="wame" class='logo' /></NuxtLink>
             <div class='sp'>
-                <a to='/blog_index' class='a'>Our blog</a>
-                <a to='/contactus' class='a'>Contact us</a>
-                <a to="/seller_up" class='a'>Become a seller</a>
-                <a to='' class='a'>P2P marketplace</a>
+                <a to='/blog_index' class='link'>Our blog</a>
+                <a to='/contactus' class='link'>Contact us</a>
+                <a to="/seller_up" class='link'>Become a seller</a>
+                <a to='' class='link'>P2P marketplace</a>
             </div>
             <div class="user">
                 <div class="n_icon">
-                    <i class="material-icons-outlined bell">notifications</i>
+                    <i class="material-icons-outlined bell"><Icon name="ic:baseline-notifications-none" /></i>
                     <div class="not"></div>
                 </div>
-
                 <div class="profile">
                     <div class='prof'>
                         <div class="user_descrpt">
@@ -23,34 +22,29 @@
                             <p class="usermail">maverick.eth@gmail.com</p>
                         </div>
                         <div class="userimage">
-                            <p class="me">ME</p>
+                            <button class="me" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><Icon name="ic:baseline-menu" class="text-xl" /></button>
                             <div class="img"></div>
                         </div>
-                        <i class="material-icons-outlined dwn">arrow_forward_ios</i>
+                        <!-- <i class="material-icons-outlined dwn"><Icon name="arrow_forward_ios" /></i> -->
                     </div>
-                    <div class="profile_modal" id='profile_modal'>
-                        <a to={-1} class='a'><i class="material-icons-outlined">person</i> My Profile</a>
-                        <a class='a'><i class="material-icons-outlined">payment</i> Deposit</a>
-                        <a class='a'><i class="material-icons-outlined">sell</i> Sell</a>
-                        <a class='a'><i class="material-icons-outlined">account_balance_wallet</i> Wallet</a>
-                        <a class='a'><i class="material-icons-outlined">insert_drive_file</i> Transaction history</a>
-                        <a class='a'><i class="material-icons-outlined">logout</i> Logout</a>
-
+                    <div class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" id='profile_modal'>
+											<a to={-1} class='a'><i class="material-icons-outlined"><Icon name="ic:outline-account-circle" /></i> My Profile</a>
+											<a class='a'><i class="material-icons-outlined"><Icon name="ic:round-payment" /></i> Deposit</a>
+											<a class='a'><i class="material-icons-outlined"><Icon name="ic:baseline-local-atm" /></i> Sell</a>
+											<a class='a'><i class="material-icons-outlined"><Icon name="ic:outline-account-balance-wallet" /></i> Wallet</a>
+											<a class='a'><i class="material-icons-outlined"><Icon name="ic:outline-insert-drive-file" /></i> Transaction history</a>
+											<a class='a'><i class="material-icons-outlined"><Icon name="ic:baseline-logout" /></i> Logout</a>
                     </div>
                 </div>
 
             </div>
-            <i class="i ii material-icons" id='i'>menu</i>
+            <button data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><i class="i ii material-icons" id='i'><Icon name="ic:baseline-menu" /></i></button>
             <!--{/* <i class="x ii material-icons" id='x'>close</i> */}-->
-
         </nav>
     </header>
 </template>
 
 <style scoped>
-
-
-
 .blog_head nav {
     width: 100%;
     /* height: 89px; */
@@ -83,7 +77,7 @@
     color: #1f1f1f;
     font-size: 16px;
     font-weight: 400;
-
+    text-decoration: none;
 }
 
 .sp .link:hover {
@@ -270,18 +264,18 @@ nav .user .userimage {
 }
 
 nav .user .userimage .me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-    background-color: #5FA6F9;
-    position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	background-color: #5FA6F9;
+	position: absolute;
 }
 
 nav .user .userimage .img {

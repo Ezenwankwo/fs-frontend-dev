@@ -21,48 +21,48 @@
                 <form action="" class='prof_form'>
                     <label htmlFor="" class='in_s'>
                         First name
-                        <input type="text" placeholder='Enter your first name' />
+                        <input type="text" placeholder='Enter your first name' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Last name
-                        <input type="text" placeholder='Last name' />
+                        <input type="text" placeholder='Last name' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Other name
-                        <input type="text" placeholder='Other name' />
+                        <input type="text" placeholder='Other name' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Preferred username
-                        <input type="text" placeholder='Username' />
+                        <input type="text" placeholder='Username' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Email
-                        <input type="text" placeholder='Example@gmail.com' />
+                        <input type="text" placeholder='Example@gmail.com' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Phone number
-                        <input type="text" placeholder='70948209' />
+                        <input type="text" placeholder='70948209' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Nationality
-                        <input type="text" placeholder='Select country' />
+                        <input type="text" placeholder='Select country' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Country of residence
-                        <input type="text" placeholder='Select country' />
+                        <input type="text" placeholder='Select country' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         State / province / region
-                        <input type="text" placeholder='Select country' />
+                        <input type="text" placeholder='Select country' class="bg-white" />
                     </label>
                     <label htmlFor="" class='in_s'>
                         Local Government Area
-                        <input type="text" placeholder='Select country' />
+                        <input type="text" placeholder='Select country' class="bg-white" />
                     </label>
 
                     <label htmlFor="" class='in_s in_l'>
                         Residential address
-                        <input type="text" placeholder='Residential address' />
+                        <input type="text" placeholder='Residential address' class="bg-white" />
                     </label>
 
                     <button type="submit" class='a'>Save Changes</button>
@@ -74,21 +74,21 @@
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Wallet</p>
-                                <i class='material-icons'>arrow_forward_ios</i>
+                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
                             </span>
                         </a>
                         <a class='a'>
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Transactions</p>
-                                <i class='material-icons'>arrow_forward_ios</i>
+                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
                             </span>
                         </a>
                         <a class='a'>
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Ad list</p>
-                                <i class='material-icons'>arrow_forward_ios</i>
+                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
                             </span>
                         </a>
                     </div>
@@ -101,16 +101,6 @@
                     Saved accounts
 								</p>
 								<p class='spp'>+ <span>Add new</span></p>
-
-
-                <!--<div class="accts">
-              <Account_info_crd img={bank2} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-              <Account_info_crd img={bank1} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-              <Account_info_crd img={bank2} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-              <Account_info_crd img={bank1} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-              <Account_info_crd img={bank2} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-              <Account_info_crd img={bank1} acct_name={'Peter Williams'} acct_no={'40196789894'} acct_currency={'USD'} />
-          </div>-->
             </section>
         </main>
 
@@ -120,6 +110,11 @@
 
 <script setup>
 import { useAuthStore } from '~~/store/auth'
+import {initFlowbite}  from 'flowbite'
+
+onMounted(() => {
+	initFlowbite()
+})
 
 </script>
 <style scoped>
