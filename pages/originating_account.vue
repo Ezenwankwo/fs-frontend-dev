@@ -11,11 +11,10 @@
                     <span class="sp sp2">
                         <label>Bank</label>
                         <select v-model.trim="bankOrNetwork" class="select w-full max-w-xs font-medium" style="border-radius: 30px; border: solid 1px #DCDEE5; padding: 0 25px; height: 55px; outline: none;" >
-                            <option>First bank</option>
-                            <option>First bank</option>
+                            <option v-for="bank in banks">{{ bank }}</option>
                             <option>Other</option>
                         </select>
-                        <input v-show="other" type="text" name="fname" id="" placeholder="Bank name" />
+                        <input v-model.trim="otherBank" v-show="other" type="text" name="fname" id="" placeholder="Bank name" />
                         <span v-show="other" class="text-xs ml-4 p-0 text-[#2F67FA]">This will take longer to process</span>
                     </span>
                 </span>
@@ -23,7 +22,7 @@
                 <span class="spq">
                     <span class="sp sp2">
                         <label htmlFor="fname">Account number</label>
-                        <input v-model.trim="accountOrAddress" type="text" name="fname" id="" placeholder="Account number" />
+                        <input v-model.trim="accountOrAddress" type="number" name="fname" id="" placeholder="Account number" />
                     </span>
                 </span>
 
@@ -104,6 +103,28 @@ const isCrypto = computed(() => crypto.includes(exchange.from_currency))
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
 
+const banks = ref([])
+const banksRes = await useFetch(
+    `${config.public.baseURL}/wallets/accounts/banks/`,
+    {
+        'method': 'get',
+        onRequest({ request, options }) {
+            options.headers = options.headers || {}
+            options.headers.authorization = `Bearer ${token}`
+        },
+        onResponse({ request, response, options }) {
+            banks.value = response._data.data
+        }
+    }
+)
+const otherBank = ref('')
+const bank = computed(() => {
+    if (bankOrNetwork.value == "Other") {
+        return otherBank.value
+    } else {
+        return bankOrNetwork
+    }
+})
 const createAccount = () => {
     const res = useFetch(
         `${config.public.baseURL}/wallets/accounts/`,
@@ -113,7 +134,7 @@ const createAccount = () => {
                 "account_type": currencyType.value.charAt(0).toUpperCase() + currencyType.value.slice(1),
                 "currency": exchange.from_currency,
                 "holder_name": holderName.value,
-                "bank_or_network": bankOrNetwork.value,
+                "bank_or_network": bank.value,
                 "number_or_address": accountOrAddress.value
             },
             onRequest({ request, options }) {

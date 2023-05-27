@@ -7,7 +7,7 @@
             <div class='sp'>
                 <a to='/blog_index' class='link'>Our blog</a>
                 <a to='/contactus' class='link'>Contact us</a>
-                <a to="/seller_up" class='link'>Become a seller</a>
+                <!-- <a to="/seller_up" class='link'>Become a seller</a> -->
                 <a to='' class='link'>P2P marketplace</a>
             </div>
             <div class="user">

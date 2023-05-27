@@ -92,7 +92,7 @@ const token = useAuthStore().$state.access
                         currencies with 3 simple steps. </p>
                     <span class='links'>
                         <NuxtLink to="/signup" class='a1'>Get Started</NuxtLink>
-                        <NuxtLink to="/identity" class='a2'>Buy/Sell Currency
+                        <NuxtLink to="/p2p" class='a2'>Buy/Sell Currency
                             <Icon name="fa6-solid:angle-right" class="material-icons" />
                         </NuxtLink>
                     </span>

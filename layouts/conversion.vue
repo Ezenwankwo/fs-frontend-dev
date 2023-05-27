@@ -64,19 +64,19 @@
                         <ul>
                             <li class="last">
                                 <span>
-                                    <i class="material-icons-outlined"></i>
+                                    <i class="material-icons-outlined"><Icon name="solar:folder-line-duotone" /></i>
                                 </span>
                                 <p>Review amount </p>
                             </li>
                             <li class="last">
                                 <span>
-                                    <i class="material-icons-outlined"></i>
+                                    <i class="material-icons-outlined"><Icon name="bi:bank" /></i>
                                 </span>
                                 <p>Bank details </p>
                             </li>
                             <li class="last">
                                 <span>
-                                    <i class="material-icons-outlined"></i>
+                                    <i class="material-icons-outlined"><Icon name="majesticons:money-line" /></i>
                                 </span>
                                 <p>Confirm payment </p>
                             </li>

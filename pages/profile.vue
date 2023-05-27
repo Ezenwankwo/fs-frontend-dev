@@ -110,11 +110,11 @@
 
 <script setup>
 import { useAuthStore } from '~~/store/auth'
-import {initFlowbite}  from 'flowbite'
+// import {initFlowbite}  from 'flowbite'
 
-onMounted(() => {
-	initFlowbite()
-})
+// onMounted(() => {
+// 	initFlowbite()
+// })
 
 </script>
 <style scoped>

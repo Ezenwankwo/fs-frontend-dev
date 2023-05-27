@@ -5,7 +5,7 @@
         <div class='sp'>
             <a to='/blog_index' class='link no-underline'>Our blog</a>
             <a to='/contactus' class='link no-underline'>Contact us</a>
-            <NuxtLink to="/identity" class='link no-underline'>Become a seller</NuxtLink>
+            <!-- <NuxtLink to="/identity" class='link no-underline'>Become a seller</NuxtLink> -->
             <NuxtLink to='p2p' class='link no-underline'>P2P marketplace</NuxtLink>
         </div>
         <span class='log'>
