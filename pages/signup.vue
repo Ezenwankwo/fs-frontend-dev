@@ -36,6 +36,7 @@ export default {
                     }
                 )
                 this.$router.push('/verification')
+                localStorage.setItem("email", this.email)
             } else {
                 useNotification().toast.error(res.error.value.data.message)
             }

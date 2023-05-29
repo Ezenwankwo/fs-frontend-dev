@@ -74,10 +74,11 @@
           ><a class="link" href="/seller_up">Become a seller</a
           ><a class="link" href="/P2PIndex">P2P marketplace</a>
         </div>
-        <span class="log"
-          ><a class="link login" href="/login">Login</a
-          ><NuxtLink class="link signup">Get Started</NuxtLink></span
-        ><i class="i ii material-icons" id="i"
+        <span class="log">
+          <NuxtLink class="link login" to="/login">Login</NuxtLink>
+          <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
+        </span>
+        <i class="i ii material-icons" id="i"
           ><Icon name="ic:baseline-menu"
         /></i>
       </nav>
@@ -89,9 +90,9 @@
             Creating seamless exchange procedure for everyone. Buy, sell, save,
             trade and exchange fiat currencies with 3 simple steps.
           </p>
-          <span class="links"
-            ><NuxtLink class="a1">Get Started</NuxtLink
-            ><NuxtLink class="a2"
+          <span class="links">
+            <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
+            <NuxtLink class="a2"
               >Buy/Sell Currency
               <i class="material-icons"
                 ><Icon name="ic:round-chevron-right" /></i></NuxtLink
@@ -1352,6 +1353,7 @@ footer {
   color: #1f1f1f;
   font-size: 16px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .sp .link:hover {
