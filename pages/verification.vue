@@ -137,7 +137,6 @@ export default {
 			}, 1000)
       if(localStorage.getItem("email")) {
 				this.email = this.alterEmail(localStorage.getItem("email"))
-      	console.log(this.email)
 			}
 		}
 }
@@ -150,7 +149,7 @@ export default {
             <p class="t1">Verify Email</p>
             <p class="t2">Fill in your details to continue</p>
             <p class="to">
-                Kindly enter the 6-digit code sent to your email <br /><span class='ap'> {{ this.email }}</span>
+                Kindly enter the 6-digit code sent to your email <br /><span class='ap'> {{ email }}</span>
             </p>
             <form class='form2' @submit.prevent="verifyOTP">
                 <span class="ct">
