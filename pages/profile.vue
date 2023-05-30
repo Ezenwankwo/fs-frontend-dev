@@ -71,21 +71,21 @@
                 <div class="crds">
                     <div class="crd">
                         <a class='a'>
-                            <img src="" alt="" />
+                            <Icon name="tabler:wallet" class="text-4xl" />
                             <span class="sp">
                                 <p>Wallet</p>
                                 <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
                             </span>
                         </a>
                         <a class='a'>
-                            <img src="" alt="" />
+                            <Icon name="ic:round-currency-exchange" class="text-4xl" />
                             <span class="sp">
                                 <p>Transactions</p>
                                 <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
                             </span>
                         </a>
                         <a class='a'>
-                            <img src="" alt="" />
+                            <img src="~/assets/tag.svg" alt="" />
                             <span class="sp">
                                 <p>Ad list</p>
                                 <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
