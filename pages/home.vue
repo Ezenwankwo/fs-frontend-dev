@@ -1,6 +1,5 @@
 <template>
-  <ClientOnly>
-    <div>
+  <div>
     <header class="home_main">
       <nav class="nav-fixed">
         <div class="sidebar" id="sidebar">
@@ -15,28 +14,28 @@
               </header>
               <div class="nav_items">
                 <span class="sp">
-                  <a class="a" href="javascript:void(0)"
+                  <a class="a" href="/"
                     >Home <i class="material-icons">navigate_next</i></a
                   > </span
                 ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
+                  <a class="a" href="/blog_index"
                     >Our blog <i class="material-icons">navigate_next</i></a
                   ></span
                 ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
+                  <a class="a" href="/seller_up"
                     >Become a seller
                     <i class="material-icons">navigate_next</i></a
                   ></span
                 ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
+                  <a class="a" href="/"
                     >P2P marketplace<i class="material-icons"
                       >navigate_next</i
                     ></a
                   ></span
                 ><span class="sp">
-                  <a class="a" href="javascript:void(0)">Contact us</a></span
+                  <a class="a" href="/contactus">Contact us</a></span
                 ><span class="sp">
-                  <a class="a" href="javascript:void(0)">All currency listings</a></span
+                  <a class="a" href="/listings">All currency listings</a></span
                 >
                 <div class="st">
                   <span class="sp1"
@@ -55,30 +54,29 @@
                 </div>
               </div>
               <div class="in">
-                <NuxtLink class="a" to="/login">
-                  Sign in
-                  <i class="material-icons">
-                    <Icon name="ic:round-chevron-right" /></i>
-                </NuxtLink>
+                <a class="a" href="/login"
+                  >Sign in
+                  <i class="material-icons"
+                    ><Icon name="ic:round-chevron-right" /></i
+                ></a>
               </div>
             </div>
             <div class="products"></div>
           </div>
         </div>
         <a class="logo_a" href="/">
-          <img src="~/assets/logo.png " alt="wame" class="logo" />
-        </a>
+          <img src="~/assets/logo.png " alt="wame" class="logo"
+        /></a>
         <div class="sp">
           <a class="link" href="/blog_index">Our blog</a
           ><a class="link" href="/contactus">Contact us</a
           ><a class="link" href="/seller_up">Become a seller</a
           ><a class="link" href="/P2PIndex">P2P marketplace</a>
         </div>
-        <span class="log">
-          <NuxtLink class="link login" to="/login">Login</NuxtLink>
-          <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
-        </span>
-        <i class="i ii material-icons" id="i"
+        <span class="log"
+          ><a class="link login" href="/login">Login</a
+          ><a class="link signup" href="/signup">Get Started</a></span
+        ><i class="i ii material-icons" id="i"
           ><Icon name="ic:baseline-menu"
         /></i>
       </nav>
@@ -90,12 +88,12 @@
             Creating seamless exchange procedure for everyone. Buy, sell, save,
             trade and exchange fiat currencies with 3 simple steps.
           </p>
-          <span class="links">
-            <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
-            <NuxtLink class="a2"
+          <span class="links"
+            ><a class="a1" href="/signup">Get Started</a
+            ><a class="a2" href="/P2PIndex"
               >Buy/Sell Currency
               <i class="material-icons"
-                ><Icon name="ic:round-chevron-right" /></i></NuxtLink
+                ><Icon name="ic:round-chevron-right" /></i></a
           ></span>
         </div>
         <div class="div div2">
@@ -298,7 +296,7 @@
                 </span>
               </div>
               <p class="conv">1 BTC = 16582.3 USD</p>
-              <NuxtLink type="submit" class="btn">Convert Currency</NuxtLink>
+              <a type="submit" class="btn" href="/signup">Convert Currency</a>
             </form>
           </div>
         </div>
@@ -360,7 +358,7 @@
               </p></span
             ></span
           ><span class="links"
-            ><NuxtLink class="a1">Get Started</NuxtLink
+            ><a class="a1" href="/signup">Get Started</a
             ><a href="" class="a2"
               >Start trading
               <i class="material-icons"
@@ -395,33 +393,12 @@
         <div class="wame">
           <div class="items">
             <div class="lists top_lists">
-              <p class="c c1"><span>Currency</span></p
-              ><p class="c c2"><span>Price</span></p
-              ><p class="c c3"><span>Change</span></p
-              ><p class="c c4"> </p>
+              <span class="c c1"><p>Currency</p></span
+              ><span class="c c2"><p>Price</p></span
+              ><span class="c c3"><p>Change</p></span
+              ><span class="c c4"> </span>
             </div>
-            <!-- <div class="lists" v-for="curr in currChange" :key="curr">
-              <p class="c c1">
-                <img src="~/assets/country_img1.svg" alt="" />
-                <a class="ct2">
-                  <h4>{{ curr.name }}</h4>
-                  <span>{{ curr.abbv }}</span>
-                </a>
-              </p>
-              <p class="c c2">
-                <a class="price" href="javascript:void(0)"><span class="N">{{ curr.price }}</span></a>
-              </p>
-              <p class="c c3">
-                <span class="perct">{{ curr.change }}</span>
-              </p>
-              <p class="c c4">
-                <NuxtLink to="/signup">
-                  <span>Buy/Sell</span>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </p>
-            </div> -->
-            <NuxtLink class="lists"
+            <a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/country_img1.svg" alt="" />
                 <span class="ct2"
@@ -429,16 +406,21 @@
                   <p>USD</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 730</span></p></span
+                ><p class="price"><span class="N">N 730</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
               <span class="c c4">
-                <NuxtLink to="/signup">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
+                </a>
               </span>
-              </NuxtLink>
-              <NuxtLink class="lists"
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> --> </a
+            ><a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/country_img2.svg" alt="" />
                 <span class="ct2"
@@ -446,16 +428,21 @@
                   <p>GBP</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦</span> 905</p></span
+                ><p class="price"><span class="N">N</span> 905</p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div> 
-              </NuxtLink>
-              <NuxtLink class="lists"
+                </a>
+              </span>
+              <!-- <span class="c c4">
+                <a href="/signup">
+                  <p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i>
+                </a>
+              </span> --> </a
+            ><a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/nigeria.png" alt="" class="rounded-full" />
                 <span class="ct2"
@@ -463,16 +450,21 @@
                   <p>NGN</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 745</span></p></span
+                ><p class="price"><span class="N">N 745</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div> 
-              </NuxtLink>
-              <NuxtLink class="lists"
+                </a>
+              </span>
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> --> </a
+            ><a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/country_img4.svg" alt="" />
                 <span class="ct2"
@@ -480,16 +472,22 @@
                   <p>ETH</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 730</span></p></span
+                ><p class="price"><span class="N">N 730</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink class="lists"
+                </a>
+              </span>
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> -->
+            </a>
+            <a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/country_img5.svg" alt="" />
                 <span class="ct2"
@@ -497,15 +495,21 @@
                   <p>USDT</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 730</span></p></span
+                ><p class="price"><span class="N">N 730</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
+                </a>
+              </span>
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> -->
+            </a>
           </div>
           <div class="items">
             <div class="lists top_lists top_lists2">
@@ -513,7 +517,7 @@
               ><span class="c c2"><p>Price</p></span
               ><span class="c c3"><p>Change</p></span>
             </div>
-            <NuxtLink class="lists"
+            <a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/country_img3.svg" alt="" />
                 <span class="ct2"
@@ -521,16 +525,21 @@
                   <p>EUR</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 745</span></p></span
+                ><p class="price"><span class="N">N</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div> 
-              </NuxtLink>
-            <NuxtLink class="lists"
+                </a>
+              </span>
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> --> </a
+            ><a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
                 <span class="ct2"
@@ -538,16 +547,21 @@
                   <p>BNB</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 905</span></p></span
+                ><p class="price"><span class="N">N 905</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
+                </a>
+              </span>
+              <!-- <span class="c c4"
+                ><a href="/signup"
+                  ><p>Buy/Sell</p>
+                  <i class="material-icons"><Icon name="ic:round-chevron-right" /></i></a
+                >
+              </span> --> </a
+            ><a class="lists" href="/signup"
               ><span class="c c1"
                 ><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
                 <span class="ct2"
@@ -555,16 +569,16 @@
                   <p>LTC</p></span
                 ></span
               ><span class="c c2"
-                ><p class="price"><span class="N">₦ 745</span></p></span
+                ><p class="price"><span class="N">N 745</span></p></span
               ><span class="c c3"><p class="perct">+0.87%</p></span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink to="/signup" class="lists">
+                </a>
+              </span>
+            </a>
+            <a to="/signup" class="lists">
               <span class="c c1"
                 ><img src="~/assets/country_img5.svg" alt="" />
                 <span class="ct2">
@@ -580,14 +594,14 @@
               <span class="c c3">
                 <p class="perct">+0.87%</p>
               </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink to="/signup" class="lists">
+                </a>
+              </span>
+            </a>
+            <a to="/signup" class="lists">
               <span class="c c1"
                 ><img src="~/assets/country_img5.svg" alt="" />
                 <span class="ct2">
@@ -603,13 +617,13 @@
               <span class="c c3">
                 <p class="perct">+0.87%</p>
               </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
+              <span class="c c4">
+                <a to="/signup" href="">
                   <p>Buy/Sell</p>
                   <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
+                </a>
+              </span>
+            </a>
           </div>
         </div>
         <div class="see">
@@ -1005,12 +1019,13 @@
           ></a>
         </div>
         <div class="content">
-          <a href="/blog_index">
-            <!-- <div
+          <a href="/blog_index"
+            ><div
               class="img"
-              style="background-image: url('~/assets/img1.jpg');"
-            ></div> -->
-            <img src="~/assets/img1.jpg" alt="">
+              style="
+                background-image: url('/static/media/blg_img.d7fd0437ffb8fc513cfd69e4bd8ae41f.svg');
+              "
+            ></div>
             <p class="t1">CBN on Digital Asset Tax</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
@@ -1022,14 +1037,12 @@
                 ><Icon name="ic:round-chevron-right"
               /></i></p></a
           ><a href="/blog_index"
-            >
-            <!-- <div
+            ><div
               class="img"
               style="
-                background-image: url('~/assets/img2.jpg');
+                background-image: url('/static/media/blg_img2.81c0824e8c0240b33194898b137ff6e3.svg');
               "
-            ></div> -->
-            <img src="~/assets/img2.jpg" alt="">
+            ></div>
             <p class="t1">Future of Gold and Silver</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
@@ -1041,15 +1054,13 @@
                 ><Icon name="ic:round-chevron-right"
               /></i></p></a
           ><a href="/blog_index"
-            >
-            <!-- <div
+            ><div
               class="img"
               style="
-                background-image: url('~/assets/img3.jpg');
+                background-image: url('/static/media/blg_img3.e8ac467a4a1918c1ad31eb9480b6b3c4.svg');
               "
-            ></div> -->
-            <img src="~/assets/img3.jpg" alt="">
-            <p class="t1">Impact of Emmigration on Currency</p>
+            ></div>
+            <p class="t1">Impact of Emmigration on Currencyfkgfkg</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
               marketplace Create or...
@@ -1064,19 +1075,19 @@
       </section>
       <section class="section9">
         <div class="back">
-          <!-- <img
+          <img
             src="/static/media/big_logo.2262ec201d33c61112541fa86399cdfe.svg"
             alt=""
           /><img
             src="/static/media/big_logo.2262ec201d33c61112541fa86399cdfe.svg"
             alt=""
             class="img2"
-          /> -->
+          />
         </div>
         <div class="text">
           <p class="t1">Ready to join the train?</p>
           <p class="t2">One - liner body text comes here</p>
-          <NuxtLink>Create a free account</NuxtLink>
+          <a href="/signup">Create a free account</a>
         </div>
       </section>
     </div>
@@ -1145,7 +1156,6 @@
       title="Twitter analytics iframe"
     ></iframe>
   </div>
-  </ClientOnly>
 </template>
 
 <script setup>
@@ -1222,15 +1232,7 @@ const faqs = ref([
 const toggleAccordion = (index) => {
   faqs.value.map((faq, i) => (i !== index ? (faq.isOpen = false) : true));
   faqs.value[index].isOpen = !faqs.value[index].isOpen;
-}
-
-const currChange = ref([
-  { name: "Dollar", abbv: "USD", src: "~/assets/country_img1.svg", price: "₦ 730", change: "+0.87%"},
-  { name: "Pounds", abbv: "GBP", src: "~/assets/country_img2.svg", price: "₦ 905", change: "+0.87%"},
-  { name: "Naira", abbv: "NGN", src: "~/assets/nigeria.png", price: "₦ 745", change: "+0.87%"},
-  { name: "Ethereum", abbv: "ETH", src: "~/assets/country_img4.svg", price: "₦ 730", change: "+0.87%"},
-  { name: "USDT", abbv: "USDT", src: "~/assets/country_img5.svg", price: "₦ 730", change: "+0.87%"},
-])
+};
 
 onMounted(async () => {
   await nextTick(async () => {
@@ -1298,13 +1300,12 @@ onMounted(async () => {
   letter-spacing: 0px;
   transition: 300ms;
   -webkit-tap-highlight-color: transparent;
-  /* background-color: white; */
 }
 
 nav {
   /* background: #fff; */
   z-index: 1;
-  width: 100vw;
+  width: 100%;
   /* border-bottom: solid 1px silver; */
   display: flex;
   justify-content: left;
@@ -1313,7 +1314,7 @@ nav {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 5px -1px 12px -5px grey;
-  /* height: 85px; */
+  height: 85px;
   /* top: 0;  */
   /* z-index: 2; */
   /* overflow: hidden; */
@@ -1323,17 +1324,12 @@ nav {
   /* margin: 0 auto; */
   justify-self: center;
 }
-.home_main {
-  background-image: url("~/assets/Rectangle 3.jpg");
-}
+
 header section .div1 .txt1 {
   font-family: "lora", sans-serif;
   font-weight: 700;
   font-size: 12px;
   color: #890620;
-}
-footer {
-  padding: 0 20px;
 }
 
 .logo {
@@ -1353,7 +1349,6 @@ footer {
   color: #1f1f1f;
   font-size: 16px;
   font-weight: 400;
-  cursor: pointer;
 }
 
 .sp .link:hover {
@@ -1460,7 +1455,7 @@ header {
   align-items: flex-start;
   justify-content: flex-start;
   height: fit-content;
-  /* background-image: url(/src/Assets/Components/images/back_pic.svg); */
+  background-image: url(/src/Assets/Components/images/back_pic.svg);
 }
 
 header section {
@@ -1722,7 +1717,6 @@ header .div3 svg {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: white;
 }
 
 .Main section {
@@ -2561,7 +2555,6 @@ header .div3 svg {
   justify-content: center;
   background: #ebf0ff;
   position: relative;
-  background-image: url("~/assets/image.jpg");
 }
 
 .Main .section9 .back {

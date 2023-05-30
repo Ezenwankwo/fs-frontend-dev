@@ -74,21 +74,21 @@
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Wallet</p>
-                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
+                                <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
                             </span>
                         </a>
                         <a class='a'>
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Transactions</p>
-                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
+                                <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
                             </span>
                         </a>
                         <a class='a'>
                             <img src="" alt="" />
                             <span class="sp">
                                 <p>Ad list</p>
-                                <i class='material-icons'><Icon name="arrow_forward_ios" /></i>
+                                <i class='material-icons'><Icon name="ic:round-chevron-right" /></i>
                             </span>
                         </a>
                     </div>

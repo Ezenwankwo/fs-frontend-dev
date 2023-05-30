@@ -22,8 +22,13 @@
                             <p class="usermail">maverick.eth@gmail.com</p>
                         </div>
                         <div class="userimage">
-                            <button class="flex" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><Icon name="ic:baseline-menu" class="text-xl" /></button>
-                            <div class="img"></div>
+													<button class="flex" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click">
+														<i class="i material-icons" id="i"><Icon name="ic:baseline-menu" /></i>
+													</button>
+													<button class="flex" data-dropdown-toggle="profile_modal" data-dropdown-trigger="click">
+														<i class="ic material-icons" id="i"><Icon name="ic:baseline-menu" class="text-2xl" /></i>
+													</button>
+													
                         </div>
                         <!-- <i class="material-icons-outlined dwn"><Icon name="arrow_forward_ios" /></i> -->
                     </div>
@@ -38,7 +43,7 @@
                 </div>
 
             </div>
-            <button data-dropdown-toggle="profile_modal" data-dropdown-trigger="click"><i class="i ii material-icons" id='i'><Icon name="ic:baseline-menu" /></i></button>
+            <button data-dropdown-toggle="profile_modal" data-dropdown-trigger="click" class="sm:hidden"><i class="i ii material-icons" id='i'><Icon name="ic:baseline-menu" /></i></button>
             <!--{/* <i class="x ii material-icons" id='x'>close</i> */}-->
         </nav>
     </header>
@@ -119,8 +124,9 @@
 } */
 
 .i {
-    display: none !important;
-    /* border: solid; */
+    /* display: none !important;
+    border: solid; */
+    color: white;
 }
 
 .x {
@@ -254,7 +260,9 @@ nav .user .userimage {
     height: 42px;
     border-radius: 100%;
     margin-left: 20px;
-    background-color: rgba(0, 0, 0, 0.07);
+    /* background-color: rgba(0, 0, 0, 0.07); */
+		background-color: #2F67FA;
+		color: white;
     position: relative;
     display: flex;
     align-items: center;
@@ -262,6 +270,7 @@ nav .user .userimage {
     overflow: hidden;
     cursor: pointer;
 }
+
 
 nav .user .userimage .me {
 	display: flex;
@@ -312,12 +321,20 @@ nav .user .dwn {
         padding: 0 5%;
         border: solid;
     } */
+		i {
+			color: white;
+			display: block;
+		}
 }
 
 @media screen and (max-width: 1100px) {
     nav {
         padding: 0 5%;
     }
+		i {
+			color: white;
+			display: block;
+		}
 }
 
 @media screen and (max-width: 1000px) {
@@ -336,9 +353,13 @@ nav .user .dwn {
 
 
     .i {
-        color: #2F67FA;
+        /* color: #2F67FA; */
+				color: white;
         display: flex !important;
     }
+		.ic {
+			display: none;
+		}
 
     nav .user .dwn {
         margin-left: 8px;

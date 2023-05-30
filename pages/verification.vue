@@ -10,6 +10,20 @@ export default {
             fourth: "",
             fifth: "",
             sixth: "",
+            otpError: "",
+            inputField: {
+              first: "",
+              second: "",
+              third: "",
+              fourth: "",
+              fifth: "",
+              sixth: "",
+            },
+						timer: 90,
+						minutes: 1,
+						seconds: 30,
+						interval: "",
+            email: ""
         }
     },
     methods: {
@@ -58,6 +72,48 @@ export default {
                 useNotification().toast.error(res.error.value.data.message)
             }
         },
+        async changeFocus(value) {
+					this.otpError = ''
+					var inputElement = document.querySelectorAll('#input-o')
+					var i = 0
+					for(const input in this.inputField) {
+						if(input === value) {
+							if(this.inputField[input].length === 1 && i === 5) {
+								inputElement[i].blur()
+							}
+							else if(this.inputField[input].length === 1) {
+								inputElement[i].blur()
+								inputElement[i + 1].focus()
+							}
+						}
+						i += 1
+					}
+				},
+        alterEmail (val) {
+          var emailLength = val.split('@')[0].length
+          var companyName = val.split('@')[1]
+          var name = val.split('@')[0]
+          var userEmail = ''
+          var star = ''
+          if(emailLength <= 6) {
+            var initial = name.split('').slice(0, 1)
+            var end = name.split('').slice(-1)
+            var astericks = emailLength - 2
+            for(let i = 0; i < astericks; i++) {
+              star += '*'
+            }
+            userEmail = initial + star + end + '@' + companyName
+          } else {
+            var initial = name.split('').slice(0, 2).join('')
+            var end = name.split('').slice(-2).join('')
+            var astericks = emailLength - 4
+            for(let i = 0; i < astericks; i++) {
+              star += '*'
+            }
+            userEmail = initial + star + end + '@' + companyName
+          }
+          return userEmail
+        }
     },
     computed: {
         referringRoute() {
@@ -66,7 +122,23 @@ export default {
         // setUser() {
         //     return useAuthStore().$state.user;
         // }
-    }
+    },
+		mounted () {
+			this.interval = setInterval(() => {
+				if(this.timer === 0) clearInterval(this.interval)
+				else {
+          this.timer--
+          this.seconds--
+          if(this.seconds === -1) {
+            this.seconds = 59
+            this.minutes = this.minutes - 1 >= 0 ? this.minutes - 1 : 0
+          }
+        }
+			}, 1000)
+      if(localStorage.getItem("email")) {
+				this.email = this.alterEmail(localStorage.getItem("email"))
+			}
+		}
 }
 </script>
 
@@ -77,20 +149,20 @@ export default {
             <p class="t1">Verify Email</p>
             <p class="t2">Fill in your details to continue</p>
             <p class="to">
-                Kindly enter the 6-digit code sent to your email <br /><span class='ap'> gb********43@gmail.com</span>
+                Kindly enter the 6-digit code sent to your email <br /><span class='ap'> {{ email }}</span>
             </p>
             <form class='form2' @submit.prevent="verifyOTP">
                 <span class="ct">
-                    <input v-model.trim="first" type="number" maxlength="1" required />
-                    <input v-model.trim="second" type="number" maxlength="1" required />
-                    <input v-model.trim="third" type="number" maxlength="1" required />
-                    <input v-model.trim="fourth" type="number" maxlength="1" required />
-                    <input v-model.trim="fifth" type="number" maxlength="1" required />
-                    <input v-model.trim="sixth" type="number" maxlength="1" required />
+                   <input v-model="inputField.first" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('first')"/>
+                    <input v-model="inputField.second" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('second')"/>
+                    <input v-model="inputField.third" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('third')"/>
+                    <input v-model="inputField.fourth" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('fourth')" />
+                    <input v-model="inputField.fifth" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('fifth')"/>
+                    <input v-model="inputField.sixth" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('sixth')"/>
                 </span>
-                <p class="to to2">Expires in <span class='ap'> 00:34</span> </p>
+                <p class="to to2">Expires in <span class='ap'> {{ minutes }}:{{ seconds }}</span> </p>
                 <p class="to to2">Didn’t get the code?
-                    <a class='a' @click="resendOTP">Resend</a>
+                  <a class='a' @click="resendOTP" href="javascript:void(0)">Resend</a>
                 </p>
                 <button type='submit'>Proceed</button>
                 <p class="already">Remember Password?
