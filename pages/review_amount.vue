@@ -34,12 +34,12 @@
                         </select>
                     </div>
                 </div>
-                <p class='conv'>1 {{ fromCurrency }} = {{ rate }} {{ toCurrency }}</p>
+                <p class='conv'>1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}</p>
             </form>
 
             <div class="spq">
                 <div class="links">
-                    <NuxtLink to="/personal_information" class="a a1">Back</NuxtLink>
+                    <NuxtLink to="/" class="a a1">Back</NuxtLink>
                     <NuxtLink to="originating_account" class="a a2">Proceed</NuxtLink>
                 </div>
             </div>
@@ -74,6 +74,7 @@ const currenciesRes = await useFetch(
         }
     }
 )
+
 const getRate = () => {
     const res = useFetch(
         `${config.public.baseURL}/trades/converter/`,

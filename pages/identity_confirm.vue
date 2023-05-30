@@ -7,6 +7,26 @@
             <span class="spq">
                 <ul class="prof">
                     <li>
+                        <p class="p1">Phone number</p>
+                        <p class="p2">{{ phoneNumber }}</p>
+                    </li>
+                    <li>
+                        <p class="p1">Country of residence</p>
+                        <p class="p2">{{ countryResidence }}</p>
+                    </li>
+                    <li>
+                        <p class="p1">State/province/region</p>
+                        <p class="p2">{{ stateRegion }}</p>
+                    </li>
+                    <li>
+                        <p class="p1">Address</p>
+                        <p class="p2">{{ address }}</p>
+                    </li>
+                    <li>
+                        <p class="p1">Date of birth</p>
+                        <p class="p2">{{ dateOfBirth }}</p>
+                    </li>
+                    <li>
                         <p class="p1">ID Type</p>
                         <p class="p2">{{ idType }}</p>
                     </li>
@@ -53,9 +73,9 @@
 <script setup>
 import { useAuthStore } from '~~/store/auth';
 definePageMeta({
-    layout: "conversion",
+    layout: "auth",
 });
-
+// identity info
 const idType = ref(localStorage.getItem('idType'))
 const country = ref(localStorage.getItem('country'))
 const identity = ref(localStorage.getItem('identityFile'))
@@ -64,6 +84,15 @@ const identitySize = ref(localStorage.getItem('identitySize'))
 const selfie = ref(localStorage.getItem('selfieFile'))
 const selfieName = ref(localStorage.getItem('selfieName'))
 const selfieSize = ref(localStorage.getItem('selfieSize'))
+
+// personal info
+const firstName = ref(localStorage.getItem('firstName'))
+const lastName = ref(localStorage.getItem('lastName'))
+const phoneNumber = ref(localStorage.getItem('phoneNumber'))
+const dateOfBirth = ref(localStorage.getItem('dateOfBirth'))
+const address = ref(localStorage.getItem('address'))
+const countryResidence = ref(localStorage.getItem('countryResidence'))
+const stateRegion = ref(localStorage.getItem('stateRegion'))
 
 const config = useRuntimeConfig()
 const token = useAuthStore().$state.user.access
@@ -89,7 +118,35 @@ const createIdentity = () => {
     formData.append("identity_type", idType.value)
     formData.append("identity_image", dataURLtoFile(identity.value, identityName.value))
     formData.append("selfie", dataURLtoFile(selfie.value, selfieName.value))
-    const res = useFetch(
+
+    const informationRes = useFetch(
+        `${config.public.baseURL}/users/personal-informations/`,
+        {
+            'method': 'post',
+            'body': {
+                "country": countryResidence.value,
+                "first_name": firstName.value,
+                "last_name": lastName.value,
+                "phone_number": phoneNumber.value,
+                "date_of_birth": dateOfBirth.value,
+                "residential_address": address.value,
+                "region": stateRegion.value
+            },
+            onRequest({ request, options }) {
+                options.headers = options.headers || {}
+                options.headers.authorization = `Bearer ${token}`
+            },
+            onResponse({ request, response, options }) {
+                if (response.ok) {
+                    console.log("created personal information")
+                } else {
+                    useNotification().toast.error(response._data.message)
+                }
+            },
+        }
+    )
+
+    const identityRes = useFetch(
         `${config.public.baseURL}/users/identity-informations/`,
         {
             'method': 'post',
@@ -100,12 +157,13 @@ const createIdentity = () => {
             },
             onResponse({ request, response, options }) {
                 if (response.ok) {
-                    navigateTo('/identity_success')
+                    console.log("created identity info")
                 } else {
                     useNotification().toast.error(response._data.message)
                 }
             }
         }
     )
+    navigateTo('/identity_success')
 }
 </script>

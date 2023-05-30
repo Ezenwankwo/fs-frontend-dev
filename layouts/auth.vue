@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ConversionHeader />
+        <AuthHeader />
         <div class="cont">
             <!-- <div class="Close_auth" id="close_auth">
                 <div class="modal">
@@ -59,26 +59,32 @@
             <main class="Aumain">
                 <section class="section">
                     <div class="lists">
-                        <p class="p1">Convert Currency</p>
+                        <p class="p1">Become a seller</p>
                         <p class="p2">Create or accept offers at your preferred rate.</p>
                         <ul>
-                            <li class="last">
+                            <li class="">
                                 <span>
-                                    <i class="material-icons-outlined"><Icon name="solar:folder-line-duotone" /></i>
+                                    <i class="material-icons-outlined">
+                                        <Icon name="carbon:user-avatar" />
+                                    </i>
                                 </span>
-                                <p>Review amount </p>
+                                <p>Personal details <i class="material-icons ic">check</i></p>
+                            </li>
+                            <li class="">
+                                <span>
+                                    <i class="material-icons-outlined">
+                                        <Icon name="majesticons:money-line" />
+                                    </i>
+                                </span>
+                                <p>ID information</p>
                             </li>
                             <li class="last">
                                 <span>
-                                    <i class="material-icons-outlined"><Icon name="bi:bank" /></i>
+                                    <i class="material-icons-outlined">
+                                        <Icon name="solar:folder-line-duotone" />
+                                    </i>
                                 </span>
-                                <p>Bank details </p>
-                            </li>
-                            <li class="last">
-                                <span>
-                                    <i class="material-icons-outlined"><Icon name="majesticons:money-line" /></i>
-                                </span>
-                                <p>Confirm payment </p>
+                                <p>Preview </p>
                             </li>
                         </ul>
                     </div>
@@ -88,13 +94,11 @@
                             <slot />
 
                         </div>
-                        <p class="cl"><Icon name="bi:x-lg" /> Close</p>
                     </div>
 
 
-                </section>
+            </section>
 
-            </main>
-        </div>
+        </main>
     </div>
-</template>
+</div></template>

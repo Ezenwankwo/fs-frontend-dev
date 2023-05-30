@@ -68,7 +68,7 @@
 
             <span class="spq">
                 <div class="links">
-                    <NuxtLink to="/" class="a a1">Back</NuxtLink>
+                    <NuxtLink to="/personal_information" class="a a1">Back</NuxtLink>
                     <button type="submit" class="a a2">Save & continue</button>
                 </div>
             </span>
@@ -79,7 +79,7 @@
 
 <script setup>
 definePageMeta({
-    layout: "conversion",
+    layout: "auth",
 });
 const config = useRuntimeConfig()
 const countries = ref([])

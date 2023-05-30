@@ -38,8 +38,12 @@
 
             <span class="spq">
                 <span class="sp">
-                    <label>Country</label>
-                    <input v-model.trim="country" type="text" placeholder="Select country" required />
+                    <label>Country of residence</label>
+                    <select v-model.trim="country" class="select w-full font-medium"
+                                style="border-radius: 30px; border: solid 1px #DCDEE5; padding: 0 25px; height: 55px; outline: none;"
+                                required>
+                                <option v-for="country in countries">{{ country }}</option>
+                            </select>
                 </span>
 
                 <span class="sp">
@@ -49,7 +53,7 @@
             </span>
 
             <div class="spq">
-                <p class="dt_info"><i class="material-icons-outlined">event_note</i> Ensure your name matches the name on
+                <p class="dt_info"><i class="material-icons-outlined"><Icon name="mdi:calendar-text" /></i> Ensure your name matches the name on
                     your ID card</p>
             </div>
 
@@ -69,10 +73,21 @@
 <script setup>
 import { useAuthStore } from '~~/store/auth';
 definePageMeta({
-    layout: "conversion",
+    layout: "auth",
 });
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
+
+const countries = ref([])
+const countriesRes = await useFetch(
+    `${config.public.baseURL}/users/countries/`,
+    {
+        'method': 'get',
+        onResponse({ request, response, options }) {
+            countries.value = response._data.data
+        },
+    },
+)
 
 const firstName = ref('')
 const lastName = ref('')
@@ -82,32 +97,13 @@ const address = ref('')
 const country = ref('')
 const stateRegion = ref('')
 const createPersonalInformation = () => {
-    const res = useFetch(
-        `${config.public.baseURL}/users/personal-informations/`,
-        {
-            'method': 'post',
-            'body': {
-                "country": country.value,
-                "first_name": firstName.value,
-                "last_name": lastName.value,
-                "phone_number": phoneNumber.value,
-                "date_of_birth": dateOfBirth.value,
-                "residential_address": address.value,
-                "region": stateRegion.value
-            },
-            onRequest({ request, options }) {
-                options.headers = options.headers || {}
-                options.headers.authorization = `Bearer ${token}`
-            },
-            onResponse({ request, response, options }) {
-                if (response.ok) {
-                    useAuthStore().setProfile(response._data.data)
-                    navigateTo('/review_amount')
-                } else {
-                    useNotification().toast.error(response._data.message)
-                }
-            },
-        }
-    )
+    localStorage.setItem("firstName", firstName.value)
+    localStorage.setItem("lastName", lastName.value)
+    localStorage.setItem("phoneNumber", phoneNumber.value)
+    localStorage.setItem("dateOfBirth", dateOfBirth.value)
+    localStorage.setItem("address", address.value)
+    localStorage.setItem("countryResidence", country.value)
+    localStorage.setItem("stateRegion", stateRegion.value)
+    navigateTo('/identity')
 }
 </script>
