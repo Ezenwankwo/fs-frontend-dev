@@ -1,6 +1,6 @@
 <template>
    <div>
-    <ConversionHeader />
+    <AuthHeader />
     <main class='Aumain'>
         <section class='section'>
             <div class="cnt">

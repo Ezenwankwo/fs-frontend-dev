@@ -17,7 +17,7 @@
                 <span class="spq">
                     <span class="sp sp2">
                         <label htmlFor="fname">Account number</label>
-                        <input v-model.trim="accountOrAddress" type="text" name="fname" id="" placeholder="Account number" />
+                        <input v-model.trim="accountOrAddress" type="number" name="fname" id="" placeholder="Account number" />
                     </span>
                 </span>
 
@@ -62,7 +62,7 @@
 
             <span class="spq">
                 <div class="links">
-                    <NuxtLink to="/review_amount" class="a a1">
+                    <NuxtLink to="/originating_account" class="a a1">
                         Back
                     </NuxtLink>
                     <NuxtLink class="a a2" @click="createAccount">
@@ -98,8 +98,9 @@ const isCrypto = computed(() => crypto.includes(exchange.to_currency))
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
 
+const originatingAccount = useConversionStore().$state.originatingAccount
 const createAccount = () => {
-    const res = useFetch(
+    const accountRes = useFetch(
         `${config.public.baseURL}/wallets/accounts/`,
         {
             'method': 'post',
@@ -117,9 +118,33 @@ const createAccount = () => {
             onResponse({ request, response, options }) {
                 if (response.ok) {
                     useConversionStore().setReceivingAccount(response._data.data)
-                    navigateTo('/escrow_account')
                 } else {
                     useNotification().toast.error(response._data.message)
+                }
+            }
+        }
+    )
+    const escrowRes = useFetch(
+        `${config.public.baseURL}/wallets/transactions/escrow-account/`,
+            {
+                'method': 'post',
+                'body': {
+                    "account_type": originatingAccount.account_type,
+                    "currency": originatingAccount.currency,
+                    "bank_or_network": originatingAccount.bank_or_network,
+                },
+            onRequest({ request, options }) {
+                options.headers = options.headers || {}
+                options.headers.authorization = `Bearer ${token}`
+            },
+            onResponse({ request, response, options }) {
+                console.log(response._data.message)
+                if (response.ok) {
+                    useConversionStore().setEscrowAccount(response._data.data)
+                    navigateTo('/escrow_account')
+                } else {
+                    // useNotification().toast.error(response._data.message)
+                    navigateTo('/processing')
                 }
             }
         }

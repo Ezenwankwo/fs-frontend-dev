@@ -145,7 +145,7 @@ export default {
 <template>
     <main>
         <section class="sectioni">
-            <img src="~/assets/logo.png" alt="" class="logo" />
+            <NuxtLink to="/"><img src="~/assets/logo.png" alt="" class="logo" /></NuxtLink>
             <p class="t1">Verify Email</p>
             <p class="t2">Fill in your details to continue</p>
             <p class="to">
@@ -153,7 +153,7 @@ export default {
             </p>
             <form class='form2' @submit.prevent="verifyOTP">
                 <span class="ct">
-                    <input v-model="inputField.first" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('first')"/>
+                   <input v-model="inputField.first" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('first')"/>
                     <input v-model="inputField.second" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('second')"/>
                     <input v-model="inputField.third" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('third')"/>
                     <input v-model="inputField.fourth" type="text" name="" id="input-o" maxlength="1" @keyup="changeFocus('fourth')" />
@@ -797,7 +797,6 @@ main .section2 div .role {
         border: 1.5px solid #DCDEE5;
         border-radius: 10px;
     }
-
 
     /* main{
        display: flex; flex-direction: column; justify-content: space-between; align-items: center;
