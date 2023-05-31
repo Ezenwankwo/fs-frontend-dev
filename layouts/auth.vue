@@ -62,29 +62,29 @@
                         <p class="p1">Become a seller</p>
                         <p class="p2">Create or accept offers at your preferred rate.</p>
                         <ul>
-                            <li class="">
+                            <li :class="{ active: current.personal_information }" @click="changeView('personal_information')">
                                 <span>
                                     <i class="material-icons-outlined">
                                         <Icon name="carbon:user-avatar" />
                                     </i>
                                 </span>
-                                <p>Personal details <i class="material-icons ic">check</i></p>
+                                <p>Personal details <Icon name="ic:round-check" class="relative pr-2 left-20 text-3xl" style="color: grey;" v-if="completed.personal_information"/></p>
                             </li>
-                            <li class="">
+                            <li :class="{ active: current.identity }" @click="changeView('identity')">
                                 <span>
                                     <i class="material-icons-outlined">
                                         <Icon name="majesticons:money-line" />
                                     </i>
                                 </span>
-                                <p>ID information</p>
+                                <p>ID information <Icon name="ic:round-check" class="relative pr-2 left-20 text-3xl" style="color: grey;" v-if="completed.identity"/></p>
                             </li>
-                            <li class="last">
+                            <li :class="{ active: current.identity_confirm }" @click="changeView('identity_confirm')">
                                 <span>
                                     <i class="material-icons-outlined">
                                         <Icon name="solar:folder-line-duotone" />
                                     </i>
                                 </span>
-                                <p>Preview </p>
+                                <p>Preview <Icon name="ic:round-check" class="relative ml-32 text-4xl" style="color: grey;" v-if="completed.identity"/></p>
                             </li>
                         </ul>
                     </div>
@@ -101,4 +101,38 @@
 
         </main>
     </div>
-</div></template>
+</div>
+</template>
+
+<script setup>
+const current = ref({
+	personal_information: true,
+	identity: false,
+	identity_confirm: false
+})
+const completed = ref({
+	personal_information: false,
+	identity: false,
+	identity_confirm: false
+})
+
+const changeView = (val) => {
+  Object.keys(completed.value).map((v) => completed.value[val] === true ? navigateTo('/' + val) : '')
+}
+
+watchEffect(() => {
+	const route = useRoute()
+	const path = route.path.replace('/', '')
+
+	Object.keys(current.value).map((curr) => curr === path ? current.value[curr] = true : current.value[curr] = false)
+
+	if(process.client) {
+		if(localStorage.getItem("firstName") && localStorage.getItem("lastName") && localStorage.getItem("phoneNumber") && localStorage.getItem("dateOfBirth") && localStorage.getItem("address") && localStorage.getItem("countryResidence") && localStorage.getItem("stateRegion")) {
+			completed.value.personal_information = true
+		}
+		if(localStorage.getItem("identityFile") && localStorage.getItem("identityName") && localStorage.getItem("identitySize") && localStorage.getItem("selfieFile") && localStorage.getItem("selfieName") && localStorage.getItem("selfieSize") && localStorage.getItem("idType") && localStorage.getItem("country")) {
+			completed.value.identity = true
+		}
+	}
+}, current.value)
+</script>
