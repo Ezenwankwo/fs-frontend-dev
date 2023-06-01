@@ -10,7 +10,7 @@
                     <label htmlFor="fname">Select ID type</label>
                     <!-- <input type="text" name="fname" id="" placeholder="International passport" /> -->
                     <select v-model="idType" class="select w-full max-w-xs font-medium" style="border-radius: 30px; border: solid 1px #DCDEE5; padding: 0 25px; height: 55px; outline: none;" required>
-                        <option v-for="item in idTypes">{{ item }}</option>
+                        <option v-for="item in idTypes" :key="item">{{ item }}</option>
                     </select>
                 </span>
             </span>
@@ -19,7 +19,7 @@
                     <label htmlFor="fname">Issuing country</label>
                     <!-- <input type="text" name="fname" id="" placeholder="Select country" /> -->
                     <select v-model="issuingCountry" class="select w-full max-w-xs font-medium" style="border-radius: 30px; border: solid 1px #DCDEE5; padding: 0 25px; height: 55px; outline: none;" required>
-                        <option v-for="item in countries">{{ item }}</option>
+                        <option v-for="item in countries" :key="item">{{ item }}</option>
                     </select>
                 </span>
             </span>
