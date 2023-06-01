@@ -27,6 +27,7 @@ const updateLayout = computed(() => {
 
 definePageMeta({
     layout: false,
+    middleware: ['auth',],
 });
 const moveTo = () => {
     if (referral.value === '/receiving_account') {

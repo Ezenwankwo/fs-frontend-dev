@@ -80,6 +80,7 @@
 <script setup>
 definePageMeta({
     layout: "auth",
+    middleware: ['auth',],
 });
 const config = useRuntimeConfig()
 const countries = ref([])

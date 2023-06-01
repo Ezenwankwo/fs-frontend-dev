@@ -74,6 +74,7 @@
 import { useAuthStore } from '~~/store/auth';
 definePageMeta({
     layout: "auth",
+    middleware: ['auth',],
 });
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()

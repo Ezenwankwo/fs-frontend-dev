@@ -54,6 +54,7 @@
 import { useConversionStore } from '~~/store/conversion';
 definePageMeta({
     layout: "conversion",
+    middleware: ['auth',],
 });
 
 const exchange = useConversionStore().$state.exchange

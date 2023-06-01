@@ -64,6 +64,7 @@ import { useConversionStore } from '~~/store/conversion';
 import { useAuthStore } from '~~/store/auth';
 definePageMeta({
     layout: "conversion",
+    middleware: ['auth',],
 });
 
 const referral = computed(() => useRouter().options.history.state.back)

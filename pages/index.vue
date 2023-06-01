@@ -298,7 +298,8 @@
                 </span>
               </div>
               <p class="conv">1 BTC = 16582.3 USD</p>
-              <NuxtLink type="submit" class="btn">Convert Currency</NuxtLink>
+              <NuxtLink v-if="token != ''" to="/review_amount" class="btn">Convert Currency</NuxtLink>
+              <NuxtLink v-else to="/signup" class="btn">Convert Currency</NuxtLink>
             </form>
           </div>
         </div>

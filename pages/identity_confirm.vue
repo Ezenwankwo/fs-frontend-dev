@@ -74,6 +74,7 @@
 import { useAuthStore } from '~~/store/auth';
 definePageMeta({
     layout: "auth",
+    middleware: ['auth',],
 });
 // identity info
 const idType = ref(localStorage.getItem('idType'))
