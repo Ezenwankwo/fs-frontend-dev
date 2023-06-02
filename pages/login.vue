@@ -25,7 +25,7 @@ export default {
                 useAuthStore().setUser(user)
                 useAuthStore().setToken(user.access)
                 useAuthStore().setUserID(user.public_id)
-                this.$router.push('/profile')
+                this.$router.push('/review_amount')
             } else {
                 useNotification().toast.error(res.error.value.data.message)
                 if (res.error.value.data.message == "Email not verified.") {

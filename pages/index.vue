@@ -46,10 +46,10 @@
         <a class="logo_a" href="/">
           <img src="~/assets/logo.png " alt="wame" class="logo" />
         </a>
-        <div class="sp">
+        <!-- <div class="sp">
           <a class="link" href="/blog_index">Our blog</a><a class="link" href="/contactus">Contact us</a><a class="link"
             href="/seller_up">Become a seller</a><a class="link" href="/P2PIndex">P2P marketplace</a>
-        </div>
+        </div> -->
         <span class="log">
           <NuxtLink class="link login" to="/login">Login</NuxtLink>
           <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
@@ -68,7 +68,7 @@
           </p>
           <span class="links">
             <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
-            <NuxtLink class="a2">Buy/Sell Currency
+            <NuxtLink class="a2" to="/review_amount">Convert Currency
               <i class="material-icons">
                 <Icon name="ic:round-chevron-right" />
               </i>
@@ -93,157 +93,11 @@
                     </option>
                   </select>
                 </span>
-                <!-- <div class="sp1">
-                  <p class="txt">Currency</p>
-                  <div class="bx">
-                    <div class="select-container">
-                      <div class="css-b62m3t-container">
-                        <span
-                          id="react-select-3-live-region"
-                          class="css-1f43avz-a11yText-A11yText"
-                        ></span
-                        ><span
-                          aria-live="polite"
-                          aria-atomic="false"
-                          aria-relevant="additions text"
-                          class="css-1f43avz-a11yText-A11yText"
-                        ></span>
-                        <div class="css-3762x6-control">
-                          <div class="css-1fdsijx-ValueContainer">
-                            <div
-                              class="css-g30hi1-placeholder"
-                              id="react-select-3-placeholder"
-                            >
-                              <div class="imgs_div2">
-                                <div class="im">
-                                  <img
-                                    src="~/assets/country_img1.svg"
-                                  />
-                                </div>
-                                <p class="p1">NGN</p>
-                              </div>
-                            </div>
-                            <input
-                              id="react-select-3-input"
-                              tabindex="0"
-                              inputmode="none"
-                              aria-autocomplete="list"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              role="combobox"
-                              aria-readonly="true"
-                              aria-describedby="react-select-3-placeholder"
-                              class="css-mohuvp-dummyInput-DummyInput"
-                              value=""
-                            />
-                          </div>
-                          <div class="css-1hb7zxy-IndicatorsContainer">
-                            <span class="css-1uei4ir-indicatorSeparator"></span>
-                            <div
-                              class="css-15kngga-indicatorContainer"
-                              aria-hidden="true"
-                            >
-                              <svg
-                                height="20"
-                                width="20"
-                                viewBox="0 0 20 20"
-                                aria-hidden="true"
-                                focusable="false"
-                                class="css-tj5bde-Svg"
-                              >
-                                <path
-                                  d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
               </div>
               <span class="icon">
                 <span class="line"></span>
                 <img src="~/assets/two-arrow.png" alt="wae" class="arrow_img" />
               </span>
-              <!-- <div class="spc">
-                <span class="spc1"
-                  ><p class="txt">To</p>
-                  <input
-                    type="number"
-                    placeholder="16,581,300"
-                    class="input" /></span
-                >
-                <span class="spc1"
-                  ><p class="txt">Currency</p>
-                  <div class="bx">
-                    <div class="select-container">
-                      <div class="css-b62m3t-container">
-                        <span
-                          id="react-select-5-live-region"
-                          class="css-1f43avz-a11yText-A11yText"
-                        ></span
-                        ><span
-                          aria-live="polite"
-                          aria-atomic="false"
-                          aria-relevant="additions text"
-                          class="css-1f43avz-a11yText-A11yText"
-                        ></span>
-                        <div class="css-3762x6-control">
-                          <div class="css-1fdsijx-ValueContainer">
-                            <div
-                              class="css-g30hi1-placeholder"
-                              id="react-select-5-placeholder"
-                            >
-                              <div class="imgs_div2">
-                                <div class="im">
-                                  <img
-                                    src="/static/media/country_image (6).a68778e3c272459248632f0772c06b8a.svg"
-                                  />
-                                </div>
-                                <p class="p1">NGN</p>
-                              </div>
-                            </div>
-                            <input
-                              id="react-select-5-input"
-                              tabindex="0"
-                              inputmode="none"
-                              aria-autocomplete="list"
-                              aria-expanded="false"
-                              aria-haspopup="true"
-                              role="combobox"
-                              aria-readonly="true"
-                              aria-describedby="react-select-5-placeholder"
-                              class="css-mohuvp-dummyInput-DummyInput"
-                              value=""
-                            />
-                          </div>
-                          <div class="css-1hb7zxy-IndicatorsContainer">
-                            <span class="css-1uei4ir-indicatorSeparator"></span>
-                            <div
-                              class="css-15kngga-indicatorContainer"
-                              aria-hidden="true"
-                            >
-                              <svg
-                                height="20"
-                                width="20"
-                                viewBox="0 0 20 20"
-                                aria-hidden="true"
-                                focusable="false"
-                                class="css-tj5bde-Svg"
-                              >
-                                <path
-                                  d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div></div
-                ></span>
-              </div> -->
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">To</p>
