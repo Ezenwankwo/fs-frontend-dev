@@ -83,7 +83,7 @@
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">I want to convert</p>
-                  <input v-model.trim="amount" type="number" placeholder="1,000" class="input" />
+                  <input v-model.trim="amount" type="number" placeholder="1,000" class="input" @keyup="getRate"/>
                 </span>
                 <span class="sp1">
                   <p class="txt">Currency</p>
@@ -173,32 +173,33 @@
           <path fill=" #0A1128" fill-opacity="1" d="M0,192L1440,64L1440,0L0,0Z"></path>
         </svg>
       </section>
-      <section class="section3">
-        <div class="top">
-          <span class="sp1">
-            <p class="t1">Currency Price Listings</p>
-            <p>
-              <Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
-            </p>
-          </span>
-          <form>
-            <select>
-              <option class="opt">Select Currency</option>
-              <option value="" v-for="currency in currencies" :key="currency">
-                {{ currency }}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div class="wame">
-          <div class="items">
-            <div class="lists top_lists">
-              <p class="c c1"><span>Currency</span></p>
-              <p class="c c2"><span>Price</span></p>
-              <p class="c c3"><span>Change</span></p>
-              <p class="c c4"> </p>
-            </div>
-            <!-- <div class="lists" v-for="curr in currChange" :key="curr">
+      <ClientOnly>
+        <section class="section3">
+          <div class="top">
+            <span class="sp1">
+              <p class="t1">Currency Price Listings</p>
+              <p>
+                <Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
+              </p>
+            </span>
+            <form>
+              <select>
+                <option class="opt">Select Currency</option>
+                <option value="" v-for="currency in currencies" :key="currency">
+                  {{ currency }}
+                </option>
+              </select>
+            </form>
+          </div>
+          <div class="wame">
+            <div class="items">
+              <div class="lists top_lists">
+                <p class="c c1"><span>Currency</span></p>
+                <p class="c c2"><span>Price</span></p>
+                <p class="c c3"><span>Change</span></p>
+                <p class="c c4"> </p>
+              </div>
+              <!-- <div class="lists" v-for="curr in currChange" :key="curr">
               <p class="c c1">
                 <img src="~/assets/country_img1.svg" alt="" />
                 <a class="ct2">
@@ -219,196 +220,197 @@
                 </NuxtLink>
               </p>
             </div> -->
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img1.svg" alt="" />
-                <span class="ct2">
-                  <h4>Dollar</h4>
-                  <p>USD</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 730</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <span class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </span>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img2.svg" alt="" />
-                <span class="ct2">
-                  <h4>Pounds</h4>
-                  <p>GBP</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦</span> 905</p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/nigeria.png" alt="" class="rounded-full" />
-                <span class="ct2">
-                  <h4>Naira</h4>
-                  <p>NGN</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 745</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img4.svg" alt="" />
-                <span class="ct2">
-                  <h4>Ethereum</h4>
-                  <p>ETH</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 730</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
-                <span class="ct2">
-                  <h4>USDT</h4>
-                  <p>USDT</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 730</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-          </div>
-          <div class="items">
-            <div class="lists top_lists top_lists2">
-              <span class="c c1">
-                <p>Currency</p>
-              </span><span class="c c2">
-                <p>Price</p>
-              </span><span class="c c3">
-                <p>Change</p>
-              </span>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img1.svg" alt="" />
+                  <span class="ct2">
+                    <h4>Dollar</h4>
+                    <p>USD</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <span class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </span>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img2.svg" alt="" />
+                  <span class="ct2">
+                    <h4>Pounds</h4>
+                    <p>GBP</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦</span> 905</p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/nigeria.png" alt="" class="rounded-full" />
+                  <span class="ct2">
+                    <h4>Naira</h4>
+                    <p>NGN</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img4.svg" alt="" />
+                  <span class="ct2">
+                    <h4>Ethereum</h4>
+                    <p>ETH</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+                  <span class="ct2">
+                    <h4>USDT</h4>
+                    <p>USDT</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
             </div>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img3.svg" alt="" />
-                <span class="ct2">
-                  <h4>Euro</h4>
-                  <p>EUR</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 745</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
+            <div class="items">
+              <div class="lists top_lists top_lists2">
+                <span class="c c1">
+                  <p>Currency</p>
+                </span><span class="c c2">
+                  <p>Price</p>
+                </span><span class="c c3">
+                  <p>Change</p>
+                </span>
               </div>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
-                <span class="ct2">
-                  <h4>BNB</h4>
-                  <p>BNB</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 905</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink class="lists"><span class="c c1"><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
-                <span class="ct2">
-                  <h4>Lite coin</h4>
-                  <p>LTC</p>
-                </span></span><span class="c c2">
-                <p class="price"><span class="N">₦ 745</span></p>
-              </span><span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink to="/signup" class="lists">
-              <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
-                <span class="ct2">
-                  <h4>USDT</h4>
-                  <p>USDT</p>
-                </span></span>
-              <span class="c c2">
-                <p class="price">
-                  <span class="N">₦ 730</span>
-                </p>
-              </span>
-              <span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
-            <NuxtLink to="/signup" class="lists">
-              <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
-                <span class="ct2">
-                  <h4>USDT</h4>
-                  <p>USDT</p>
-                </span></span>
-              <span class="c c2">
-                <p class="price">
-                  <span class="N">₦ 730</span>
-                </p>
-              </span>
-              <span class="c c3">
-                <p class="perct">+0.87%</p>
-              </span>
-              <div class="c c4">
-                <NuxtLink to="/signup">
-                  <p>Buy/Sell</p>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </div>
-            </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img3.svg" alt="" />
+                  <span class="ct2">
+                    <h4>Euro</h4>
+                    <p>EUR</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
+                  <span class="ct2">
+                    <h4>BNB</h4>
+                    <p>BNB</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 905</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
+                  <span class="ct2">
+                    <h4>Lite coin</h4>
+                    <p>LTC</p>
+                  </span></span><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p>
+                </span><span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink to="/signup" class="lists">
+                <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+                  <span class="ct2">
+                    <h4>USDT</h4>
+                    <p>USDT</p>
+                  </span></span>
+                <span class="c c2">
+                  <p class="price">
+                    <span class="N">₦ 730</span>
+                  </p>
+                </span>
+                <span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+              <NuxtLink to="/signup" class="lists">
+                <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+                  <span class="ct2">
+                    <h4>USDT</h4>
+                    <p>USDT</p>
+                  </span></span>
+                <span class="c c2">
+                  <p class="price">
+                    <span class="N">₦ 730</span>
+                  </p>
+                </span>
+                <span class="c c3">
+                  <p class="perct">+0.87%</p>
+                </span>
+                <div class="c c4">
+                  <NuxtLink to="/signup">
+                    <p>Buy/Sell</p>
+                    <Icon name="ic:round-chevron-right" />
+                  </NuxtLink>
+                </div>
+              </NuxtLink>
+            </div>
           </div>
-        </div>
-        <div class="see">
-          <a href="/listings">See all Listings
-            <i class="material-icons">
-              <Icon name="ic:round-chevron-right" />
-            </i></a>
-        </div>
-      </section>
+          <div class="see">
+            <a href="/listings">See all Listings
+              <i class="material-icons">
+                <Icon name="ic:round-chevron-right" />
+              </i></a>
+          </div>
+        </section>
+      </ClientOnly>
       <section class="section4">
         <p class="t1">3 EASY STEPS</p>
         <p class="t2">How It Works</p>
@@ -942,6 +944,15 @@ onMounted(async () => {
         },
       }
     );
+    const currenciesRes = await useFetch(
+      `${config.public.baseURL}/trades/currencies/`,
+      {
+        method: "get",
+        onResponse({ request, response, options }) {
+          currencies.value = response._data.data;
+        },
+      }
+    );
   });
 });
 const getRate = () => {
@@ -967,15 +978,6 @@ const getRate = () => {
     },
   });
 };
-const currenciesRes = await useFetch(
-  `${config.public.baseURL}/trades/currencies/`,
-  {
-    method: "get",
-    onResponse({ request, response, options }) {
-      currencies.value = response._data.data;
-    },
-  }
-);
 </script>
 
 <style scoped>
