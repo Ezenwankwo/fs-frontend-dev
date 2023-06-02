@@ -1015,7 +1015,7 @@ nav {
 }
 
 .home_main {
-  background-image: url("~/assets/Rectangle 3.jpg");
+  background-image: url("~/assets/Rectangle_3.jpg");
 }
 
 header section .div1 .txt1 {
