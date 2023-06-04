@@ -32,6 +32,9 @@
 <script setup>
 import { useConversionStore } from '~~/store/conversion';
 import { useAuthStore } from '~~/store/auth';
+definePageMeta({
+    middleware: ['auth',],
+});
 const token = useAuthStore().$state.user.access
 const config = useRuntimeConfig()
 const trade = useConversionStore().$state.trade

@@ -37,7 +37,7 @@ export default {
                     'body': {
                         action: 'verify',
                         email: email,
-                        otp: `${this.first}${this.second}${this.third}${this.fourth}${this.fifth}${this.sixth}`
+                        otp: `${this.inputField.first}${this.inputField.second}${this.inputField.third}${this.inputField.fourth}${this.inputField.fifth}${this.inputField.sixth}`
                     }
                 }
             )

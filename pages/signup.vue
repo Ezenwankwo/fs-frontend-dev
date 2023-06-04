@@ -48,7 +48,7 @@ export default {
 <template>
     <main>
         <section class="sectioni">
-            <img src="~/assets/logo.png" alt="" class="logo" />
+            <NuxtLink to="/"><img src="~/assets/logo.png" alt="" class="logo" /></NuxtLink>
             <p class="t1">Welcome, Let's get you onboard</p>
             <p class="t2">Fill in your email address to continue.</p>
             <form @submit.prevent="signupWithFinstack">
