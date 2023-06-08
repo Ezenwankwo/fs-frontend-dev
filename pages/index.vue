@@ -740,7 +740,7 @@
           <p class="tt2">Never stay out of the loop.</p>
           <form action="">
             <input type="email" name="" id="" placeholder="email@domain.co" /><button type="submit"><i
-                class="material-icons">east</i></button>
+                class="material-icons"><Icon name="bi:arrow-right" /></i></button>
           </form>
         </span>
       </div>
