@@ -83,11 +83,11 @@
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">I want to convert</p>
-                  <input v-model.trim="amount" type="number" placeholder="1,000" class="input" @keyup="getRate"/>
+                  <input v-model.trim="amount" type="number" placeholder="1,000" class="input bg-white" @keyup="getRate"/>
                 </span>
                 <span class="sp1">
                   <p class="txt">Currency</p>
-                  <select v-model.trim="fromCurrency" class="input select" @change="getRate">
+                  <select v-model.trim="fromCurrency" class="input select bg-white" @change="getRate">
                     <option v-for="item in currencies" :key="item" :value="item">
                       {{ item }}
                     </option>
@@ -113,8 +113,7 @@
                 </span>
               </div>
               <p class="conv">1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}</p>
-              <NuxtLink v-if="token != ''" to="/review_amount" class="btn">Convert Currency</NuxtLink>
-              <NuxtLink v-else to="/signup" class="btn">Convert Currency</NuxtLink>
+              <NuxtLink to="/review_amount" class="btn">Convert Currency</NuxtLink>
             </form>
           </div>
         </div>
@@ -602,7 +601,7 @@
         </svg>
       </section>
       <section class="section7" id="FAQ">
-        <div class="content">
+        <div class="content" data-accordion="collapse">
           <div class="sp">
             <div class="txt">
               <p class="t1">Frequently Asked Questions</p>
@@ -611,98 +610,33 @@
                 peer marketplace Create or accept offers.
               </p>
             </div>
-            <div class="scp" v-for="(faq, index) in faqs" :key="index" @click="toggleAccordion(index)">
-              <a class="top">{{ faq.question
-              }}<i class="material-icons">
-                  <Icon name="ic:baseline-keyboard-arrow-down" />
-                </i></a>
-              <div class="" v-show="faq.isOpen" style="padding: 20px; text-align: start">
-                <p class="text-start">{{ faq.answer }}</p>
-              </div>
-            </div>
-            <!-- <div class="scp">
+            <div class="scp" v-for="(data, index) in dataFaq" :key="index" @click="toggleAccordion(index)">
               <a class="top"
-                >How does Finstack really work?<i class="material-icons"
+                >{{ data.topic }}<i class="material-icons"
                   ><Icon name='ic:baseline-keyboard-arrow-down' /></i
                 ></a
               >
-              <div class="answer_none" id="oo">
+              <div class="collap" id="oo accordion-collapse-body-3" aria-labelledby="accordion-collapse-heading-3" v-show="data.isOpen">
                 <p class="det">
-                  Create or accept offers at your preferred rate on our Peer to
-                  peer marketplace Create or accept offers.Create or accept
-                  offers at your preferred rate on our Peer to peer marketplace
-                  Create or accept offers.1
+                  {{ data.content }}
                 </p>
               </div>
             </div>
-            <div class="scp">
-              <a class="top"
-                >How does Finstack really work?<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
-              <div class="answer_none" id="oo">
-                <p class="det">Create or a Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div> -->
           </div>
-          <!-- <div class="sp">
-            <div class="scp">
+          <div class="sp" id="collapser">
+            <div class="scp" v-for="(data, index) in faqData" :key="index" @click="toggle(index)">
               <a class="top"
-                >How does Finstack really work?<i class="material-icons"
+                >{{ data.tpc }}<i class="material-icons"
                   ><Icon name='ic:baseline-keyboard-arrow-down' /></i
                 ></a
               >
-              <div class="answer_none" id="oo">
-                <p class="det">Create or a Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
-            <div class="scp">
-              <a class="top"
-                >How does Finstack really work?<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
-              <div class="answer_none" id="oo">
+              <div class="collap" id="oo" v-show="data.isOpen">
                 <p class="det">
-                  Create or accept offers at your preferred rate on our Peer to
-                  peer marketplace Create or accept offers.Create or accept
-                  offers at your preferred rate on our Peer to peer marketplace
-                  Create or accept offers.1
+                  {{ data.cont }}
                 </p>
               </div>
             </div>
-            <div class="scp">
-              <a class="top"
-                >How does Finstack really work?<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
-              <div class="answer_none" id="oo">
-                <p class="det">Create or a Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
-            <div class="scp">
-              <a class="top"
-                >How does Finstack really work?<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
-              <div class="answer_none" id="oo">
-                <p class="det">Create or a Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
-            <div class="scp">
-              <a class="top"
-                >How does Finstack really work?<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
-              <div class="answer_none" id="oo">
-                <p class="det">Create or a Lorem ipsum dolor sit amet.</p>
-              </div>
-            </div>
-          </div> -->
+          </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path fill="#0A1128" fill-opacity="1" d="M0,160L1440,288L1440,320L0,320Z"></path>
@@ -783,14 +717,7 @@
       </section>
       <section class="section9">
         <div class="back">
-          <!-- <img
-            src="/static/media/big_logo.2262ec201d33c61112541fa86399cdfe.svg"
-            alt=""
-          /><img
-            src="/static/media/big_logo.2262ec201d33c61112541fa86399cdfe.svg"
-            alt=""
-            class="img2"
-          /> -->
+          
         </div>
         <div class="text">
           <p class="t1">Ready to join the train?</p>
@@ -818,12 +745,12 @@
         </span>
       </div>
       <div class="two">
-        <span class="sp1"><a href=""><i class="fa-brands fa-facebook"></i></a><a href=""><i class="fa fa-twitter"
-              aria-hidden="true"></i></a><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></span><span
-          class="sp2"><a href="">Terms and conditions</a><a href="">Privacy Policy</a><a href="">© All rights reserved.
+        <span class="sp1"><a href=""><i class="fa-brands fa-facebook"><Icon name="ic:round-facebook" /></i></a><a href=""><Icon name="mdi:twitter" /></a><a href=""><Icon name="mdi:instagram" /></a></span><span
+          class="sp2"><NuxtLink to="/terms">Terms and conditions</NuxtLink><NuxtLink to="/privacy">Privacy Policy</NuxtLink><a href="">© All rights reserved.
             Finstack 2022.</a></span>
       </div>
     </footer>
+
 
     <iframe scrolling="no" frameborder="0" allowtransparency="true"
       src="https://platform.twitter.com/widgets/widget_iframe.2b2d73daf636805223fb11d48f3e94f7.html?origin=http%3A%2F%2Flocalhost%3A3000"
@@ -842,6 +769,7 @@
 
 <script setup>
 import { useConversionStore } from "~~/store/conversion";
+
 definePageMeta({
   layout: "external",
 });
@@ -854,68 +782,6 @@ const rate = ref(0);
 const config = useRuntimeConfig();
 const currencies = ref([]);
 
-const faqs = ref([
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-  {
-    question: "How does Finstack really work?",
-    isOpen: false,
-    answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
-  },
-]);
-
-const toggleAccordion = (index) => {
-  faqs.value.map((faq, i) => (i !== index ? (faq.isOpen = false) : true));
-  faqs.value[index].isOpen = !faqs.value[index].isOpen;
-}
-
 const currChange = ref([
   { name: "Dollar", abbv: "USD", src: "~/assets/country_img1.svg", price: "₦ 730", change: "+0.87%" },
   { name: "Pounds", abbv: "GBP", src: "~/assets/country_img2.svg", price: "₦ 905", change: "+0.87%" },
@@ -923,6 +789,86 @@ const currChange = ref([
   { name: "Ethereum", abbv: "ETH", src: "~/assets/country_img4.svg", price: "₦ 730", change: "+0.87%" },
   { name: "USDT", abbv: "USDT", src: "~/assets/country_img5.svg", price: "₦ 730", change: "+0.87%" },
 ])
+
+const dataFaq = ref([
+{
+    topic: "What services does your platform offer?",
+    isOpen: false,
+    content:
+      "Our platform specializes in cryptocurrency exchange, gift card trading (coming soon) money conversion services. We provide a secure and user-friendly environment for buying, selling, and trading cryptocurrencies, as well as converting money between different fiat currencies and payment methods.",
+  },
+  {
+    topic: "How can I create an account on your platform? ",
+    isOpen: false,
+    content:
+      "To create an account, simply visit our website and click on the 'Sign Up' button. Fill in the required information, including your email address and password, and complete the registration process. Once registered, you can access all the features and functionalities of our platform.",
+  },
+  {
+    topic: "What currency and cryptocurrencies are available for trading on your platform?",
+    isOpen: false,
+    content:
+      "We offer US Dollar (USD), Euro (EUR), Great Britain Pounds (GBP), Chinese Yuan (CNY), Central African CFA Franc (XAF) West African CFA Franc (XOF) Canadian Dollars (CAD) United Arab Emirate Dirham (AED), Ghana Cedi (GHS), Bitcoin (BTC), Ethereum (ETH), US Dollar Tether (USDT), Ripple (XRP). Our platform continually adds new currency and cryptocurrencies to provide a diverse selection for our users.",
+  },
+  {
+    topic: "How can I trade/convert/exchange funds into my account?",
+    isOpen: false,
+    content:
+      "You can trade/convert/exchangt funds into your account using various payment methods, including bank transfers, credit/debit cards, and electronic wallets. Simply navigate to the 'Deposit' section of your account, choose your preferred payment method, and follow the provided instructions to initiate the deposit.",
+  },
+  {
+    topic: "How long does it take to process transactions on your platform?",
+    isOpen: false,
+    content:
+      "The processing time for transactions may vary depending on several factors, including blockchain confirmations (for cryptocurrency transactions), network congestion, and the verification process. In general, transactions are processed within minutes to a few hours. However, please note that under certain circumstances, additional time may be required to ensure the security and accuracy of the transaction.",
+  },
+])
+
+const faqData = ref([
+{
+    tpc: "Are there any transaction fees associated with using your platform? ",
+    isOpen: false,
+    cont:
+      "Yes, our platform charges transaction fees, which may vary depending on the type of transaction, currency pair, and other factors. The applicable fees are transparently displayed during the transaction process, allowing you to review and confirm them before completing the transaction.",
+  },
+  {
+    tpc: "Can I convert money between different fiat currencies on your platform? ",
+    isOpen: false,
+    cont:
+      "Absolutely! Our platform allows you to convert money between various fiat currencies, offering a convenient solution for currency exchange. You can initiate the conversion by selecting the desired currencies and entering the amount you wish to convert.",
+  },
+  {
+    tpc: "What should I do if the currency I want to convert is not available? ",
+    isOpen: false,
+    cont:
+      "If the currency you wish to convert is currently not supported on our platform, we recommend reaching out to our customer support team for assistance. Please use the provided contact information to get in touch with us, and we will be happy to help you find a suitable solution.",
+  },
+  {
+    tpc: "Is my personal and financial information secure on your platform?",
+    isOpen: false,
+    cont:
+      "We prioritize the security and privacy of our users' information. Our platform implements robust security measures, including encryption protocols and multi-factor authentication, to safeguard your personal and financial data. We adhere to strict privacy policies and do not share your information with third parties without your consent.",
+  },
+  {
+    tpc: "Do you have a customer support team? How can I reach them?",
+    isOpen: false,
+    cont:
+      "Yes, we have a dedicated customer support team to assist you. If you have any questions, issues, or need assistance, you can reach out to our support team via email, live chat, or through the contact form on our platform. We aim to provide timely and helpful support to our users.",
+  },
+  {
+    tpc: "Are there any restrictions or requirements for using your platform?",
+    isOpen: false,
+    cont:
+      "While we strive to offer our services to a wide range of users, there may be certain restrictions and requirements based on your jurisdiction and local regulations. It is important to review and comply with the terms and conditions provided on our platform, as well as any applicable legal requirements specific to your location.",
+  },
+])
+
+const toggleAccordion = (index) => {
+  dataFaq.value[index].isOpen = dataFaq.value[index].isOpen ? !dataFaq.value[index].isOpen : dataFaq.value.map((faq, i) => (i !== index ? faq.isOpen = false : faq.isOpen = true ))
+}
+
+const toggle = (index) => {
+  faqData.value[index].isOpen = faqData.value[index].isOpen ? !faqData.value[index].isOpen : faqData.value.map((faq, i) => (i !== index ? faq.isOpen = false : faq.isOpen = true ));
+}
 
 onMounted(async () => {
   await nextTick(async () => {
@@ -1103,6 +1049,18 @@ footer {
 @media screen and (max-width: 1100px) {
   nav {
     padding: 0 5%;
+  }
+  footer {
+    padding: 0 20px 50px 20px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #collapser {
+    margin-top: 38px;
+  }
+  footer {
+    padding: 0 100px 20px 100px;
   }
 }
 
@@ -2129,6 +2087,10 @@ header .div3 svg {
   background-color: blue;
 }
 
+.collap {
+  padding: 0 10px 10px 10px;
+}
+
 .Main .section8 {
   background-color: #0a1128;
   width: 100%;
@@ -2192,7 +2154,8 @@ header .div3 svg {
   height: fit-content;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 40px;
 }
 
 .Main .section8 .content a {
@@ -2207,7 +2170,7 @@ header .div3 svg {
   justify-content: flex-start;
 }
 
-.Main .section8 .content a .img {
+.Main .section8 .content a img {
   width: 100%;
   height: 50%;
   border-radius: 15px;
@@ -2256,7 +2219,7 @@ header .div3 svg {
   justify-content: center;
   background: #ebf0ff;
   position: relative;
-  background-image: url("~/assets/image.jpg");
+  /* background-image: url("~/assets/image.jpg"); */
 }
 
 .Main .section9 .back {
@@ -2660,6 +2623,16 @@ header .div3 svg {
     letter-spacing: 1px;
   }
 
+  .Main .section8 .content {
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 40px;
+  }
+
   .Main .section8 .top .sp .t2 {
     font-size: 14px;
     width: 80%;
@@ -3039,6 +3012,15 @@ header .div3 svg {
   .Main .section8 .top .sp .t2 {
     font-size: 15px;
     line-height: 150%;
+  }
+  .Main .section8 .content {
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
   }
 
   .Main .section8 .content a {
