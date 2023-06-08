@@ -113,8 +113,7 @@
                 </span>
               </div>
               <p class="conv">1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}</p>
-              <NuxtLink v-if="token != ''" to="/review_amount" class="btn">Convert Currency</NuxtLink>
-              <NuxtLink v-else to="/signup" class="btn">Convert Currency</NuxtLink>
+              <NuxtLink to="/review_amount" class="btn">Convert Currency</NuxtLink>
             </form>
           </div>
         </div>
@@ -856,58 +855,58 @@ const currencies = ref([]);
 
 const faqs = ref([
   {
-    question: "How does Finstack really work?",
+    question: "What services does your platform offer?",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "Our platform specializes in cryptocurrency exchange, gift card trading (coming soon) money conversion services. We provide a secure and user-friendly environment for buying, selling, and trading cryptocurrencies, as well as converting money between different fiat currencies and payment methods.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "How can I create an account on your platform? ",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "To create an account, simply visit our website and click on the 'Sign Up' button. Fill in the required information, including your email address and password, and complete the registration process. Once registered, you can access all the features and functionalities of our platform.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "What currency and cryptocurrencies are available for trading on your platform?",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "We offer US Dollar (USD), Euro (EUR), Great Britain Pounds (GBP), Chinese Yuan (CNY), Central African CFA Franc (XAF) West African CFA Franc (XOF) Canadian Dollars (CAD) United Arab Emirate Dirham (AED), Ghana Cedi (GHS), Bitcoin (BTC), Ethereum (ETH), US Dollar Tether (USDT), Ripple (XRP). Our platform continually adds new currency and cryptocurrencies to provide a diverse selection for our users.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "How can I trade/convert/exchange funds into my account?",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "You can trade/convert/exchangt funds into your account using various payment methods, including bank transfers, credit/debit cards, and electronic wallets. Simply navigate to the 'Deposit' section of your account, choose your preferred payment method, and follow the provided instructions to initiate the deposit.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "How long does it take to process transactions on your platform?",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "The processing time for transactions may vary depending on several factors, including blockchain confirmations (for cryptocurrency transactions), network congestion, and the verification process. In general, transactions are processed within minutes to a few hours. However, please note that under certain circumstances, additional time may be required to ensure the security and accuracy of the transaction.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "Are there any transaction fees associated with using your platform? ",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "Yes, our platform charges transaction fees, which may vary depending on the type of transaction, currency pair, and other factors. The applicable fees are transparently displayed during the transaction process, allowing you to review and confirm them before completing the transaction.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "Can I convert money between different fiat currencies on your platform? ",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "Absolutely! Our platform allows you to convert money between various fiat currencies, offering a convenient solution for currency exchange. You can initiate the conversion by selecting the desired currencies and entering the amount you wish to convert.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "What should I do if the currency I want to convert is not available? ",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "If the currency you wish to convert is currently not supported on our platform, we recommend reaching out to our customer support team for assistance. Please use the provided contact information to get in touch with us, and we will be happy to help you find a suitable solution.",
   },
   {
-    question: "How does Finstack really work?",
+    question: "Is my personal and financial information secure on your platform?",
     isOpen: false,
     answer:
-      "Create or accept offers at your preferred rate on our Peer to peer marketplace.",
+      "We prioritize the security and privacy of our users' information. Our platform implements robust security measures, including encryption protocols and multi-factor authentication, to safeguard your personal and financial data. We adhere to strict privacy policies and do not share your information with third parties without your consent.",
   },
 ]);
 
