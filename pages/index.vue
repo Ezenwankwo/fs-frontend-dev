@@ -908,6 +908,18 @@ const faqs = ref([
     answer:
       "We prioritize the security and privacy of our users' information. Our platform implements robust security measures, including encryption protocols and multi-factor authentication, to safeguard your personal and financial data. We adhere to strict privacy policies and do not share your information with third parties without your consent.",
   },
+  {
+    question: "Do you have a customer support team? How can I reach them?",
+    isOpen: false,
+    answer:
+      "Yes, we have a dedicated customer support team to assist you. If you have any questions, issues, or need assistance, you can reach out to our support team via email, live chat, or through the contact form on our platform. We aim to provide timely and helpful support to our users.",
+  },
+  {
+    question: "Are there any restrictions or requirements for using your platform?",
+    isOpen: false,
+    answer:
+      "While we strive to offer our services to a wide range of users, there may be certain restrictions and requirements based on your jurisdiction and local regulations. It is important to review and comply with the terms and conditions provided on our platform, as well as any applicable legal requirements specific to your location.",
+  },
 ]);
 
 const toggleAccordion = (index) => {
