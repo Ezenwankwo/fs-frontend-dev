@@ -878,38 +878,6 @@ footer .two .sp1 a i{
     height: 50px;
     border: solid blue;
 }
- 
-
-
-
-
-.calculatorform .icon{
-    width: -moz-fit-content;
-    width: fit-content; 
-    display: flex; align-items: center; justify-content: center;
-    position: relative; 
-    /* outline: solid 0.1px #7C859D; */
-    /* border: solid; */
-    transform: rotate(90deg);
-    margin: 20px 0;
-}
- 
-.calculatorform .icon .line{
-    width: 80px;
-    position: absolute;
-    outline: solid 0.1px #dcdee5a2;
-    outline-width: 0.01px;
-}
- 
-.calculatorform .icon .arrow_img{
-    position: relative;
-    width: 35px; height: 35px;
-    padding: 6px; 
-    border: solid 0.3px #DCDEE5; border-radius: 100%;
-    background-color: white;
-}
-
-
 
 .calculatorform .conv{
     padding: 10px 15px;

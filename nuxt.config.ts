@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
     css: [
         '~/assets/css/conversion.css',
-        // '~/assets/css/home.css',
         '~/assets/css/p2pindex.css',
         '~/assets/css/dynamictable.css',
         '~/assets/css/dynamichistory.css',
