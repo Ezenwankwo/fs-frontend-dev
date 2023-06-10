@@ -22,6 +22,8 @@
               v-model.trim="fromCurrency"
               :options="currencies"
               label="currency"
+              @close="getRate"
+              :loading="converterLoading"
             >
               <template #selected-option="item">
                 <div style="display: flex; align-items: center">
@@ -55,6 +57,8 @@
               v-model.trim="toCurrency"
               :options="currencies"
               label="currency"
+              @close="getRate"
+              :loading="converterLoading"
             >
               <template #selected-option="item">
                 <div style="display: flex; align-items: center">
