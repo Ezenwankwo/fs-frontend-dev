@@ -1138,31 +1138,6 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-nav{
-   /* background-color:rgba(255, 255, 255, .98); */
-  /* box-shadow: 5px -1px 12px -5px grey; */
-  height: 85px ;
-  /* border: solid !important; */
-}
-
-.nav-active{
-  background-color:#fff;
-  box-shadow: 5px -1px 12px -5px grey;
-}
-
-nav{
-  max-width: 1440px !important;
-  /* margin-left: auto ; */
-  /* margin-right: auto !important; */
-  top: 0;
-}
-
-header{
-  max-width: 1440px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
 section{
   max-width: 1440px !important;
   margin-left: auto !important;
@@ -1190,34 +1165,6 @@ span{ user-select: none;
   width: 190px;
   height: 190px;
 }
-
-@media screen and (max-width: 1100px) {
-  nav{
-      padding: 0 5%;
-  }
-}
-
-
-@media screen and (max-width: 700px) {
-  nav{
-   height: 75px;
-  /* box-shadow: 5px -1px 14px -5px rgb(224, 224, 224); */
-    width: 100% !important;
- }
-
- .gif{
-  width: 130px;
-  height: 130px;
-  margin: 30px 0 !important;
-  /* border: solid; */
-}
-}
-
-
-*{
-    /* outline: solid 1px greenyellow; */
-}
-
 
 .blog_head nav{
     width: 100%;
@@ -1457,117 +1404,6 @@ nav .user .dwn{
     cursor: pointer;
 }
 
-
-.disp_none{
-    /* display: none !important; */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (min-width: 1300px) {
-    nav{
-        /* padding: 0 5%; */
-        /* border: solid; */
-    }
-}
-
-@media screen and (max-width: 1100px) {
-    nav{
-        padding: 0 5%;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    /* nav{
-        padding: %;   
-    } */
-
-    .sp{
-        display: none;
-    }
-
-    .log{
-        margin-right: auto;
-    }
-    
-
-
-    .i{
-        color: #2F67FA;
-        display: flex !important;
-    }
-
-    nav .user .dwn{
-        margin-left: 8px;
-        rotate: 90deg;
-        font-weight: 300;
-        font-size: 18px;
-        cursor: pointer;
-        margin-right: 40px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    nav{
-        padding: 0 7%;
-    }
-
-    .logo_a{
-        margin-right: auto;
-    }
-
-    .log{
-       display: none;
-    }
-
-    .i{
-        color: white;
-        background-color: #2F67FA;
-        border-radius: 100%;
-        padding: 10px;
-        font-size: 16px !important;
-        display: flex !important;
-    }
-
-    nav .user .n_icon{
-        margin-right: 25px;
-    }
-
-    nav .user .user_descrpt{
-        display: none;
-    }
-
-    nav .user .userimage{
-        display: none;
-    }
-
-    nav .user .dwn{
-        display: none;
-    }
-}
 .blg_main{
     width: 100%;
     display: flex;
