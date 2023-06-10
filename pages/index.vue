@@ -35,7 +35,7 @@
       </div>
     </header>
     <div class="Main">
-      <section class="section_descrpt">
+      <section class="container section_descrpt">
         <div>
           <div class="img"></div>
         </div>
@@ -92,7 +92,7 @@
           </span>
         </div>
       </section>
-      <section class="section2">
+      <section class="container section2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill=" #0A1128"
@@ -102,7 +102,7 @@
         </svg>
       </section>
       <ClientOnly>
-        <section class="section3">
+        <section class="container section3">
           <div class="top">
             <span class="sp1">
               <p class="t1">Currency Price Listings</p>
@@ -369,6 +369,7 @@
         </section>
       </ClientOnly>
       <section class="section4">
+        <div class="container">
         <p class="t1">3 EASY STEPS</p>
         <p class="t2">How It Works</p>
         <p class="t3">
@@ -405,8 +406,9 @@
             </p>
           </span>
         </div>
+        </div>
       </section>
-      <section class="section5">
+      <section class="container section5">
         <p class="t1">TESTIMONIAL</p>
         <p class="t2">Hear what our customers say about us</p>
         <div class="twit">
@@ -589,30 +591,32 @@
         </div>
       </section>
       <section class="section6">
-        <div class="content">
-          <div><span class="img"></span></div>
-          <div class="text">
-            <p class="t1">BECOME A SELLER</p>
-            <p class="t2">
-              Become a Seller. Place your offer on the Peer 2 Peer Marketplace
-            </p>
-            <p class="t3">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace Create or accept offers at your preferred rate on our
-              Peer to peer marketplaceCreate or accept offers at your preferred
-              rate on our Peer to peer marketplace
-            </p>
-            <span class="links"
-              ><a class="a1" href="/seller_up">Start registration</a
-              ><a class="a2" href="/"
-                >Start selling
-                <i class="material-icons">
-                  <Icon name="ic:round-chevron-right" />
-                </i> </a
-            ></span>
+        <div class="container">
+          <div class="content">
+            <div class="items-center"><span class="img"></span></div>
+            <div class="items-start text">
+              <p class="t1">BECOME A SELLER</p>
+              <p class="t2">
+                Become a Seller. Place your offer on the Peer 2 Peer Marketplace
+              </p>
+              <p class="t3">
+                Create or accept offers at your preferred rate on our Peer to peer
+                marketplace Create or accept offers at your preferred rate on our
+                Peer to peer marketplaceCreate or accept offers at your preferred
+                rate on our Peer to peer marketplace
+              </p>
+              <span class="links"
+                ><a class="a1" href="/seller_up">Start registration</a
+                ><a class="a2" href="/"
+                  >Start selling
+                  <i class="material-icons">
+                    <Icon name="ic:round-chevron-right" />
+                  </i> </a
+              ></span>
+            </div>
           </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg class="separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#ffff"
             fill-opacity="1"
@@ -621,59 +625,61 @@
         </svg>
       </section>
       <section class="section7" id="FAQ">
-        <div class="content" data-accordion="collapse">
-          <div class="sp">
-            <div class="txt">
-              <p class="t1">Frequently Asked Questions</p>
-              <p class="t2">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace Create or accept offers.
-              </p>
-            </div>
-            <div
-              class="scp"
-              v-for="(data, index) in dataFaq"
-              :key="index"
-              @click="toggleAccordion(index)"
-            >
-              <a class="top"
-                >{{ data.topic
-                }}<i class="material-icons"
-                  ><Icon name="ic:baseline-keyboard-arrow-down" /></i
-              ></a>
-              <div
-                class="collap"
-                id="oo accordion-collapse-body-3"
-                aria-labelledby="accordion-collapse-heading-3"
-                v-show="data.isOpen"
-              >
-                <p class="det">
-                  {{ data.content }}
+        <div class="container">
+          <div class="content" data-accordion="collapse">
+            <div class="sp">
+              <div class="txt">
+                <p class="t1">Frequently Asked Questions</p>
+                <p class="t2">
+                  Create or accept offers at your preferred rate on our Peer to
+                  peer marketplace Create or accept offers.
                 </p>
               </div>
+              <div
+                class="scp"
+                v-for="(data, index) in dataFaq"
+                :key="index"
+                @click="toggleAccordion(index)"
+              >
+                <a class="top"
+                  >{{ data.topic
+                  }}<i class="material-icons"
+                    ><Icon name="ic:baseline-keyboard-arrow-down" /></i
+                ></a>
+                <div
+                  class="collap"
+                  id="oo accordion-collapse-body-3"
+                  aria-labelledby="accordion-collapse-heading-3"
+                  v-show="data.isOpen"
+                >
+                  <p class="det">
+                    {{ data.content }}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="sp" id="collapser">
-            <div
-              class="scp"
-              v-for="(data, index) in faqData"
-              :key="index"
-              @click="toggle(index)"
-            >
-              <a class="top"
-                >{{ data.tpc
-                }}<i class="material-icons"
-                  ><Icon name="ic:baseline-keyboard-arrow-down" /></i
-              ></a>
-              <div class="collap" id="oo" v-show="data.isOpen">
-                <p class="det">
-                  {{ data.cont }}
-                </p>
+            <div class="sp" id="collapser">
+              <div
+                class="scp"
+                v-for="(data, index) in faqData"
+                :key="index"
+                @click="toggle(index)"
+              >
+                <a class="top"
+                  >{{ data.tpc
+                  }}<i class="material-icons"
+                    ><Icon name="ic:baseline-keyboard-arrow-down" /></i
+                ></a>
+                <div class="collap" id="oo" v-show="data.isOpen">
+                  <p class="det">
+                    {{ data.cont }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg class="separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#0A1128"
             fill-opacity="1"
@@ -682,76 +688,78 @@
         </svg>
       </section>
       <section class="section8">
-        <div class="top">
-          <span class="sp">
-            <p class="t1">Stay up to date</p>
-            <p class="t2">
-              Stay on the grind. Stay on the grind. Stay on the grind
-            </p> </span
-          ><a href="/blog_index">
-            <p>View all updates</p>
-            <i class="material-icons">
-              <Icon name="ic:round-chevron-right" />
-            </i>
-          </a>
-        </div>
-        <div class="content">
-          <a href="/blog_index">
-            <!-- <div
-              class="img"
-              style="background-image: url('~/assets/img1.jpg');"
-            ></div> -->
-            <img src="~/assets/img1.jpg" alt="" />
-            <p class="t1">CBN on Digital Asset Tax</p>
-            <p class="t2">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace Create or...
-            </p>
-            <p class="t3">
-              Read more
+        <div class="container">
+          <div class="top">
+            <span class="sp">
+              <p class="t1">Stay up to date</p>
+              <p class="t2">
+                Stay on the grind. Stay on the grind. Stay on the grind
+              </p> </span
+            ><a href="/blog_index">
+              <p>View all updates</p>
               <i class="material-icons">
                 <Icon name="ic:round-chevron-right" />
               </i>
-            </p> </a
-          ><a href="/blog_index">
-            <!-- <div
-              class="img"
-              style="
-                background-image: url('~/assets/img2.jpg');
-              "
-            ></div> -->
-            <img src="~/assets/img2.jpg" alt="" />
-            <p class="t1">Future of Gold and Silver</p>
-            <p class="t2">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace Create or...
-            </p>
-            <p class="t3">
-              Read more
-              <i class="material-icons">
-                <Icon name="ic:round-chevron-right" />
-              </i>
-            </p> </a
-          ><a href="/blog_index">
-            <!-- <div
-              class="img"
-              style="
-                background-image: url('~/assets/img3.jpg');
-              "
-            ></div> -->
-            <img src="~/assets/img3.jpg" alt="" />
-            <p class="t1">Impact of Emmigration on Currency</p>
-            <p class="t2">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace Create or...
-            </p>
-            <p class="t3">
-              Read more
-              <i class="material-icons">
-                <Icon name="ic:round-chevron-right" />
-              </i>
-            </p>
-          </a>
+            </a>
+          </div>
+          <div class="content">
+            <a href="/blog_index">
+              <!-- <div
+                class="img"
+                style="background-image: url('~/assets/img1.jpg');"
+              ></div> -->
+              <img src="~/assets/img1.jpg" alt="" />
+              <p class="t1">CBN on Digital Asset Tax</p>
+              <p class="t2">
+                Create or accept offers at your preferred rate on our Peer to peer
+                marketplace Create or...
+              </p>
+              <p class="t3">
+                Read more
+                <i class="material-icons">
+                  <Icon name="ic:round-chevron-right" />
+                </i>
+              </p> </a
+            ><a href="/blog_index">
+              <!-- <div
+                class="img"
+                style="
+                  background-image: url('~/assets/img2.jpg');
+                "
+              ></div> -->
+              <img src="~/assets/img2.jpg" alt="" />
+              <p class="t1">Future of Gold and Silver</p>
+              <p class="t2">
+                Create or accept offers at your preferred rate on our Peer to peer
+                marketplace Create or...
+              </p>
+              <p class="t3">
+                Read more
+                <i class="material-icons">
+                  <Icon name="ic:round-chevron-right" />
+                </i>
+              </p> </a
+            ><a href="/blog_index">
+              <!-- <div
+                class="img"
+                style="
+                  background-image: url('~/assets/img3.jpg');
+                "
+              ></div> -->
+              <img src="~/assets/img3.jpg" alt="" />
+              <p class="t1">Impact of Emmigration on Currency</p>
+              <p class="t2">
+                Create or accept offers at your preferred rate on our Peer to peer
+                marketplace Create or...
+              </p>
+              <p class="t3">
+                Read more
+                <i class="material-icons">
+                  <Icon name="ic:round-chevron-right" />
+                </i>
+              </p>
+            </a>
+          </div>
         </div>
       </section>
       <section class="section9">
@@ -764,47 +772,7 @@
       </section>
     </div>
 
-    <footer>
-      <div class="one">
-        <span class="sp"
-          ><img src="~/assets/logo.png" alt="" class="logo" />
-          <p class="t">
-            Finstack is a non-profit organization or accept offers at your
-            preferred rate on our Peer to peer marketplace.
-          </p> </span
-        ><span class="sp asp"
-          ><a href="" class="title">REACH US</a
-          ><a href="/blog_index">our blog</a><a href="/contactus">Contact us</a
-          ><a href="/seller_up">Become a seller</a></span
-        ><span class="sp">
-          <p class="tt1">Subscribe to our Newsletter</p>
-          <p class="tt2">Never stay out of the loop.</p>
-          <form action="">
-            <input
-              type="email"
-              name=""
-              id=""
-              placeholder="email@domain.co"
-            /><button type="submit">
-              <i class="material-icons"><Icon name="bi:arrow-right" /></i>
-            </button>
-          </form>
-        </span>
-      </div>
-      <div class="two">
-        <span class="sp1"
-          ><a href=""
-            ><i class="fa-brands fa-facebook"
-              ><Icon name="ic:round-facebook" /></i></a
-          ><a href=""><Icon name="mdi:twitter" /></a
-          ><a href=""><Icon name="mdi:instagram" /></a></span
-        ><span class="sp2"
-          ><NuxtLink to="/terms">Terms and conditions</NuxtLink
-          ><NuxtLink to="/privacy">Privacy Policy</NuxtLink
-          ><a href="">© All rights reserved. Finstack 2022.</a></span
-        >
-      </div>
-    </footer>
+    <Footer/>
 
     <iframe
       scrolling="no"
@@ -973,7 +941,7 @@ const toggle = (index) => {
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .home_main {
   background-image: url("~/assets/Rectangle_3.jpg");
 }
@@ -1093,9 +1061,7 @@ header {
   align-items: flex-start;
   justify-content: flex-start;
   height: fit-content;
-  max-width: 1440px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-bottom: -2px;
   /* background-image: url(/src/Assets/Components/images/back_pic.svg); */
 }
 
@@ -1105,7 +1071,7 @@ header section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10% 7%;
+  padding: 160px 7%;
   padding-bottom: 0%;
 }
 
@@ -1227,7 +1193,6 @@ header .div3 svg {
 }
 
 .Main section {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100% !important;
@@ -1242,7 +1207,7 @@ header .div3 svg {
   height: fit-content;
   width: 100%;
   padding: 60px;
-  margin: -0.3px 0;
+  margin: -0.3px auto;
   /* padding-bottom: 40px; */
   /* margin-bottom: -40px; */
   padding-bottom: 40px;
@@ -1252,7 +1217,7 @@ header .div3 svg {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   /* border: solid white; */
 }
@@ -1401,6 +1366,7 @@ header .div3 svg {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: #18191B;
 }
 
 .Main .section3 .top .sp1 .t2 {
@@ -1592,14 +1558,17 @@ header .div3 svg {
 }
 
 .Main .section4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   background-color: #ebf0ff;
-  padding: 100px 0;
-  gap: 20px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 0;
+    gap: 20px;
+
+  }
 }
 
 .Main .section4 p {
@@ -1707,12 +1676,13 @@ header .div3 svg {
 }
 
 .Main .section6 {
-  width: 100%;
   background-color: #f9c55f;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .Main .section6 .content {
@@ -1729,7 +1699,6 @@ header .div3 svg {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
 }
 
@@ -1800,12 +1769,24 @@ header .div3 svg {
   background-color: white;
 }
 
+.Main {
+  .section6,
+  .section7
+  .separator {
+    margin-bottom: -1px;
+  }
+}
 .Main .section7 {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-end;
+  .separator {
+    margin-bottom: -1px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+
+  }
 }
 
 .Main .section7 .content {
@@ -1843,6 +1824,7 @@ header .div3 svg {
   font-weight: 800;
   width: 91%;
   line-height: 150%;
+  color: #18191B;
   /* border: solid; */
   /* position: absolute; */
 }
@@ -1941,13 +1923,15 @@ header .div3 svg {
 
 .Main .section8 {
   background-color: #0a1128;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-end;
-  padding: 00px 7%;
-  padding-bottom: 100px;
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 00px 7%;
+    padding-bottom: 100px;
+  }
 }
 
 .Main .section8 .top {
@@ -2101,6 +2085,7 @@ header .div3 svg {
   font-weight: 700;
   font-size: 36px;
   text-align: center;
+  color: #18191B;
 }
 
 .Main .section9 .text .t2 {
@@ -2108,6 +2093,8 @@ header .div3 svg {
   font-size: 16px;
   line-height: 150%;
   text-align: center;
+  font-weight: 400;
+  color: #18191B;
 }
 
 .Main .section9 .text a {

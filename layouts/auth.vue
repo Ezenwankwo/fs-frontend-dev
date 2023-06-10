@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AuthHeader />
+        <NavBar />
         <div class="cont">
             <!-- <div class="Close_auth" id="close_auth">
                 <div class="modal">

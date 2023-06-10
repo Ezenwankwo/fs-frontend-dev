@@ -94,7 +94,7 @@ nav {
     display: flex;
     margin: auto;
     align-items: center;
-    padding: 20px 7%;
+    padding: 20px;
   }
 }
 
@@ -273,10 +273,13 @@ nav .user .dwn {
   cursor: pointer;
 }
 
+.log {
+    .link {
+        text-decoration: none;
+    }
+}
+
 @media screen and (max-width: 1100px) {
-  nav {
-    padding: 0 5%;
-  }
   footer {
     padding: 0 20px 50px 20px;
   }
@@ -293,14 +296,6 @@ nav .user .dwn {
   }
 }
 @media screen and (max-width: 600px) {
-  nav {
-    padding: 0 7%;
-  }
-
-  .logo_a {
-    margin-right: auto;
-  }
-
   .log {
     display: none;
   }
@@ -560,10 +555,6 @@ nav .user .dwn {
     display: none;
   }
 
-  .log {
-    margin-right: auto;
-  }
-
   .i {
     color: #2f67fa;
     display: flex !important;
@@ -577,7 +568,6 @@ nav .user .dwn {
 }
 
 .logo {
-  height: 55px;
   width: 55px;
   margin: 0;
 }
@@ -586,9 +576,6 @@ nav .user .dwn {
   margin-right: 40px;
   display: flex;
   align-items: center;
-}
-
-.sp {
 }
 
 .sp .link {
