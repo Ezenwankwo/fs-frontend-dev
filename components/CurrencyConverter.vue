@@ -205,9 +205,11 @@ header section .div2 .inp {
   box-shadow: 0px 0px 32px rgba(47, 103, 250, 0.12);
   border-radius: 25px;
   height: fit-content;
-  width: 500px;
+  max-width: 500px;
   z-index: 1;
-  /* border: solid blue; */
+  @media (max-width: 1150px) {
+    margin: auto;
+  }
 }
 
 header section .div2 .inp .t1 {
@@ -235,16 +237,6 @@ header section .div2 .inp form {
   height: 100%;
   /* border: solid; */
 }
-
-header section .div2 .inp form .sp {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  /* border: solid; */
-}
-
 header section .div2 .inp form .sp .sp1 {
   display: flex;
   align-items: flex-start;
@@ -252,6 +244,20 @@ header section .div2 .inp form .sp .sp1 {
   justify-content: center;
   width: 46%;
   /* border: solid; */
+}
+header section .div2 .inp form .sp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  @media (max-width: 500px){
+    flex-direction: column;
+    .sp1 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  }
 }
 
 header section .div2 .inp form .sp .sp1 .txt {
