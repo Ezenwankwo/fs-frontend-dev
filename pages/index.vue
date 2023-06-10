@@ -1215,7 +1215,7 @@ const toggleConverter = () => {
 
 nav {
   /* background: #fff; */
-  z-index: 1;
+  z-index: 2;
   width: 100vw;
   /* border-bottom: solid 1px silver; */
   display: flex;
@@ -1486,6 +1486,7 @@ header section .div2 .inp {
   border-radius: 25px;
   height: fit-content;
   width: 500px;
+  z-index: 1;
   /* border: solid blue; */
 }
 
@@ -1581,6 +1582,7 @@ header section .div2 .inp form .icon {
   /* border: solid; */
   transform: rotate(90deg);
   margin: 20px 0;
+  cursor: pointer;
 }
 
 header section .div2 .inp form .icon .line {
