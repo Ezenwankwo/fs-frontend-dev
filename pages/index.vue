@@ -113,7 +113,8 @@
                     type="number"
                     placeholder="1,000"
                     class="input bg-white"
-                    @keyup="getRate"
+                    @keyup="caluculateRate"
+                    @blur="getRate"
                   />
                 </span>
                 <span class="sp1">
@@ -140,7 +141,12 @@
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">To</p>
-                  <input v-model.trim="result" type="number" class="input bg-white" />
+                  <input
+                    v-model.trim="result"
+                    type="number"
+                    disabled
+                    class="input bg-white"
+                  />
                 </span>
                 <span class="sp1">
                   <p class="txt">Currency</p>
@@ -393,10 +399,8 @@
             </div>
             <div class="items">
               <div class="lists top_lists top_lists2">
-                <span class="c c1">
-                  <p>Currency</p> </span
-                ><span class="c c2">
-                  <p>Price</p> </span
+                <span class="c c1"> <p>Currency</p> </span
+                ><span class="c c2"> <p>Price</p> </span
                 ><span class="c c3">
                   <p>Change</p>
                 </span>
@@ -1171,6 +1175,10 @@ const getRate = () => {
     },
   });
 };
+
+const caluculateRate = () => {
+  result.value = (amount.value / rate.value).toFixed(2);
+};
 </script>
 
 <style scoped>
@@ -1535,6 +1543,7 @@ header section .div2 .inp form .sp .sp1 .input {
   font-size: 15px;
   font-weight: 400;
   color: #373d4a;
+  background: #fff;
 }
 
 header section .div2 .inp form .sp .sp1 .input:focus {
