@@ -1,5 +1,9 @@
 @import "vue-select/dist/vue-select.css";
 
+html {
+  background-color: #fff !important;
+}
+
 .v-select {
     width: 100%;
 }
@@ -38,6 +42,8 @@
 
 .container {
     max-width: 1440px !important;
+    margin-left: auto ;
+    margin-right: auto;
 }
 @media (min-width: 1536px){
 }
