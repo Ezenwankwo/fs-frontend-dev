@@ -77,6 +77,9 @@
             <span class="conv">
               1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}
             </span>
+            <span class="conv" v-if="reverseRate">
+              1 {{ fromCurrency }} = {{ reverseRate }} {{ toCurrency }}
+            </span>
           </template>
           <span class="conv" v-else> ... </span>
         </div>
@@ -101,6 +104,7 @@ const toCurrency = ref("USD");
 const amount = ref(1000);
 const result = ref(0);
 const rate = ref(0);
+const reverseRate = ref(0);
 const config = useRuntimeConfig();
 const currencies = ref([]);
 
@@ -136,6 +140,7 @@ onMounted(() => {
         useConversionStore().setExchange(data);
         result.value = useConversionStore().$state.exchange.value;
         rate.value = useConversionStore().$state.exchange.rate;
+        reverseRate.value = useConversionStore().$state.exchange.reverse_rate;
       },
     });
     useFetch(`${config.public.baseURL}/trades/currencies/`, {
@@ -165,6 +170,7 @@ const getRate = () => {
       useConversionStore().setExchange(data),
         (result.value = useConversionStore().$state.exchange.value);
       rate.value = useConversionStore().$state.exchange.rate;
+      reverseRate.value = useConversionStore().$state.exchange.reverse_rate;
       converterLoading.value = false;
     },
     onResponseError({ request, response, options }) {
