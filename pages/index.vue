@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar/>
+    <NavBar />
     <header class="home_main">
       <div class="container">
         <section class="sectioni1">
@@ -8,8 +8,8 @@
             <p class="txt1">BANKING THE UNBANKED</p>
             <h1>Currency Trading Made Simple and Easy</h1>
             <p class="txt2">
-              Creating seamless exchange procedure for everyone. Buy, sell, save,
-              trade and exchange fiat currencies with 3 simple steps.
+              Creating seamless exchange procedure for everyone. Buy, sell,
+              save, trade and exchange fiat currencies with 3 simple steps.
             </p>
             <span class="links">
               <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
@@ -21,7 +21,7 @@
               </NuxtLink>
             </span>
           </div>
-          <CurrencyConverter/>
+          <CurrencyConverter />
         </section>
         <div class="div3">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -370,79 +370,63 @@
       </ClientOnly>
       <section class="section4">
         <div class="container">
-        <p class="t1">3 EASY STEPS</p>
-        <p class="t2">How It Works</p>
-        <p class="t3">
-          Create or accept offers at your preferred rate on our Peer to peer
-          marketplace
-        </p>
-        <div class="fl">
-          <span>
-            <div class="box">
-              <img src="~/assets/icon_img5.svg" alt="wame" />
-            </div>
-            <p class="txt1">Select currency pair</p>
-            <p class="t">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace offers at your preferred
-            </p> </span
-          ><span>
-            <div class="box">
-              <img src="~/assets/icon_img6.svg" alt="wame" />
-            </div>
-            <p class="txt1">Transfer Local Money</p>
-            <p class="t">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace offers at your preferred
-            </p> </span
-          ><span>
-            <div class="box">
-              <img src="~/assets/icon_img7.svg" alt="wame" />
-            </div>
-            <p class="txt1">Receive funds</p>
-            <p class="t">
-              Create or accept offers at your preferred rate on our Peer to peer
-              marketplace offers at your preferred
-            </p>
-          </span>
-        </div>
+          <p class="t1">3 EASY STEPS</p>
+          <p class="t2">How It Works</p>
+          <p class="t3">
+            Create or accept offers at your preferred rate on our Peer to peer
+            marketplace
+          </p>
+          <div class="fl">
+            <span>
+              <div class="box">
+                <img src="~/assets/icon_img5.svg" alt="wame" />
+              </div>
+              <p class="txt1">Select currency pair</p>
+              <p class="t">
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace offers at your preferred
+              </p> </span
+            ><span>
+              <div class="box">
+                <img src="~/assets/icon_img6.svg" alt="wame" />
+              </div>
+              <p class="txt1">Transfer Local Money</p>
+              <p class="t">
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace offers at your preferred
+              </p> </span
+            ><span>
+              <div class="box">
+                <img src="~/assets/icon_img7.svg" alt="wame" />
+              </div>
+              <p class="txt1">Receive funds</p>
+              <p class="t">
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace offers at your preferred
+              </p>
+            </span>
+          </div>
         </div>
       </section>
       <section class="container section5">
         <p class="t1">TESTIMONIAL</p>
         <p class="t2">Hear what our customers say about us</p>
-        <div class="twit">
+        <div class="twit gap-4">
           <div class="sp">
             <div>
               <div
                 class="twitter-tweet twitter-tweet-rendered"
-                style="
-                  width: 100%;
-                  margin-left: 10px;
-                  float: right;
-                  display: flex;
-                  max-width: 350px;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                "
+                style="margin-bottom: 10px"
               >
                 <iframe
                   id="twitter-widget-0"
-                  scrolling="no"
+                  scrolling="yes"
                   frameborder="0"
                   allowtransparency="true"
-                  allowfullscreen="true"
+                  allowfullscreen="false"
                   class=""
                   title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=true&amp;id=1636672121429524480&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
-                  style="
-                    position: static;
-                    visibility: visible;
-                    width: 0px;
-                    height: 0px;
-                    display: block;
-                    flex-grow: 1;
-                  "
                   data-tweet-id="1636672121429524480"
                 ></iframe>
               </div>
@@ -450,33 +434,17 @@
             <div>
               <div
                 class="twitter-tweet twitter-tweet-rendered"
-                style="
-                  width: 100%;
-                  margin-left: 10px;
-                  float: right;
-                  display: flex;
-                  max-width: 350px;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                "
+                style="margin-bottom: 10px"
               >
                 <iframe
                   id="twitter-widget-1"
-                  scrolling="no"
+                  scrolling="yes"
                   frameborder="0"
                   allowtransparency="true"
                   allowfullscreen="true"
                   class=""
                   title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-1&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
-                  style="
-                    position: static;
-                    visibility: visible;
-                    width: 0px;
-                    height: 0px;
-                    display: block;
-                    flex-grow: 1;
-                  "
                   data-tweet-id="1638835223692734464"
                 ></iframe>
               </div>
@@ -486,33 +454,17 @@
             <div>
               <div
                 class="twitter-tweet twitter-tweet-rendered"
-                style="
-                  width: 100%;
-                  margin-left: 10px;
-                  float: right;
-                  display: flex;
-                  max-width: 350px;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                "
+                style="margin-bottom: 10px"
               >
                 <iframe
                   id="twitter-widget-2"
-                  scrolling="no"
+                  scrolling="yes"
                   frameborder="0"
                   allowtransparency="true"
                   allowfullscreen="true"
                   class=""
                   title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-2&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
-                  style="
-                    position: static;
-                    visibility: visible;
-                    width: 0px;
-                    height: 0px;
-                    display: block;
-                    flex-grow: 1;
-                  "
                   data-tweet-id="1638835223692734464"
                 ></iframe>
               </div>
@@ -522,33 +474,17 @@
             <div>
               <div
                 class="twitter-tweet twitter-tweet-rendered"
-                style="
-                  width: 100%;
-                  margin-left: 10px;
-                  float: right;
-                  display: flex;
-                  max-width: 350px;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                "
+                style="margin-bottom: 10px"
               >
                 <iframe
                   id="twitter-widget-3"
-                  scrolling="no"
+                  scrolling="yes"
                   frameborder="0"
                   allowtransparency="true"
                   allowfullscreen="true"
                   class=""
                   title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-3&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=true&amp;id=1636672121429524480&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
-                  style="
-                    position: static;
-                    visibility: visible;
-                    width: 0px;
-                    height: 0px;
-                    display: block;
-                    flex-grow: 1;
-                  "
                   data-tweet-id="1636672121429524480"
                 ></iframe>
               </div>
@@ -556,33 +492,17 @@
             <div>
               <div
                 class="twitter-tweet twitter-tweet-rendered"
-                style="
-                  width: 100%;
-                  margin-left: 10px;
-                  float: right;
-                  display: flex;
-                  max-width: 350px;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                "
+                style="margin-bottom: 10px"
               >
                 <iframe
                   id="twitter-widget-4"
-                  scrolling="no"
+                  scrolling="yes"
                   frameborder="0"
                   allowtransparency="true"
                   allowfullscreen="true"
                   class=""
                   title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-4&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
-                  style="
-                    position: static;
-                    visibility: visible;
-                    width: 0px;
-                    height: 0px;
-                    display: block;
-                    flex-grow: 1;
-                  "
                   data-tweet-id="1638835223692734464"
                 ></iframe>
               </div>
@@ -600,10 +520,10 @@
                 Become a Seller. Place your offer on the Peer 2 Peer Marketplace
               </p>
               <p class="t3">
-                Create or accept offers at your preferred rate on our Peer to peer
-                marketplace Create or accept offers at your preferred rate on our
-                Peer to peer marketplaceCreate or accept offers at your preferred
-                rate on our Peer to peer marketplace
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace Create or accept offers at your preferred rate
+                on our Peer to peer marketplaceCreate or accept offers at your
+                preferred rate on our Peer to peer marketplace
               </p>
               <span class="links"
                 ><a class="a1" href="/seller_up">Start registration</a
@@ -616,7 +536,11 @@
             </div>
           </div>
         </div>
-        <svg class="separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg
+          class="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
           <path
             fill="#ffff"
             fill-opacity="1"
@@ -679,7 +603,11 @@
             </div>
           </div>
         </div>
-        <svg class="separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg
+          class="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
           <path
             fill="#0A1128"
             fill-opacity="1"
@@ -711,8 +639,8 @@
               <img src="~/assets/img1.jpg" alt="" />
               <p class="t1">CBN on Digital Asset Tax</p>
               <p class="t2">
-                Create or accept offers at your preferred rate on our Peer to peer
-                marketplace Create or...
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace Create or...
               </p>
               <p class="t3">
                 Read more
@@ -730,8 +658,8 @@
               <img src="~/assets/img2.jpg" alt="" />
               <p class="t1">Future of Gold and Silver</p>
               <p class="t2">
-                Create or accept offers at your preferred rate on our Peer to peer
-                marketplace Create or...
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace Create or...
               </p>
               <p class="t3">
                 Read more
@@ -749,8 +677,8 @@
               <img src="~/assets/img3.jpg" alt="" />
               <p class="t1">Impact of Emmigration on Currency</p>
               <p class="t2">
-                Create or accept offers at your preferred rate on our Peer to peer
-                marketplace Create or...
+                Create or accept offers at your preferred rate on our Peer to
+                peer marketplace Create or...
               </p>
               <p class="t3">
                 Read more
@@ -772,10 +700,10 @@
       </section>
     </div>
 
-    <Footer/>
+    <Footer />
 
     <iframe
-      scrolling="no"
+      scrolling="yes"
       frameborder="0"
       allowtransparency="true"
       src="https://platform.twitter.com/widgets/widget_iframe.2b2d73daf636805223fb11d48f3e94f7.html?origin=http%3A%2F%2Flocalhost%3A3000"
@@ -784,7 +712,7 @@
     ></iframe
     ><iframe
       id="rufous-sandbox"
-      scrolling="no"
+      scrolling="yes"
       frameborder="0"
       allowtransparency="true"
       allowfullscreen="true"
@@ -809,7 +737,7 @@ definePageMeta({
   layout: "external",
 });
 
-const converterLoading = ref(false)
+const converterLoading = ref(false);
 const fromCurrency = ref("NGN");
 const toCurrency = ref("USD");
 const amount = ref(1000);
@@ -938,7 +866,6 @@ const toggle = (index) => {
         i !== index ? (faq.isOpen = false) : (faq.isOpen = true)
       );
 };
-
 </script>
 
 <style lang="less" scoped>
@@ -1036,14 +963,6 @@ footer {
 }
 
 @media screen and (max-width: 1000px) {
-  /* nav{
-        padding: %;   
-    } */
-
-  .sp {
-    display: none;
-  }
-
   .log {
     margin-right: auto;
   }
@@ -1366,7 +1285,7 @@ header .div3 svg {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #18191B;
+  color: #18191b;
 }
 
 .Main .section3 .top .sp1 .t2 {
@@ -1567,7 +1486,6 @@ header .div3 svg {
     width: 100%;
     padding: 100px 0;
     gap: 20px;
-
   }
 }
 
@@ -1647,15 +1565,19 @@ header .div3 svg {
 
 .Main .section5 {
   width: 100%;
-  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 13px;
   padding: 30px 7%;
-  height: 400px;
-  /* border: solid; */
   flex-direction: column;
+}
+
+.twit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .Main .section5 .t1 {
@@ -1771,8 +1693,7 @@ header .div3 svg {
 
 .Main {
   .section6,
-  .section7
-  .separator {
+  .section7 .separator {
     margin-bottom: -1px;
   }
 }
@@ -1785,7 +1706,6 @@ header .div3 svg {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-end;
-
   }
 }
 
@@ -1824,7 +1744,7 @@ header .div3 svg {
   font-weight: 800;
   width: 91%;
   line-height: 150%;
-  color: #18191B;
+  color: #18191b;
   /* border: solid; */
   /* position: absolute; */
 }
@@ -2085,7 +2005,7 @@ header .div3 svg {
   font-weight: 700;
   font-size: 36px;
   text-align: center;
-  color: #18191B;
+  color: #18191b;
 }
 
 .Main .section9 .text .t2 {
@@ -2094,7 +2014,7 @@ header .div3 svg {
   line-height: 150%;
   text-align: center;
   font-weight: 400;
-  color: #18191B;
+  color: #18191b;
 }
 
 .Main .section9 .text a {
