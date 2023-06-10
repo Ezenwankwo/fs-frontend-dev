@@ -8,27 +8,51 @@
               <header>
                 <nav>
                   <a href="" class="logo_a">
-                    <img src="~/assets/logo.png " alt="wame" class="logo" /></a><i class="x ii material-icons"
-                    id="x">close</i>
+                    <img src="~/assets/logo.png " alt="wame" class="logo" /></a
+                  ><i class="x ii material-icons" id="x">close</i>
                 </nav>
               </header>
               <div class="nav_items">
                 <span class="sp">
-                  <a class="a" href="javascript:void(0)">Home <i class="material-icons">navigate_next</i></a>
-                </span><span class="sp">
-                  <a class="a" href="javascript:void(0)">Our blog <i
-                      class="material-icons">navigate_next</i></a></span><span class="sp">
-                  <a class="a" href="javascript:void(0)">Become a seller
-                    <i class="material-icons">navigate_next</i></a></span><span class="sp">
-                  <a class="a" href="javascript:void(0)">P2P marketplace<i
-                      class="material-icons">navigate_next</i></a></span><span class="sp">
-                  <a class="a" href="javascript:void(0)">Contact us</a></span><span class="sp">
-                  <a class="a" href="javascript:void(0)">All currency listings</a></span>
+                  <a class="a" href="javascript:void(0)"
+                    >Home <i class="material-icons">navigate_next</i></a
+                  > </span
+                ><span class="sp">
+                  <a class="a" href="javascript:void(0)"
+                    >Our blog <i class="material-icons">navigate_next</i></a
+                  ></span
+                ><span class="sp">
+                  <a class="a" href="javascript:void(0)"
+                    >Become a seller
+                    <i class="material-icons">navigate_next</i></a
+                  ></span
+                ><span class="sp">
+                  <a class="a" href="javascript:void(0)"
+                    >P2P marketplace<i class="material-icons"
+                      >navigate_next</i
+                    ></a
+                  ></span
+                ><span class="sp">
+                  <a class="a" href="javascript:void(0)">Contact us</a></span
+                ><span class="sp">
+                  <a class="a" href="javascript:void(0)"
+                    >All currency listings</a
+                  ></span
+                >
                 <div class="st">
-                  <span class="sp1"><a href=""><i class="fa-brands fa-facebook"></i></a><a href=""><i
-                        class="fa fa-twitter" aria-hidden="true"></i></a><a href=""><i class="fa fa-instagram"
-                        aria-hidden="true"></i></a></span><span class="sp2"><a href="">Terms and conditions. Privacy
-                      Policy</a><a href="">© All rights reserved. Finstack 2022.</a></span>
+                  <span class="sp1"
+                    ><a href=""><i class="fa-brands fa-facebook"></i></a
+                    ><a href=""
+                      ><i class="fa fa-twitter" aria-hidden="true"></i></a
+                    ><a href=""
+                      ><i
+                        class="fa fa-instagram"
+                        aria-hidden="true"
+                      ></i></a></span
+                  ><span class="sp2"
+                    ><a href="">Terms and conditions. Privacy Policy</a
+                    ><a href="">© All rights reserved. Finstack 2022.</a></span
+                  >
                 </div>
               </div>
               <div class="in">
@@ -68,7 +92,8 @@
           </p>
           <span class="links">
             <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
-            <NuxtLink class="a2" to="/review_amount">Convert Currency
+            <NuxtLink class="a2" to="/review_amount"
+              >Convert Currency
               <i class="material-icons">
                 <Icon name="ic:round-chevron-right" />
               </i>
@@ -83,12 +108,26 @@
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">I want to convert</p>
-                  <input v-model.trim="amount" type="number" placeholder="1,000" class="input bg-white" @keyup="getRate"/>
+                  <input
+                    v-model.trim="amount"
+                    type="number"
+                    placeholder="1,000"
+                    class="input bg-white"
+                    @keyup="getRate"
+                  />
                 </span>
                 <span class="sp1">
                   <p class="txt">Currency</p>
-                  <select v-model.trim="fromCurrency" class="input select bg-white" @change="getRate">
-                    <option v-for="item in currencies" :key="item" :value="item">
+                  <select
+                    v-model.trim="fromCurrency"
+                    class="input select bg-white"
+                    @change="getRate"
+                  >
+                    <option
+                      v-for="item in currencies"
+                      :key="item"
+                      :value="item"
+                    >
                       {{ item }}
                     </option>
                   </select>
@@ -101,26 +140,42 @@
               <div class="sp">
                 <span class="sp1">
                   <p class="txt">To</p>
-                  <input v-model.trim="result" type="number" class="input" />
+                  <input v-model.trim="result" type="number" class="input bg-white" />
                 </span>
                 <span class="sp1">
                   <p class="txt">Currency</p>
-                  <select v-model.trim="toCurrency" class="input select" @change="getRate">
-                    <option v-for="item in currencies" :key="item" :value="item">
+                  <select
+                    v-model.trim="toCurrency"
+                    class="input select bg-white"
+                    @change="getRate"
+                  >
+                    <option
+                      v-for="item in currencies"
+                      :key="item"
+                      :value="item"
+                    >
                       {{ item }}
                     </option>
                   </select>
                 </span>
               </div>
-              <p class="conv">1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}</p>
-              <NuxtLink to="/review_amount" class="btn">Convert Currency</NuxtLink>
+              <p class="conv">
+                1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}
+              </p>
+              <NuxtLink to="/review_amount" class="btn"
+                >Convert Currency</NuxtLink
+              >
             </form>
           </div>
         </div>
       </section>
       <div class="div3">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill=" #0A1128" fill-opacity="1" d="M0,128L1440,320L1440,320L0,320Z"></path>
+          <path
+            fill=" #0A1128"
+            fill-opacity="1"
+            d="M0,128L1440,320L1440,320L0,320Z"
+          ></path>
         </svg>
       </div>
     </header>
@@ -132,44 +187,63 @@
         <div class="text">
           <p class="txt1">WE ARE ON AN INVALUABLE MISSION</p>
           <p class="txt2">Reducing the hassle of currency exchange</p>
-          <span class="spans"><span class="bc"><img src="~/assets/icon_img1.svg" alt="wame" /></span><span class="txt">
+          <span class="spans"
+            ><span class="bc"
+              ><img src="~/assets/icon_img1.svg" alt="wame" /></span
+            ><span class="txt">
               <p class="top">Peer to Peer Marketplace</p>
               <p class="btm">
                 Create or accept offers at your preferred rate on our Peer to
                 peer marketplace
               </p>
-            </span></span><span class="spans"><span class="bc"><img src="~/assets/icon_img2.svg" alt="wame" /></span><span
-              class="txt">
+            </span></span
+          ><span class="spans"
+            ><span class="bc"
+              ><img src="~/assets/icon_img2.svg" alt="wame" /></span
+            ><span class="txt">
               <p class="top">Exchange Giftcards</p>
               <p class="btm">
                 Create or accept offers at your preferred rate on our Peer to
                 peer marketplace
               </p>
-            </span></span><span class="spans"><span class="bc"><img src="~/assets/icon_img3.svg" alt="wame" /></span><span
-              class="txt">
+            </span></span
+          ><span class="spans"
+            ><span class="bc"
+              ><img src="~/assets/icon_img3.svg" alt="wame" /></span
+            ><span class="txt">
               <p class="top">Fast and Secure Transactions</p>
               <p class="btm">
                 Create or accept offers at your preferred rate on our Peer to
                 peer marketplace
               </p>
-            </span></span><span class="spans"><span class="bc"><img src="~/assets/icon_img4.svg" alt="wame" /></span><span
-              class="txt">
+            </span></span
+          ><span class="spans"
+            ><span class="bc"
+              ><img src="~/assets/icon_img4.svg" alt="wame" /></span
+            ><span class="txt">
               <p class="top">24/7 Customer Support</p>
               <p class="btm">
                 Create or accept offers at your preferred rate on our Peer to
                 peer marketplace
               </p>
-            </span></span><span class="links">
-            <NuxtLink class="a1">Get Started</NuxtLink><a href="" class="a2">Start trading
+            </span></span
+          ><span class="links">
+            <NuxtLink class="a1">Get Started</NuxtLink
+            ><a href="" class="a2"
+              >Start trading
               <i class="material-icons">
-                <Icon name="ic:round-chevron-right" />
-              </i></a>
+                <Icon name="ic:round-chevron-right" /> </i
+            ></a>
           </span>
         </div>
       </section>
       <section class="section2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill=" #0A1128" fill-opacity="1" d="M0,192L1440,64L1440,0L0,0Z"></path>
+          <path
+            fill=" #0A1128"
+            fill-opacity="1"
+            d="M0,192L1440,64L1440,0L0,0Z"
+          ></path>
         </svg>
       </section>
       <ClientOnly>
@@ -177,9 +251,7 @@
           <div class="top">
             <span class="sp1">
               <p class="t1">Currency Price Listings</p>
-              <p>
-                <Icon name="bi:calendar" /> Last Updated: Feb 02, 2023
-              </p>
+              <p><Icon name="bi:calendar" /> Last Updated: Feb 02, 2023</p>
             </span>
             <form>
               <select>
@@ -196,7 +268,7 @@
                 <p class="c c1"><span>Currency</span></p>
                 <p class="c c2"><span>Price</span></p>
                 <p class="c c3"><span>Change</span></p>
-                <p class="c c4"> </p>
+                <p class="c c4"></p>
               </div>
               <!-- <div class="lists" v-for="curr in currChange" :key="curr">
               <p class="c c1">
@@ -219,13 +291,16 @@
                 </NuxtLink>
               </p>
             </div> -->
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img1.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/country_img1.svg" alt="" />
                   <span class="ct2">
                     <h4>Dollar</h4>
                     <p>USD</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <span class="c c4">
@@ -235,13 +310,16 @@
                   </NuxtLink>
                 </span>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img2.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/country_img2.svg" alt="" />
                   <span class="ct2">
                     <h4>Pounds</h4>
                     <p>GBP</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦</span> 905</p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦</span> 905</p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -251,13 +329,20 @@
                   </NuxtLink>
                 </div>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/nigeria.png" alt="" class="rounded-full" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img
+                    src="~/assets/nigeria.png"
+                    alt=""
+                    class="rounded-full"
+                  />
                   <span class="ct2">
                     <h4>Naira</h4>
                     <p>NGN</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -267,13 +352,16 @@
                   </NuxtLink>
                 </div>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img4.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/country_img4.svg" alt="" />
                   <span class="ct2">
                     <h4>Ethereum</h4>
                     <p>ETH</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -283,13 +371,16 @@
                   </NuxtLink>
                 </div>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/country_img5.svg" alt="" />
                   <span class="ct2">
                     <h4>USDT</h4>
                     <p>USDT</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 730</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -303,20 +394,23 @@
             <div class="items">
               <div class="lists top_lists top_lists2">
                 <span class="c c1">
-                  <p>Currency</p>
-                </span><span class="c c2">
-                  <p>Price</p>
-                </span><span class="c c3">
+                  <p>Currency</p> </span
+                ><span class="c c2">
+                  <p>Price</p> </span
+                ><span class="c c3">
                   <p>Change</p>
                 </span>
               </div>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/country_img3.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/country_img3.svg" alt="" />
                   <span class="ct2">
                     <h4>Euro</h4>
                     <p>EUR</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -326,13 +420,16 @@
                   </NuxtLink>
                 </div>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
                   <span class="ct2">
                     <h4>BNB</h4>
                     <p>BNB</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 905</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 905</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -342,13 +439,16 @@
                   </NuxtLink>
                 </div>
               </NuxtLink>
-              <NuxtLink class="lists"><span class="c c1"><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
+              <NuxtLink class="lists"
+                ><span class="c c1"
+                  ><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
                   <span class="ct2">
                     <h4>Lite coin</h4>
                     <p>LTC</p>
-                  </span></span><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p>
-                </span><span class="c c3">
+                  </span></span
+                ><span class="c c2">
+                  <p class="price"><span class="N">₦ 745</span></p> </span
+                ><span class="c c3">
                   <p class="perct">+0.87%</p>
                 </span>
                 <div class="c c4">
@@ -359,11 +459,13 @@
                 </div>
               </NuxtLink>
               <NuxtLink to="/signup" class="lists">
-                <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+                <span class="c c1"
+                  ><img src="~/assets/country_img5.svg" alt="" />
                   <span class="ct2">
                     <h4>USDT</h4>
                     <p>USDT</p>
-                  </span></span>
+                  </span></span
+                >
                 <span class="c c2">
                   <p class="price">
                     <span class="N">₦ 730</span>
@@ -380,11 +482,13 @@
                 </div>
               </NuxtLink>
               <NuxtLink to="/signup" class="lists">
-                <span class="c c1"><img src="~/assets/country_img5.svg" alt="" />
+                <span class="c c1"
+                  ><img src="~/assets/country_img5.svg" alt="" />
                   <span class="ct2">
                     <h4>USDT</h4>
                     <p>USDT</p>
-                  </span></span>
+                  </span></span
+                >
                 <span class="c c2">
                   <p class="price">
                     <span class="N">₦ 730</span>
@@ -403,10 +507,11 @@
             </div>
           </div>
           <div class="see">
-            <a href="/listings">See all Listings
+            <a href="/listings"
+              >See all Listings
               <i class="material-icons">
-                <Icon name="ic:round-chevron-right" />
-              </i></a>
+                <Icon name="ic:round-chevron-right" /> </i
+            ></a>
           </div>
         </section>
       </ClientOnly>
@@ -426,8 +531,8 @@
             <p class="t">
               Create or accept offers at your preferred rate on our Peer to peer
               marketplace offers at your preferred
-            </p>
-          </span><span>
+            </p> </span
+          ><span>
             <div class="box">
               <img src="~/assets/icon_img6.svg" alt="wame" />
             </div>
@@ -435,8 +540,8 @@
             <p class="t">
               Create or accept offers at your preferred rate on our Peer to peer
               marketplace offers at your preferred
-            </p>
-          </span><span>
+            </p> </span
+          ><span>
             <div class="box">
               <img src="~/assets/icon_img7.svg" alt="wame" />
             </div>
@@ -454,7 +559,9 @@
         <div class="twit">
           <div class="sp">
             <div>
-              <div class="twitter-tweet twitter-tweet-rendered" style="
+              <div
+                class="twitter-tweet twitter-tweet-rendered"
+                style="
                   width: 100%;
                   margin-left: 10px;
                   float: right;
@@ -462,9 +569,16 @@
                   max-width: 350px;
                   margin-top: 10px;
                   margin-bottom: 10px;
-                ">
-                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
-                  allowfullscreen="true" class="" title="Twitter Tweet"
+                "
+              >
+                <iframe
+                  id="twitter-widget-0"
+                  scrolling="no"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allowfullscreen="true"
+                  class=""
+                  title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=true&amp;id=1636672121429524480&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
                   style="
                     position: static;
@@ -473,11 +587,15 @@
                     height: 0px;
                     display: block;
                     flex-grow: 1;
-                  " data-tweet-id="1636672121429524480"></iframe>
+                  "
+                  data-tweet-id="1636672121429524480"
+                ></iframe>
               </div>
             </div>
             <div>
-              <div class="twitter-tweet twitter-tweet-rendered" style="
+              <div
+                class="twitter-tweet twitter-tweet-rendered"
+                style="
                   width: 100%;
                   margin-left: 10px;
                   float: right;
@@ -485,9 +603,16 @@
                   max-width: 350px;
                   margin-top: 10px;
                   margin-bottom: 10px;
-                ">
-                <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true"
-                  allowfullscreen="true" class="" title="Twitter Tweet"
+                "
+              >
+                <iframe
+                  id="twitter-widget-1"
+                  scrolling="no"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allowfullscreen="true"
+                  class=""
+                  title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-1&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
                   style="
                     position: static;
@@ -496,13 +621,17 @@
                     height: 0px;
                     display: block;
                     flex-grow: 1;
-                  " data-tweet-id="1638835223692734464"></iframe>
+                  "
+                  data-tweet-id="1638835223692734464"
+                ></iframe>
               </div>
             </div>
           </div>
           <div class="sp">
             <div>
-              <div class="twitter-tweet twitter-tweet-rendered" style="
+              <div
+                class="twitter-tweet twitter-tweet-rendered"
+                style="
                   width: 100%;
                   margin-left: 10px;
                   float: right;
@@ -510,9 +639,16 @@
                   max-width: 350px;
                   margin-top: 10px;
                   margin-bottom: 10px;
-                ">
-                <iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true"
-                  allowfullscreen="true" class="" title="Twitter Tweet"
+                "
+              >
+                <iframe
+                  id="twitter-widget-2"
+                  scrolling="no"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allowfullscreen="true"
+                  class=""
+                  title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-2&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
                   style="
                     position: static;
@@ -521,13 +657,17 @@
                     height: 0px;
                     display: block;
                     flex-grow: 1;
-                  " data-tweet-id="1638835223692734464"></iframe>
+                  "
+                  data-tweet-id="1638835223692734464"
+                ></iframe>
               </div>
             </div>
           </div>
           <div class="sp">
             <div>
-              <div class="twitter-tweet twitter-tweet-rendered" style="
+              <div
+                class="twitter-tweet twitter-tweet-rendered"
+                style="
                   width: 100%;
                   margin-left: 10px;
                   float: right;
@@ -535,9 +675,16 @@
                   max-width: 350px;
                   margin-top: 10px;
                   margin-bottom: 10px;
-                ">
-                <iframe id="twitter-widget-3" scrolling="no" frameborder="0" allowtransparency="true"
-                  allowfullscreen="true" class="" title="Twitter Tweet"
+                "
+              >
+                <iframe
+                  id="twitter-widget-3"
+                  scrolling="no"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allowfullscreen="true"
+                  class=""
+                  title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-3&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=true&amp;id=1636672121429524480&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
                   style="
                     position: static;
@@ -546,11 +693,15 @@
                     height: 0px;
                     display: block;
                     flex-grow: 1;
-                  " data-tweet-id="1636672121429524480"></iframe>
+                  "
+                  data-tweet-id="1636672121429524480"
+                ></iframe>
               </div>
             </div>
             <div>
-              <div class="twitter-tweet twitter-tweet-rendered" style="
+              <div
+                class="twitter-tweet twitter-tweet-rendered"
+                style="
                   width: 100%;
                   margin-left: 10px;
                   float: right;
@@ -558,9 +709,16 @@
                   max-width: 350px;
                   margin-top: 10px;
                   margin-bottom: 10px;
-                ">
-                <iframe id="twitter-widget-4" scrolling="no" frameborder="0" allowtransparency="true"
-                  allowfullscreen="true" class="" title="Twitter Tweet"
+                "
+              >
+                <iframe
+                  id="twitter-widget-4"
+                  scrolling="no"
+                  frameborder="0"
+                  allowtransparency="true"
+                  allowfullscreen="true"
+                  class=""
+                  title="Twitter Tweet"
                   src="https://platform.twitter.com/embed/Tweet.html?dnt=true&amp;embedId=twitter-widget-4&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19iaXJkd2F0Y2hfcGl2b3RzX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd191c2VfcHJvZmlsZV9pbWFnZV9zaGFwZV9lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19sZWdhY3lfdGltZWxpbmVfc3Vuc2V0Ijp7ImJ1Y2tldCI6dHJ1ZSwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideCard=true&amp;hideThread=false&amp;id=1638835223692734464&amp;lang=en&amp;origin=http%3A%2F%2Flocalhost%3A3000%2F&amp;sessionId=0672f6d150c289d10a5dff756a6b552da6e406a5&amp;theme=light&amp;widgetsVersion=aaf4084522e3a%3A1674595607486&amp;width=350px"
                   style="
                     position: static;
@@ -569,7 +727,9 @@
                     height: 0px;
                     display: block;
                     flex-grow: 1;
-                  " data-tweet-id="1638835223692734464"></iframe>
+                  "
+                  data-tweet-id="1638835223692734464"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -589,15 +749,22 @@
               Peer to peer marketplaceCreate or accept offers at your preferred
               rate on our Peer to peer marketplace
             </p>
-            <span class="links"><a class="a1" href="/seller_up">Start registration</a><a class="a2" href="/">Start
-                selling
+            <span class="links"
+              ><a class="a1" href="/seller_up">Start registration</a
+              ><a class="a2" href="/"
+                >Start selling
                 <i class="material-icons">
                   <Icon name="ic:round-chevron-right" />
-                </i> </a></span>
+                </i> </a
+            ></span>
           </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#ffff" fill-opacity="1" d="M0,320L1440,96L1440,320L0,320Z"></path>
+          <path
+            fill="#ffff"
+            fill-opacity="1"
+            d="M0,320L1440,96L1440,320L0,320Z"
+          ></path>
         </svg>
       </section>
       <section class="section7" id="FAQ">
@@ -610,13 +777,23 @@
                 peer marketplace Create or accept offers.
               </p>
             </div>
-            <div class="scp" v-for="(data, index) in dataFaq" :key="index" @click="toggleAccordion(index)">
+            <div
+              class="scp"
+              v-for="(data, index) in dataFaq"
+              :key="index"
+              @click="toggleAccordion(index)"
+            >
               <a class="top"
-                >{{ data.topic }}<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
+                >{{ data.topic
+                }}<i class="material-icons"
+                  ><Icon name="ic:baseline-keyboard-arrow-down" /></i
+              ></a>
+              <div
+                class="collap"
+                id="oo accordion-collapse-body-3"
+                aria-labelledby="accordion-collapse-heading-3"
+                v-show="data.isOpen"
               >
-              <div class="collap" id="oo accordion-collapse-body-3" aria-labelledby="accordion-collapse-heading-3" v-show="data.isOpen">
                 <p class="det">
                   {{ data.content }}
                 </p>
@@ -624,12 +801,17 @@
             </div>
           </div>
           <div class="sp" id="collapser">
-            <div class="scp" v-for="(data, index) in faqData" :key="index" @click="toggle(index)">
+            <div
+              class="scp"
+              v-for="(data, index) in faqData"
+              :key="index"
+              @click="toggle(index)"
+            >
               <a class="top"
-                >{{ data.tpc }}<i class="material-icons"
-                  ><Icon name='ic:baseline-keyboard-arrow-down' /></i
-                ></a
-              >
+                >{{ data.tpc
+                }}<i class="material-icons"
+                  ><Icon name="ic:baseline-keyboard-arrow-down" /></i
+              ></a>
               <div class="collap" id="oo" v-show="data.isOpen">
                 <p class="det">
                   {{ data.cont }}
@@ -639,7 +821,11 @@
           </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#0A1128" fill-opacity="1" d="M0,160L1440,288L1440,320L0,320Z"></path>
+          <path
+            fill="#0A1128"
+            fill-opacity="1"
+            d="M0,160L1440,288L1440,320L0,320Z"
+          ></path>
         </svg>
       </section>
       <section class="section8">
@@ -648,8 +834,8 @@
             <p class="t1">Stay up to date</p>
             <p class="t2">
               Stay on the grind. Stay on the grind. Stay on the grind
-            </p>
-          </span><a href="/blog_index">
+            </p> </span
+          ><a href="/blog_index">
             <p>View all updates</p>
             <i class="material-icons">
               <Icon name="ic:round-chevron-right" />
@@ -662,7 +848,7 @@
               class="img"
               style="background-image: url('~/assets/img1.jpg');"
             ></div> -->
-            <img src="~/assets/img1.jpg" alt="">
+            <img src="~/assets/img1.jpg" alt="" />
             <p class="t1">CBN on Digital Asset Tax</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
@@ -673,15 +859,15 @@
               <i class="material-icons">
                 <Icon name="ic:round-chevron-right" />
               </i>
-            </p>
-          </a><a href="/blog_index">
+            </p> </a
+          ><a href="/blog_index">
             <!-- <div
               class="img"
               style="
                 background-image: url('~/assets/img2.jpg');
               "
             ></div> -->
-            <img src="~/assets/img2.jpg" alt="">
+            <img src="~/assets/img2.jpg" alt="" />
             <p class="t1">Future of Gold and Silver</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
@@ -692,15 +878,15 @@
               <i class="material-icons">
                 <Icon name="ic:round-chevron-right" />
               </i>
-            </p>
-          </a><a href="/blog_index">
+            </p> </a
+          ><a href="/blog_index">
             <!-- <div
               class="img"
               style="
                 background-image: url('~/assets/img3.jpg');
               "
             ></div> -->
-            <img src="~/assets/img3.jpg" alt="">
+            <img src="~/assets/img3.jpg" alt="" />
             <p class="t1">Impact of Emmigration on Currency</p>
             <p class="t2">
               Create or accept offers at your preferred rate on our Peer to peer
@@ -716,9 +902,7 @@
         </div>
       </section>
       <section class="section9">
-        <div class="back">
-          
-        </div>
+        <div class="back"></div>
         <div class="text">
           <p class="t1">Ready to join the train?</p>
           <p class="t2">One - liner body text comes here</p>
@@ -729,33 +913,61 @@
 
     <footer>
       <div class="one">
-        <span class="sp"><img src="~/assets/logo.png" alt="" class="logo" />
+        <span class="sp"
+          ><img src="~/assets/logo.png" alt="" class="logo" />
           <p class="t">
             Finstack is a non-profit organization or accept offers at your
             preferred rate on our Peer to peer marketplace.
-          </p>
-        </span><span class="sp asp"><a href="" class="title">REACH US</a><a href="/blog_index">our blog</a><a
-            href="/contactus">Contact us</a><a href="/seller_up">Become a seller</a></span><span class="sp">
+          </p> </span
+        ><span class="sp asp"
+          ><a href="" class="title">REACH US</a
+          ><a href="/blog_index">our blog</a><a href="/contactus">Contact us</a
+          ><a href="/seller_up">Become a seller</a></span
+        ><span class="sp">
           <p class="tt1">Subscribe to our Newsletter</p>
           <p class="tt2">Never stay out of the loop.</p>
           <form action="">
-            <input type="email" name="" id="" placeholder="email@domain.co" /><button type="submit"><i
-                class="material-icons"><Icon name="bi:arrow-right" /></i></button>
+            <input
+              type="email"
+              name=""
+              id=""
+              placeholder="email@domain.co"
+            /><button type="submit">
+              <i class="material-icons"><Icon name="bi:arrow-right" /></i>
+            </button>
           </form>
         </span>
       </div>
       <div class="two">
-        <span class="sp1"><a href=""><i class="fa-brands fa-facebook"><Icon name="ic:round-facebook" /></i></a><a href=""><Icon name="mdi:twitter" /></a><a href=""><Icon name="mdi:instagram" /></a></span><span
-          class="sp2"><NuxtLink to="/terms">Terms and conditions</NuxtLink><NuxtLink to="/privacy">Privacy Policy</NuxtLink><a href="">© All rights reserved.
-            Finstack 2022.</a></span>
+        <span class="sp1"
+          ><a href=""
+            ><i class="fa-brands fa-facebook"
+              ><Icon name="ic:round-facebook" /></i></a
+          ><a href=""><Icon name="mdi:twitter" /></a
+          ><a href=""><Icon name="mdi:instagram" /></a></span
+        ><span class="sp2"
+          ><NuxtLink to="/terms">Terms and conditions</NuxtLink
+          ><NuxtLink to="/privacy">Privacy Policy</NuxtLink
+          ><a href="">© All rights reserved. Finstack 2022.</a></span
+        >
       </div>
     </footer>
 
-
-    <iframe scrolling="no" frameborder="0" allowtransparency="true"
+    <iframe
+      scrolling="no"
+      frameborder="0"
+      allowtransparency="true"
       src="https://platform.twitter.com/widgets/widget_iframe.2b2d73daf636805223fb11d48f3e94f7.html?origin=http%3A%2F%2Flocalhost%3A3000"
-      title="Twitter settings iframe" style="display: none"></iframe><iframe id="rufous-sandbox" scrolling="no"
-      frameborder="0" allowtransparency="true" allowfullscreen="true" style="
+      title="Twitter settings iframe"
+      style="display: none"
+    ></iframe
+    ><iframe
+      id="rufous-sandbox"
+      scrolling="no"
+      frameborder="0"
+      allowtransparency="true"
+      allowfullscreen="true"
+      style="
         position: absolute;
         visibility: hidden;
         display: none;
@@ -763,7 +975,9 @@
         height: 0px;
         padding: 0px;
         border: none;
-      " title="Twitter analytics iframe"></iframe>
+      "
+      title="Twitter analytics iframe"
+    ></iframe>
   </div>
 </template>
 
@@ -783,15 +997,45 @@ const config = useRuntimeConfig();
 const currencies = ref([]);
 
 const currChange = ref([
-  { name: "Dollar", abbv: "USD", src: "~/assets/country_img1.svg", price: "₦ 730", change: "+0.87%" },
-  { name: "Pounds", abbv: "GBP", src: "~/assets/country_img2.svg", price: "₦ 905", change: "+0.87%" },
-  { name: "Naira", abbv: "NGN", src: "~/assets/nigeria.png", price: "₦ 745", change: "+0.87%" },
-  { name: "Ethereum", abbv: "ETH", src: "~/assets/country_img4.svg", price: "₦ 730", change: "+0.87%" },
-  { name: "USDT", abbv: "USDT", src: "~/assets/country_img5.svg", price: "₦ 730", change: "+0.87%" },
-])
+  {
+    name: "Dollar",
+    abbv: "USD",
+    src: "~/assets/country_img1.svg",
+    price: "₦ 730",
+    change: "+0.87%",
+  },
+  {
+    name: "Pounds",
+    abbv: "GBP",
+    src: "~/assets/country_img2.svg",
+    price: "₦ 905",
+    change: "+0.87%",
+  },
+  {
+    name: "Naira",
+    abbv: "NGN",
+    src: "~/assets/nigeria.png",
+    price: "₦ 745",
+    change: "+0.87%",
+  },
+  {
+    name: "Ethereum",
+    abbv: "ETH",
+    src: "~/assets/country_img4.svg",
+    price: "₦ 730",
+    change: "+0.87%",
+  },
+  {
+    name: "USDT",
+    abbv: "USDT",
+    src: "~/assets/country_img5.svg",
+    price: "₦ 730",
+    change: "+0.87%",
+  },
+]);
 
 const dataFaq = ref([
-{
+  {
     topic: "What services does your platform offer?",
     isOpen: false,
     content:
@@ -804,7 +1048,8 @@ const dataFaq = ref([
       "To create an account, simply visit our website and click on the 'Sign Up' button. Fill in the required information, including your email address and password, and complete the registration process. Once registered, you can access all the features and functionalities of our platform.",
   },
   {
-    topic: "What currency and cryptocurrencies are available for trading on your platform?",
+    topic:
+      "What currency and cryptocurrencies are available for trading on your platform?",
     isOpen: false,
     content:
       "We offer US Dollar (USD), Euro (EUR), Great Britain Pounds (GBP), Chinese Yuan (CNY), Central African CFA Franc (XAF) West African CFA Franc (XOF) Canadian Dollars (CAD) United Arab Emirate Dirham (AED), Ghana Cedi (GHS), Bitcoin (BTC), Ethereum (ETH), US Dollar Tether (USDT), Ripple (XRP). Our platform continually adds new currency and cryptocurrencies to provide a diverse selection for our users.",
@@ -821,54 +1066,56 @@ const dataFaq = ref([
     content:
       "The processing time for transactions may vary depending on several factors, including blockchain confirmations (for cryptocurrency transactions), network congestion, and the verification process. In general, transactions are processed within minutes to a few hours. However, please note that under certain circumstances, additional time may be required to ensure the security and accuracy of the transaction.",
   },
-])
+]);
 
 const faqData = ref([
-{
+  {
     tpc: "Are there any transaction fees associated with using your platform? ",
     isOpen: false,
-    cont:
-      "Yes, our platform charges transaction fees, which may vary depending on the type of transaction, currency pair, and other factors. The applicable fees are transparently displayed during the transaction process, allowing you to review and confirm them before completing the transaction.",
+    cont: "Yes, our platform charges transaction fees, which may vary depending on the type of transaction, currency pair, and other factors. The applicable fees are transparently displayed during the transaction process, allowing you to review and confirm them before completing the transaction.",
   },
   {
     tpc: "Can I convert money between different fiat currencies on your platform? ",
     isOpen: false,
-    cont:
-      "Absolutely! Our platform allows you to convert money between various fiat currencies, offering a convenient solution for currency exchange. You can initiate the conversion by selecting the desired currencies and entering the amount you wish to convert.",
+    cont: "Absolutely! Our platform allows you to convert money between various fiat currencies, offering a convenient solution for currency exchange. You can initiate the conversion by selecting the desired currencies and entering the amount you wish to convert.",
   },
   {
     tpc: "What should I do if the currency I want to convert is not available? ",
     isOpen: false,
-    cont:
-      "If the currency you wish to convert is currently not supported on our platform, we recommend reaching out to our customer support team for assistance. Please use the provided contact information to get in touch with us, and we will be happy to help you find a suitable solution.",
+    cont: "If the currency you wish to convert is currently not supported on our platform, we recommend reaching out to our customer support team for assistance. Please use the provided contact information to get in touch with us, and we will be happy to help you find a suitable solution.",
   },
   {
     tpc: "Is my personal and financial information secure on your platform?",
     isOpen: false,
-    cont:
-      "We prioritize the security and privacy of our users' information. Our platform implements robust security measures, including encryption protocols and multi-factor authentication, to safeguard your personal and financial data. We adhere to strict privacy policies and do not share your information with third parties without your consent.",
+    cont: "We prioritize the security and privacy of our users' information. Our platform implements robust security measures, including encryption protocols and multi-factor authentication, to safeguard your personal and financial data. We adhere to strict privacy policies and do not share your information with third parties without your consent.",
   },
   {
     tpc: "Do you have a customer support team? How can I reach them?",
     isOpen: false,
-    cont:
-      "Yes, we have a dedicated customer support team to assist you. If you have any questions, issues, or need assistance, you can reach out to our support team via email, live chat, or through the contact form on our platform. We aim to provide timely and helpful support to our users.",
+    cont: "Yes, we have a dedicated customer support team to assist you. If you have any questions, issues, or need assistance, you can reach out to our support team via email, live chat, or through the contact form on our platform. We aim to provide timely and helpful support to our users.",
   },
   {
     tpc: "Are there any restrictions or requirements for using your platform?",
     isOpen: false,
-    cont:
-      "While we strive to offer our services to a wide range of users, there may be certain restrictions and requirements based on your jurisdiction and local regulations. It is important to review and comply with the terms and conditions provided on our platform, as well as any applicable legal requirements specific to your location.",
+    cont: "While we strive to offer our services to a wide range of users, there may be certain restrictions and requirements based on your jurisdiction and local regulations. It is important to review and comply with the terms and conditions provided on our platform, as well as any applicable legal requirements specific to your location.",
   },
-])
+]);
 
 const toggleAccordion = (index) => {
-  dataFaq.value[index].isOpen = dataFaq.value[index].isOpen ? !dataFaq.value[index].isOpen : dataFaq.value.map((faq, i) => (i !== index ? faq.isOpen = false : faq.isOpen = true ))
-}
+  dataFaq.value[index].isOpen = dataFaq.value[index].isOpen
+    ? !dataFaq.value[index].isOpen
+    : dataFaq.value.map((faq, i) =>
+        i !== index ? (faq.isOpen = false) : (faq.isOpen = true)
+      );
+};
 
 const toggle = (index) => {
-  faqData.value[index].isOpen = faqData.value[index].isOpen ? !faqData.value[index].isOpen : faqData.value.map((faq, i) => (i !== index ? faq.isOpen = false : faq.isOpen = true ));
-}
+  faqData.value[index].isOpen = faqData.value[index].isOpen
+    ? !faqData.value[index].isOpen
+    : faqData.value.map((faq, i) =>
+        i !== index ? (faq.isOpen = false) : (faq.isOpen = true)
+      );
+};
 
 onMounted(async () => {
   await nextTick(async () => {
@@ -3060,5 +3307,6 @@ header .div3 svg {
   }
 }
 
-@media screen and (max-width: 400px) {}
+@media screen and (max-width: 400px) {
+}
 </style>
