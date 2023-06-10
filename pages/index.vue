@@ -1,115 +1,37 @@
 <template>
   <div>
+    <NavBar/>
     <header class="home_main">
-      <nav class="nav-fixed">
-        <div class="sidebar" id="sidebar">
-          <div class="sd">
-            <div class="main_sidenav">
-              <header>
-                <nav>
-                  <a href="" class="logo_a">
-                    <img src="~/assets/logo.png " alt="wame" class="logo" /></a
-                  ><i class="x ii material-icons" id="x">close</i>
-                </nav>
-              </header>
-              <div class="nav_items">
-                <span class="sp">
-                  <a class="a" href="javascript:void(0)"
-                    >Home <i class="material-icons">navigate_next</i></a
-                  > </span
-                ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
-                    >Our blog <i class="material-icons">navigate_next</i></a
-                  ></span
-                ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
-                    >Become a seller
-                    <i class="material-icons">navigate_next</i></a
-                  ></span
-                ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
-                    >P2P marketplace<i class="material-icons"
-                      >navigate_next</i
-                    ></a
-                  ></span
-                ><span class="sp">
-                  <a class="a" href="javascript:void(0)">Contact us</a></span
-                ><span class="sp">
-                  <a class="a" href="javascript:void(0)"
-                    >All currency listings</a
-                  ></span
-                >
-                <div class="st">
-                  <span class="sp1"
-                    ><a href=""><i class="fa-brands fa-facebook"></i></a
-                    ><a href=""
-                      ><i class="fa fa-twitter" aria-hidden="true"></i></a
-                    ><a href=""
-                      ><i
-                        class="fa fa-instagram"
-                        aria-hidden="true"
-                      ></i></a></span
-                  ><span class="sp2"
-                    ><a href="">Terms and conditions. Privacy Policy</a
-                    ><a href="">© All rights reserved. Finstack 2022.</a></span
-                  >
-                </div>
-              </div>
-              <div class="in">
-                <NuxtLink class="a" to="/login">
-                  Sign in
-                  <i class="material-icons">
-                    <Icon name="ic:round-chevron-right" />
-                  </i>
-                </NuxtLink>
-              </div>
-            </div>
-            <div class="products"></div>
+      <div class="container">
+        <section class="sectioni1">
+          <div class="div div1">
+            <p class="txt1">BANKING THE UNBANKED</p>
+            <h1>Currency Trading Made Simple and Easy</h1>
+            <p class="txt2">
+              Creating seamless exchange procedure for everyone. Buy, sell, save,
+              trade and exchange fiat currencies with 3 simple steps.
+            </p>
+            <span class="links">
+              <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
+              <NuxtLink class="a2" to="/review_amount"
+                >Convert Currency
+                <i class="material-icons">
+                  <Icon name="ic:round-chevron-right" />
+                </i>
+              </NuxtLink>
+            </span>
           </div>
+          <CurrencyConverter/>
+        </section>
+        <div class="div3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill=" #0A1128"
+              fill-opacity="1"
+              d="M0,128L1440,320L1440,320L0,320Z"
+            ></path>
+          </svg>
         </div>
-        <a class="logo_a" href="/">
-          <img src="~/assets/logo.png " alt="wame" class="logo" />
-        </a>
-        <!-- <div class="sp">
-          <a class="link" href="/blog_index">Our blog</a><a class="link" href="/contactus">Contact us</a><a class="link"
-            href="/seller_up">Become a seller</a><a class="link" href="/P2PIndex">P2P marketplace</a>
-        </div> -->
-        <span class="log">
-          <NuxtLink class="link login" to="/login">Login</NuxtLink>
-          <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
-        </span>
-        <i class="i ii material-icons" id="i">
-          <Icon name="ic:baseline-menu" />
-        </i>
-      </nav>
-      <section class="sectioni1">
-        <div class="div div1">
-          <p class="txt1">BANKING THE UNBANKED</p>
-          <h1>Currency Trading Made Simple and Easy</h1>
-          <p class="txt2">
-            Creating seamless exchange procedure for everyone. Buy, sell, save,
-            trade and exchange fiat currencies with 3 simple steps.
-          </p>
-          <span class="links">
-            <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
-            <NuxtLink class="a2" to="/review_amount"
-              >Convert Currency
-              <i class="material-icons">
-                <Icon name="ic:round-chevron-right" />
-              </i>
-            </NuxtLink>
-          </span>
-        </div>
-        <CurrencyConverter/>
-      </section>
-      <div class="div3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill=" #0A1128"
-            fill-opacity="1"
-            d="M0,128L1440,320L1440,320L0,320Z"
-          ></path>
-        </svg>
       </div>
     </header>
     <div class="Main">
@@ -1052,41 +974,6 @@ const toggle = (index) => {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open sans", sans-serif;
-  text-decoration: none;
-  letter-spacing: 0px;
-  transition: 300ms;
-  -webkit-tap-highlight-color: transparent;
-  /* background-color: white; */
-}
-
-nav {
-  /* background: #fff; */
-  z-index: 2;
-  width: 100vw;
-  /* border-bottom: solid 1px silver; */
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding: 0 7%;
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 5px -1px 12px -5px grey;
-  /* height: 85px; */
-  /* top: 0;  */
-  /* z-index: 2; */
-  /* overflow: hidden; */
-  /* background-color: black; */
-  /* backdrop-filter: blur(5px); */
-  /* max-width: 2000px; */
-  /* margin: 0 auto; */
-  justify-self: center;
-}
-
 .home_main {
   background-image: url("~/assets/Rectangle_3.jpg");
 }
@@ -1171,15 +1058,6 @@ footer {
   color: #2f67fa;
 }
 
-@media screen and (max-width: 1100px) {
-  nav {
-    padding: 0 5%;
-  }
-  footer {
-    padding: 0 20px 50px 20px;
-  }
-}
-
 @media screen and (min-width: 1100px) {
   #collapser {
     margin-top: 38px;
@@ -1208,29 +1086,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 600px) {
-  nav {
-    padding: 0 7%;
-  }
-
-  .logo_a {
-    margin-right: auto;
-  }
-
-  .log {
-    display: none;
-  }
-
-  .i {
-    color: white;
-    background-color: #2f67fa;
-    border-radius: 100%;
-    padding: 10px;
-    font-size: 16px !important;
-    display: flex !important;
-  }
-}
-
 header {
   width: 100%;
   display: flex;
@@ -1238,6 +1093,9 @@ header {
   align-items: flex-start;
   justify-content: flex-start;
   height: fit-content;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   /* background-image: url(/src/Assets/Components/images/back_pic.svg); */
 }
 
