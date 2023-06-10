@@ -134,7 +134,7 @@
                   </select>
                 </span>
               </div>
-              <span class="icon">
+              <span class="icon" @click="toggleConverter">
                 <span class="line"></span>
                 <img src="~/assets/two-arrow.png" alt="wae" class="arrow_img" />
               </span>
@@ -165,9 +165,16 @@
                   </select>
                 </span>
               </div>
-              <p class="conv">
-                1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}
-              </p>
+              <div class="flex gap-x-1">
+                <template v-if="!converterLoading">
+                  <span class="conv">
+                    1 {{ toCurrency }} = {{ rate }} {{ fromCurrency }}
+                  </span>
+                </template>
+                <span class="conv" v-else>
+                  ...
+                </span>
+              </div>
               <NuxtLink to="/review_amount" class="btn"
                 >Convert Currency</NuxtLink
               >
@@ -992,6 +999,7 @@ definePageMeta({
   layout: "external",
 });
 
+const converterLoading = ref(false)
 const fromCurrency = ref("NGN");
 const toCurrency = ref("USD");
 const amount = ref(1000);
@@ -1153,6 +1161,7 @@ onMounted(async () => {
   });
 });
 const getRate = () => {
+  converterLoading.value = true;
   const res = useFetch(`${config.public.baseURL}/trades/converter/`, {
     method: "post",
     body: {
@@ -1161,7 +1170,8 @@ const getRate = () => {
       amount: amount.value,
     },
     onRequestError({ request, options, error }) {
-      // console.log('request error')
+      converterLoading.value = false;
+      useNotification().toast.error("An error occurred, please try again.");
     },
     onResponse({ request, response, options }) {
       const data = response._data.data;
@@ -1169,8 +1179,10 @@ const getRate = () => {
       useConversionStore().setExchange(data),
         (result.value = useConversionStore().$state.exchange.value);
       rate.value = useConversionStore().$state.exchange.rate;
+      converterLoading.value = false;
     },
     onResponseError({ request, response, options }) {
+      converterLoading.value = false;
       useNotification().toast.error(response._data.message);
     },
   });
@@ -1179,6 +1191,13 @@ const getRate = () => {
 const caluculateRate = () => {
   result.value = (amount.value / rate.value).toFixed(2);
 };
+
+const toggleConverter = () => {
+  const initialCurrencyFrom = fromCurrency.value
+  fromCurrency.value = toCurrency.value
+  toCurrency.value = initialCurrencyFrom
+  getRate()
+}
 </script>
 
 <style scoped>
@@ -1379,16 +1398,6 @@ header section {
   justify-content: space-between;
   padding: 10% 7%;
   padding-bottom: 0%;
-}
-
-header section div {
-  width: 52%;
-  /* border: solid; */
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 header section .div1 {
@@ -1592,6 +1601,7 @@ header section .div2 .inp form .icon .arrow_img {
 }
 
 header section .div2 .inp form .conv {
+  flex-direction: row;
   padding: 10px 15px;
   background-color: #ebf0ff;
   border-radius: 30px;
