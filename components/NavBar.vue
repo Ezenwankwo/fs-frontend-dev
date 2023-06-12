@@ -1,44 +1,84 @@
 <template>
   <nav class="nav-fixed">
     <div class="container">
-      <div class="main-nav flex w-full">
-        <a class="logo_a" href="/">
-          <img src="~/assets/logo.png " alt="wame" class="logo" />
-        </a>
-        <!-- <div class="sp">
-          <a class="link" href="/blog_index">Our blog</a
-          ><a class="link" href="/contactus">Contact us</a
-          ><a class="link" href="/seller_up">Become a seller</a
-          ><a class="link" href="/P2PIndex">P2P marketplace</a>
-        </div> -->
-        <div class="log">
-          <NuxtLink class="link login" to="/login">Login</NuxtLink>
-          <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
+      <div class="main-nav relative">
+        <div class="flex w-full items-center">
+          <a class="logo_a" href="/">
+            <img src="~/assets/logo.png " alt="wame" class="logo" />
+          </a>
+          <!-- <div class="sp">
+              <a class="link" href="/blog_index">Our blog</a
+              ><a class="link" href="/contactus">Contact us</a
+              ><a class="link" href="/seller_up">Become a seller</a
+              ><a class="link" href="/P2PIndex">P2P marketplace</a>
+            </div> -->
+          <div class="user" v-if="user.email">
+            <div class="profile">
+              <div class="prof">
+                <div class="user_descrpt">
+                  <p class="username">Maverick Egubson</p>
+                  <p class="usermail">{{ user.email }}</p>
+                </div>
+                <div @click="toggleMenu" class="flex items-center">
+                  <div class="userimage">
+                    <p class="me">ME</p>
+                    <div class="img"></div>
+                  </div>
+                  <Icon name="bi:chevron-down" class="ml-2" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex ml-auto" v-else>
+            <div class="log">
+              <NuxtLink class="link login" to="/login">Login</NuxtLink>
+              <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
+            </div>
+            <span class="mobile-menu" @click="toggleMenu">
+              <Icon name="ic:baseline-menu" />
+            </span>
+          </div>
         </div>
-        <span class="mobile-menu" @click="toggleMenu">
-          <Icon name="ic:baseline-menu" />
-        </span>
-      </div>
-      <div v-if="isMenuOpen" class="mobile-menu-links">
-        <ul>
-          <li>
-            <NuxtLink class="link login" to="/login">Login</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="link signup" to="/signup">Get Started</NuxtLink>
-          </li>
-        </ul>
+        <div v-if="isMenuOpen" class="mobile-menu-links">
+          <ul v-if="user.email" class="logged-in">
+            <li> 
+              <NuxtLink class="link flex" @click="logout">
+                <img src="~/assets/logout.svg" alt="logout" class="mr-3" />
+                <span> Logout </span>
+              </NuxtLink>
+            </li>
+          </ul>
+          <ul v-else>
+            <li>
+              <NuxtLink class="link block login" to="/login">Login</NuxtLink>
+            </li>
+            <li class="mt-4">
+              <NuxtLink class="link block signup" to="/signup"
+                >Get Started</NuxtLink
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script setup>
+import { useAuthStore } from "~~/store/auth";
 const isMenuOpen = ref(false);
+
+const user = useAuthStore().$state.user;
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const logout = (event) => {
+    event.preventDefault();
+    useAuthStore().logout()
+    window.location.reload();
+}
 </script>
 
 <style lang="less" scoped>
@@ -250,9 +290,6 @@ nav .user .dwn {
   text-align: center;
   width: 100%;
   padding: 40px 20px 20px;
-  li {
-    padding: 10px 20px;
-  }
   a {
     text-decoration: none;
   }
@@ -262,6 +299,29 @@ nav .user .dwn {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+  }
+  .logged-in {
+    a {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #373d4a;
+      padding: 10px 60px;
+      justify-content: center;
+      &:hover {
+        color: #2f67fa;
+      }
+    }
+  }
+  @media (min-width: 600px) {
+    position: absolute;
+    right: 0;
+    width: initial;
+    top: 68px;
+    padding: 20px 0;
+    box-shadow: -5px 7px 19px 0px #9b9b9b45;
   }
 }
 
@@ -308,10 +368,6 @@ nav .user .dwn {
   }
 
   nav .user .user_descrpt {
-    display: none;
-  }
-
-  nav .user .userimage {
     display: none;
   }
 

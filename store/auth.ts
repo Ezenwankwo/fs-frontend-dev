@@ -4,6 +4,8 @@ export const useAuthStore = defineStore('auth', {
       user: {},
       profile: {},
       access: "",
+      refresh: "",
+      token: "",
       userID: ""
     }
   },
@@ -15,11 +17,22 @@ export const useAuthStore = defineStore('auth', {
     setToken(access: string) {
       this.access = "Bearer " + access
     },
+    setRefresh(token: string) {
+      this.refresh = "Bearer " + token
+    },
     setUserID(public_id: string) {
       this.userID = public_id
     },
     setProfile(profile: string) {
       this.profile = profile
     },
+    logout() {
+      this.user = {}
+      this.profile = {}
+      this.access = ""
+      this.refresh = ""
+      this.token = ""
+      this.userID = ""
+    }
   },
 })
