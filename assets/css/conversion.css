@@ -1588,21 +1588,6 @@ textarea::placeholder {
   position: absolute;
 }
 
-.Aumain .section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  width: 100%;
-  /* border: solid; */
-  height: 100%;
-  /* border: solid; */
-  padding: 0 7%;
-  /* position: absolute; */
-
-  padding-left: 5%;
-}
-
 .Aumain .section .lists {
   display: flex;
   flex-direction: column;

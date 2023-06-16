@@ -193,11 +193,11 @@ const toggleConverter = () => {
 </script>
 
 <style lang="less" scoped>
-header section .div2 {
+.div2 {
   align-items: flex-end;
 }
 
-header section .div2 .inp {
+.div2 .inp {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,7 +217,7 @@ header section .div2 .inp {
   }
 }
 
-header section .div2 .inp .t1 {
+.div2 .inp .t1 {
   font-family: "lora", sans-serif;
   font-size: 22px;
   font-weight: 600;
@@ -225,14 +225,14 @@ header section .div2 .inp .t1 {
   text-align: center;
 }
 
-header section .div2 .inp .t2 {
+.div2 .inp .t2 {
   font-size: 14px;
   color: #7c859d;
   margin-top: 8px;
   text-align: center;
 }
 
-header section .div2 .inp form {
+.div2 .inp form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +242,7 @@ header section .div2 .inp form {
   height: 100%;
   /* border: solid; */
 }
-header section .div2 .inp form .sp .sp1 {
+.div2 .inp form .sp .sp1 {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -250,29 +250,29 @@ header section .div2 .inp form .sp .sp1 {
   width: 46%;
   /* border: solid; */
 }
-header section .div2 .inp form .sp {
+.div2 .inp form .sp {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  @media (max-width: 500px){
+  @media (max-width: 500px) {
     flex-direction: column;
     .sp1 {
-        width: 100%;
-        margin-bottom: 10px;
+      width: 100%;
+      margin-bottom: 10px;
     }
   }
 }
 
-header section .div2 .inp form .sp .sp1 .txt {
+.div2 .inp form .sp .sp1 .txt {
   font-weight: 400;
   font-size: 14px;
   color: #373d4a;
   margin-bottom: 10px;
 }
 
-header section .div2 .inp form .sp .sp1 .input,
+.div2 .inp form .sp .sp1 .input,
 .vs__dropdown-toggle {
   width: 100%;
   border-radius: 48px;
@@ -288,12 +288,12 @@ header section .div2 .inp form .sp .sp1 .input,
   background: #fff;
 }
 
-header section .div2 .inp form .sp .sp1 .input:focus,
+.div2 .inp form .sp .sp1 .input:focus,
 .vs__dropdown-toggle {
   border: 1.5px solid #c5c8cf;
 }
 
-header section .div2 .inp form .sp .sp1 .select,
+.div2 .inp form .sp .sp1 .select,
 .vs__dropdown-toggle {
   /* border: solid blue ; */
   /* outline: blue !important; */
@@ -301,7 +301,7 @@ header section .div2 .inp form .sp .sp1 .select,
   cursor: pointer;
 }
 
-header section .div2 .inp form .icon {
+.div2 .inp form .icon {
   width: fit-content;
   display: flex;
   align-items: center;
@@ -314,14 +314,14 @@ header section .div2 .inp form .icon {
   cursor: pointer;
 }
 
-header section .div2 .inp form .icon .line {
+.div2 .inp form .icon .line {
   width: 80px;
   position: absolute;
   outline: solid 0.1px #dcdee5a2;
   outline-width: 0.01px;
 }
 
-header section .div2 .inp form .icon .arrow_img {
+.div2 .inp form .icon .arrow_img {
   position: relative;
   width: 35px;
   height: 35px;

@@ -14,18 +14,13 @@
     position: absolute;
 }
 
-.Aumain .section{
-    display: flex; flex-direction: row;
-    align-items: center; justify-content: left;
+.Aumain .section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
     width: 100%;
-    /* border: solid; */
-    height: 100%;
-    /* border: solid; */
-    padding: 0 7%;
-    /* position: absolute; */
-
-    padding-left: 5%;
-}
+  }
 
 .Aumain .section .lists{
     display: flex;flex-direction: column;
@@ -325,13 +320,6 @@
     padding-top: 40px;
     position: absolute;
     background-color: white;
-}
-
-.Aumain .section .cnt .Idi{
-    padding-left: 20%;
-    padding-right: 20%;
-    margin: 0 auto;
-    row-gap: 10px;
 }
 
 .Aumain .section .cnt .BAS_prev{
@@ -1105,12 +1093,6 @@
     .Aumain .section .cnt{
         margin-left: 40px;
     }
-    .Aumain .section .cnt .Idi{
-        padding-left:0%;
-        padding-right: 0%;
-        margin: 0 auto;
-        row-gap: 10px;
-    }
 
     .Aumain .section .cnt .BAS_prev{
         width: 400px;
@@ -1208,21 +1190,6 @@
 
     .Aumain .section .lists ul li span{
         display: none;
-    }
-
-
-
-    .Aumain .section{
-        display: flex; flex-direction: row;
-        align-items: center; justify-content: left;
-        width: 100%;
-        /* border: solid; */
-        height: 100%;
-        /* border: solid; */
-        padding: 0 7%;
-        /* position: absolute; */
-    
-        padding-left: 5%;
     }
 }
 

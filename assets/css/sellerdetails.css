@@ -2617,21 +2617,6 @@ textarea::placeholder {
   position: absolute;
 }
 
-.Aumain .section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  width: 100%;
-  /* border: solid; */
-  height: 100%;
-  /* border: solid; */
-  padding: 0 7%;
-  /* position: absolute; */
-
-  padding-left: 5%;
-}
-
 .Aumain .section .lists {
   display: flex;
   flex-direction: column;
@@ -2913,35 +2898,9 @@ textarea::placeholder {
   .Aumain .section .lists ul li span {
     display: none;
   }
-
-  .Aumain .section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    /* border: solid; */
-    height: 100%;
-    /* border: solid; */
-    padding: 0 7%;
-    /* position: absolute; */
-
-    padding-left: 5%;
-  }
 }
 
 @media screen and (max-width: 950px) {
-  .Aumain .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    /* border: solid; */
-    height: 100%;
-    padding: 0 7%;
-    padding-left: 5%;
-  }
   .Aumain .section .lists {
     padding: 25px;
     /* border: solid; */
