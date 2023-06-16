@@ -83,7 +83,9 @@
           </template>
           <span class="conv" v-else> ... </span>
         </div>
-        <NuxtLink to="/review_amount" class="btn">Convert Currency</NuxtLink>
+        <NuxtLink to="/review_amount" class="btn" v-if="!props.disableButton"
+          >Convert Currency</NuxtLink
+        >
       </form>
     </div>
   </div>
@@ -96,6 +98,13 @@ import { useConversionStore } from "~~/store/conversion";
 
 definePageMeta({
   layout: "external",
+});
+
+const props = defineProps({
+  disableButton: {
+    type: Boolean,
+    required: false,
+  },
 });
 
 const converterLoading = ref(false);
@@ -329,5 +338,26 @@ const toggleConverter = () => {
   border: solid 0.3px #dcdee5;
   border-radius: 100%;
   background-color: white;
+}
+.calculatorform .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    background-color: #2f67fa;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.calculatorform .conv {
+    padding: 10px 15px;
+    background-color: #ebf0ff;
+    border-radius: 30px;
+    margin: 30px 0 0;
+    color: #2f67fa;
 }
 </style>
