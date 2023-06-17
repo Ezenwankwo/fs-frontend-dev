@@ -1,136 +1,136 @@
 <template>
-    <div class="qs">
-      <!-- FIAT SECTION -->
-      <div class="qs fiat_div" v-if="isFiat">
-        <div class="spq">
-          <div class="sp sp2">
-            <label>Bank</label>
-            <select
-              v-model.trim="bank_or_network"
-              required
-              name="bank_or_network"
-              @change="updateOriginatingAcctount"
-              class="select w-full font-medium"
-              style="
-                border-radius: 30px;
-                border: solid 1px #dcdee5;
-                padding: 0 25px;
-                height: 55px;
-                outline: none;
-              "
-            >
-              <option v-for="(bank, index) in banks" :key="index">
-                {{ bank }}
-              </option>
-              <option>Other</option>
-            </select>
-            <input
-              required
-              v-model.trim="other_bank"
-              @change="updateOriginatingAcctount"
-              v-show="other"
-              type="text"
-              name="other_bank"
-              id=""
-              placeholder="Bank name"
-            />
-            <span v-show="other" class="text-xs ml-4 p-0 text-[#2F67FA]"
-              >This will take longer to process</span
-            >
-          </div>
+  <div class="qs">
+    <!-- FIAT SECTION -->
+    <div class="qs fiat_div" v-if="isFiat">
+      <div class="spq">
+        <div class="sp sp2">
+          <label>Bank</label>
+          <select
+            v-model.trim="bank_or_network"
+            required
+            name="bank_or_network"
+            @change="updateOriginatingAcctount"
+            class="select w-full font-medium"
+            style="
+              border-radius: 30px;
+              border: solid 1px #dcdee5;
+              padding: 0 25px;
+              height: 55px;
+              outline: none;
+            "
+          >
+            <option v-for="(bank, index) in banks" :key="index">
+              {{ bank }}
+            </option>
+            <option>Other</option>
+          </select>
+          <input
+            required
+            v-model.trim="other_bank"
+            @change="updateOriginatingAcctount"
+            v-show="other"
+            type="text"
+            name="other_bank"
+            id=""
+            placeholder="Bank name"
+          />
+          <span v-show="other" class="text-xs ml-4 p-0 text-[#2F67FA]"
+            >This will take longer to process</span
+          >
         </div>
-
-        <span class="spq">
-          <span class="sp sp2">
-            <label htmlFor="fname">Account number</label>
-            <input
-              required
-              v-model.trim="number_or_address"
-              @change="updateOriginatingAcctount"
-              name="number_or_address"
-              type="number"
-              id=""
-              placeholder="Account number"
-            />
-          </span>
-        </span>
-
-        <span class="spq">
-          <span class="sp sp2">
-            <label htmlFor="fname">Account holder’s name</label>
-            <input
-              required
-              v-model.trim="holder_name"
-              @change="updateOriginatingAcctount"
-              type="text"
-              name="holder_name"
-              id=""
-              placeholder="Maverick Owen"
-            />
-          </span>
-        </span>
       </div>
 
-      <!-- CRYPTO SECTION -->
-      <span v-else-if="isCrypto" class="qs crypto_div">
-        <span class="spq">
-          <div class="line"></div>
-        </span>
-        <span class="spq">
-          <span class="sp sp2">
-            <label htmlFor="fname">Network</label>
-            <input
-              required
-              @change="updateOriginatingAcctount"
-              v-model.trim="bank_or_network"
-              type="text"
-              name="bank_or_network"
-              id=""
-              placeholder="e.g tron"
-            />
-          </span>
-        </span>
-
-        <span class="spq">
-          <span class="sp sp2">
-            <label htmlFor="fname">Wallet address</label>
-            <input
-              required
-              v-model.trim="number_or_address"
-              @change="updateOriginatingAcctount"
-              type="text"
-              name="number_or_address"
-              id=""
-              placeholder="Enter address"
-            />
-          </span>
-        </span>
-
-        <span class="spq">
-          <span class="sp sp2">
-            <label htmlFor="fname">Wallet holder’s name</label>
-            <input
-              required
-              v-model.trim="holder_name"
-              type="text"
-              name="holder_name"
-              @change="updateOriginatingAcctount"
-              id=""
-              placeholder="Maverick Owen"
-            />
-          </span>
+      <span class="spq">
+        <span class="sp sp2">
+          <label htmlFor="fname">Account number</label>
+          <input
+            required
+            v-model.trim="number_or_address"
+            @change="updateOriginatingAcctount"
+            name="number_or_address"
+            type="number"
+            id=""
+            placeholder="Account number"
+          />
         </span>
       </span>
 
       <span class="spq">
-        <div class="links">
-          <NuxtLink :to="backTo" class="a a1"> Back </NuxtLink>
-          <button class="a a2" type="button" @click="handleCreateAccount">
-            Save & Continue
-          </button>
-        </div>
+        <span class="sp sp2">
+          <label htmlFor="fname">Account holder’s name</label>
+          <input
+            required
+            v-model.trim="holder_name"
+            @change="updateOriginatingAcctount"
+            type="text"
+            name="holder_name"
+            id=""
+            placeholder="Maverick Owen"
+          />
+        </span>
       </span>
     </div>
+
+    <!-- CRYPTO SECTION -->
+    <span v-else-if="isCrypto" class="qs crypto_div">
+      <span class="spq">
+        <div class="line"></div>
+      </span>
+      <span class="spq">
+        <span class="sp sp2">
+          <label htmlFor="fname">Network</label>
+          <input
+            required
+            @change="updateOriginatingAcctount"
+            v-model.trim="bank_or_network"
+            type="text"
+            name="bank_or_network"
+            id=""
+            placeholder="e.g tron"
+          />
+        </span>
+      </span>
+
+      <span class="spq">
+        <span class="sp sp2">
+          <label htmlFor="fname">Wallet address</label>
+          <input
+            required
+            v-model.trim="number_or_address"
+            @change="updateOriginatingAcctount"
+            type="text"
+            name="number_or_address"
+            id=""
+            placeholder="Enter address"
+          />
+        </span>
+      </span>
+
+      <span class="spq">
+        <span class="sp sp2">
+          <label htmlFor="fname">Wallet holder’s name</label>
+          <input
+            required
+            v-model.trim="holder_name"
+            type="text"
+            name="holder_name"
+            @change="updateOriginatingAcctount"
+            id=""
+            placeholder="Maverick Owen"
+          />
+        </span>
+      </span>
+    </span>
+
+    <span class="spq">
+      <div class="links">
+        <NuxtLink :to="backTo" class="a a1"> Back </NuxtLink>
+        <button class="a a2" type="button" @click="handleCreateAccount">
+          Save & Continue
+        </button>
+      </div>
+    </span>
+  </div>
 </template>
 
 <script setup>
@@ -139,14 +139,14 @@ import { useConversionStore } from "~~/store/conversion";
 import { useAuthStore } from "~~/store/auth";
 
 const props = defineProps({
-    handleCreateAccount: {
+  handleCreateAccount: {
     type: Object,
     required: true,
   },
   backTo: {
     type: string,
     required: true,
-  }
+  },
 });
 const store = useConversionStore();
 const { originatingAccount } = storeToRefs(store);
