@@ -16,6 +16,7 @@ export const useAuthStore = defineStore('auth', {
     },
     setToken(access: string) {
       this.access = "Bearer " + access
+      this.token = access
     },
     setRefresh(token: string) {
       this.refresh = "Bearer " + token
