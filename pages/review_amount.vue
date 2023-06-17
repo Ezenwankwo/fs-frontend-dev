@@ -12,7 +12,7 @@
 
         <div class="spq">
           <div class="links">
-            <button class="a a1" type="button" @click="() => $router.go(-1)">
+            <button class="a a1" type="button" @click="() => $router.push('/')">
               Back
             </button>
             <button
