@@ -186,17 +186,19 @@ const updateOriginatingAcctount = (event) => {
     : store.setReceivingAccount(data);
 };
 onMounted(async () => {
-  useConversionStore().setActiveTradeProgress("bank");
-  await useFetch(`${config.public.baseURL}/wallets/accounts/banks/`, {
-    method: "get",
-    onRequest({ request, options }) {
-      options.headers = options.headers || {};
-      options.headers.authorization = `Bearer ${token}`;
-    },
-    onResponse({ request, response, options }) {
-      banks.value = response._data.data;
-    },
-  });
+  nextTick(()=>{
+    useConversionStore().setActiveTradeProgress("bank");
+    useFetch(`${config.public.baseURL}/wallets/accounts/banks/`, {
+      method: "get",
+      onRequest({ request, options }) {
+        options.headers = options.headers || {};
+        options.headers.authorization = `Bearer ${token}`;
+      },
+      onResponse({ request, response, options }) {
+        banks.value = response._data.data;
+      },
+    });
+  })
 });
 </script>
 
