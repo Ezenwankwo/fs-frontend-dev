@@ -13,7 +13,13 @@ export const useConversionStore = defineStore('conversion', {
     state: (): StoreType => {
       return {
         exchange: {},
-        originatingAccount: {},
+        originatingAccount: {
+          other_bank: "",
+          account_type: "fiat",
+          number_or_address: "",
+          holder_name: "",
+          bank_or_network: "",
+        },
         receivingAccount: {},
         escrowAccount: {},
         trade: {},

@@ -1,3 +1,6 @@
+input, select {
+    background-color: #fff !important;
+}
 .cont{
     display: flex;
     align-items: flex-start;
@@ -310,15 +313,12 @@
 
 .Aumain .section .cnt .frm{
     width: 100%;
-    /* border: solid; */
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: scroll;
     padding-top: 40px;
-    position: absolute;
     background-color: white;
 }
 
