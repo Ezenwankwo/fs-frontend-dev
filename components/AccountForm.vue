@@ -183,7 +183,6 @@ const config = useRuntimeConfig();
 const banks = ref([]);
 
 const updateOriginatingAcctount = (event) => {
-    console.log(dataStore)
   const data = {
     ...dataStore.value,
     [`${event.target.name}`]: event.target.value,
@@ -194,14 +193,6 @@ const updateOriginatingAcctount = (event) => {
     : store.setReceivingAccount(data);
 };
 onMounted(async () => {
-    console.log( {
-  account_type,
-  other_bank,
-  bank_or_network,
-  holder_name,
-  number_or_address,
-})
-console.log(receivingAccount)
   useConversionStore().setActiveTradeProgress("bank");
   await useFetch(`${config.public.baseURL}/wallets/accounts/banks/`, {
     method: "get",
