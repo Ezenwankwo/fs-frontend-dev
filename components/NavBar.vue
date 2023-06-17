@@ -41,7 +41,7 @@
         </div>
         <div v-if="isMenuOpen" class="mobile-menu-links">
           <ul v-if="user.email" class="logged-in">
-            <li> 
+            <li>
               <NuxtLink class="link flex" @click="logout">
                 <img src="~/assets/logout.svg" alt="logout" class="mr-3" />
                 <span> Logout </span>
@@ -75,10 +75,10 @@ const toggleMenu = () => {
 };
 
 const logout = (event) => {
-    event.preventDefault();
-    useAuthStore().logout()
-    window.location.reload();
-}
+  event.preventDefault();
+  useAuthStore().logout();
+  window.location.reload();
+};
 </script>
 
 <style lang="less" scoped>
