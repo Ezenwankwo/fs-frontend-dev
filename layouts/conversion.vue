@@ -65,7 +65,7 @@
               <li
                 class="last"
                 v-bind:class="{
-                  done: tradeProgress.includes('review'),
+                  done: tradeProgress && tradeProgress.includes('review'),
                   active: activeTradeProgress === 'review',
                 }"
                 @click="handldTradeProgress"
@@ -78,7 +78,7 @@
                 <p>
                   Review amount
                   <img
-                    v-if="tradeProgress.includes('review')"
+                    v-if="tradeProgress && tradeProgress.includes('review')"
                     src="~/assets/svg/check.svg"
                     alt="check"
                     class="ml-auto"
@@ -88,7 +88,7 @@
               <li
                 class="last"
                 v-bind:class="{
-                  done: tradeProgress.includes('bank'),
+                  done: tradeProgress && tradeProgress.includes('bank'),
                   active: activeTradeProgress === 'bank',
                 }"
                 @click="handldTradeProgress"
@@ -99,7 +99,7 @@
                 <p>
                   Bank details
                   <img
-                    v-if="tradeProgress.includes('bank')"
+                    v-if="tradeProgress && tradeProgress.includes('bank')"
                     src="~/assets/svg/check.svg"
                     alt="check"
                     class="ml-auto"
@@ -109,8 +109,8 @@
               <li
                 class="last"
                 v-bind:class="{
-                  done: tradeProgress.includes('bank'),
-                  active: activeTradeProgress === 'bank',
+                  done: tradeProgress && tradeProgress.includes('confirm'),
+                  active: activeTradeProgress === 'confirm',
                 }"
                 @click="handldTradeProgress"
               >
@@ -122,7 +122,7 @@
                 <p>
                   Confirm payment
                   <img
-                    v-if="tradeProgress.includes('confirm')"
+                    v-if="tradeProgress && tradeProgress.includes('confirm')"
                     src="~/assets/svg/check.svg"
                     alt="check"
                     class="ml-auto"
@@ -146,12 +146,13 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
 import { useConversionStore } from "~~/store/conversion";
 
 const router = useRouter();
 
-const tradeProgress = useConversionStore().$state.tradeProgress;
-const activeTradeProgress = useConversionStore().$state.activeTradeProgress;
+const store = useConversionStore();
+const { tradeProgress, activeTradeProgress } = storeToRefs(store);
 
 const handleCancelTrade = () => {
   const cancelTrade = confirm("Are you sure you want to cancel?");
@@ -162,6 +163,7 @@ const handleCancelTrade = () => {
 };
 
 const handldTradeProgress = () => {};
+
 </script>
 
 <style lang="less" scoped>
