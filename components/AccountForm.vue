@@ -144,26 +144,32 @@ const props = defineProps({
     required: true,
   },
   backTo: {
-    type: string,
+    type: String,
+    required: true,
+  },
+  storeType: {
+    type: String,
     required: true,
   },
 });
 const store = useConversionStore();
-const { originatingAccount } = storeToRefs(store);
+const { originatingAccount, receivingAccount } = storeToRefs(store);
+
+const dataStore =
+  props.storeType === "originating" ? originatingAccount : receivingAccount;
+
 const {
   account_type,
   other_bank,
   bank_or_network,
   holder_name,
   number_or_address,
-} = originatingAccount.value;
+} = dataStore.value;
 
 const changeMethod = (value) => {
   account_type = value;
 };
-const other = computed(
-  () => originatingAccount.value.bank_or_network == "Other"
-);
+const other = computed(() => dataStore.value.bank_or_network == "Other");
 const exchange = useConversionStore().$state.exchange;
 
 const fiat = ["NGN", "USD", "GBP", "EUR", "GHS", "XAF", "XOF"];
@@ -177,13 +183,25 @@ const config = useRuntimeConfig();
 const banks = ref([]);
 
 const updateOriginatingAcctount = (event) => {
+    console.log(dataStore)
   const data = {
-    ...originatingAccount.value,
+    ...dataStore.value,
     [`${event.target.name}`]: event.target.value,
   };
-  store.setOriginatingAccount(data);
+
+  props.storeType === "originating"
+    ? store.setOriginatingAccount(data)
+    : store.setReceivingAccount(data);
 };
 onMounted(async () => {
+    console.log( {
+  account_type,
+  other_bank,
+  bank_or_network,
+  holder_name,
+  number_or_address,
+})
+console.log(receivingAccount)
   useConversionStore().setActiveTradeProgress("bank");
   await useFetch(`${config.public.baseURL}/wallets/accounts/banks/`, {
     method: "get",
