@@ -1,5 +1,8 @@
 <script>
 import { useAuthStore } from '~~/store/auth';
+definePageMeta({
+  middleware: ["redirect-home"],
+});
 export default {
     data() {
         return {
