@@ -68,7 +68,7 @@
                   done: tradeProgress && tradeProgress.includes('review'),
                   active: activeTradeProgress === 'review',
                 }"
-                @click="handldTradeProgress"
+                @click="handldTradeProgress('review')"
               >
                 <span>
                   <i class="material-icons-outlined"
@@ -91,7 +91,7 @@
                   done: tradeProgress && tradeProgress.includes('bank'),
                   active: activeTradeProgress === 'bank',
                 }"
-                @click="handldTradeProgress"
+                @click="handldTradeProgress('bank')"
               >
                 <span>
                   <i class="material-icons-outlined"><Icon name="bi:bank" /></i>
@@ -112,7 +112,7 @@
                   done: tradeProgress && tradeProgress.includes('confirm'),
                   active: activeTradeProgress === 'confirm',
                 }"
-                @click="handldTradeProgress"
+                @click="handldTradeProgress('confirm')"
               >
                 <span>
                   <i class="material-icons-outlined"
@@ -162,7 +162,16 @@ const handleCancelTrade = () => {
   }
 };
 
-const handldTradeProgress = () => {};
+const handldTradeProgress = (section) => {
+  const navigator = {
+    "review": "/review_amount",
+    "bank": "/originating_account",
+    "confirm": "/escrow_account",
+  }
+  if (tradeProgress.value && tradeProgress.value.includes(section)){
+    navigateTo(navigator[section]);
+  }
+};
 
 </script>
 

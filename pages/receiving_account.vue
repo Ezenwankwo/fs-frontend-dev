@@ -6,7 +6,7 @@
     <account-form
       backTo="/originating_account"
       storeType="receiving"
-      :handleCreateAccount="createAccount"
+      :handleCreateAccount="gotoNextPage"
     />
   </form>
 </template>
@@ -43,6 +43,14 @@ const bank = computed(() => {
   }
 });
 
+const gotoNextPage = () => {
+  const account = { ...receivingAccount.value };
+  delete account.other_bank;
+  if (!Object.values(account).includes("")) {
+    createAccount()
+  }
+};
+
 const createAccount = () => {
   useFetch(`${config.public.baseURL}/wallets/accounts/`, {
     method: "post",
@@ -65,11 +73,12 @@ const createAccount = () => {
           {
             method: "post",
             body: {
-              account_type,
+              account_type:
+                account_type.charAt(0).toUpperCase() + account_type.slice(1),
               currency: exchange.to_currency,
               bank_or_network: bank,
               holder_name,
-              number_or_address
+              number_or_address,
             },
             onRequest({ request, options }) {
               options.headers = options.headers || {};
