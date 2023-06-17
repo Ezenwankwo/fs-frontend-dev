@@ -112,4 +112,8 @@ const tradeRes = await useFetch(`${config.public.baseURL}/trades/`, {
     }
   },
 });
+
+onMounted(() => {
+    useConversionStore().setActiveTradeProgress("confirm");
+})
 </script>
