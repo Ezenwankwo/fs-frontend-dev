@@ -158,7 +158,8 @@ const handleCancelTrade = () => {
   const cancelTrade = confirm("Are you sure you want to cancel?");
 
   if (cancelTrade) {
-    router.replace("/");
+    useConversionStore().resetAccount()
+    navigateTo("/");
   }
 };
 

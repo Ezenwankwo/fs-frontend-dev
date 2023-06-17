@@ -45,6 +45,28 @@ export const useConversionStore = defineStore('conversion', {
       setReceivingAccount(receivingAccount: any[]) {
         this.receivingAccount = receivingAccount
       },
+      resetAccount() {
+        this.receivingAccount = {
+          other_bank: "",
+          account_type: "fiat",
+          number_or_address: "",
+          holder_name: "",
+          bank_or_network: "",
+        }
+        this.originatingAccount = {
+          other_bank: "",
+          account_type: "fiat",
+          number_or_address: "",
+          holder_name: "",
+          bank_or_network: "",
+        }
+        this.tradeProgress= []
+        this.activeTradeProgress= "review"
+        this.exchange = {}
+        this.escrowAccount = {}
+        this.trade = {}
+        this.wallet = {}
+      },
       setEscrowAccount(escrowAccount: any[]) {
         this.escrowAccount = escrowAccount
       },

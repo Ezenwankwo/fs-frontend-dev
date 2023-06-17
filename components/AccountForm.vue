@@ -118,7 +118,7 @@
     <span class="spq">
       <div class="links">
         <NuxtLink :to="backTo" class="a a1"> Back </NuxtLink>
-        <button class="a a2" type="submit" @click="handleCreateAccount">
+        <button class="a a2" type="button" @click="handleCreateAccount">
           Save & Continue
         </button>
       </div>
