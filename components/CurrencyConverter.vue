@@ -1,8 +1,20 @@
 <template>
-  <div class="div div2">
-    <div class="inp">
-      <p class="t1">Currency Converter</p>
-      <p class="t2">Check live foreign currency exchange rates</p>
+  <div
+    class="div div2"
+    v-bind:class="{
+      'w-full': disableHeader,
+    }"
+  >
+    <div
+      class="inp"
+      v-bind:class="{
+        'no-shadow': noShadow,
+      }"
+    >
+      <template v-if="!disableHeader">
+        <p class="t1">Currency Converter</p>
+        <p class="t2">Check live foreign currency exchange rates</p>
+      </template>
       <form action="" class="calculatorform">
         <div class="sp">
           <div class="sp1">
@@ -83,7 +95,7 @@
           </template>
           <span class="conv" v-else> ... </span>
         </div>
-        <NuxtLink to="/review_amount" class="btn" v-if="!props.disableButton"
+        <NuxtLink to="/review_amount" class="btn" v-if="!disableButton"
           >Convert Currency</NuxtLink
         >
       </form>
@@ -102,6 +114,14 @@ definePageMeta({
 
 const props = defineProps({
   disableButton: {
+    type: Boolean,
+    required: false,
+  },
+  disableHeader: {
+    type: Boolean,
+    required: false,
+  },
+  noShadow: {
     type: Boolean,
     required: false,
   },
@@ -136,6 +156,18 @@ const currencyImages = {
 
 onMounted(() => {
   nextTick(async () => {
+    const store = useConversionStore().$state;
+
+    fromCurrency.value = store.exchange.from_currency
+      ? store.exchange.from_currency
+      : fromCurrency.value;
+    toCurrency.value = store.exchange.from_currency
+      ? store.exchange.to_currency
+      : toCurrency.value;
+    amount.value = store.exchange.from_currency
+      ? store.exchange.amount
+      : amount.value;
+
     useFetch(`${config.public.baseURL}/trades/converter/`, {
       method: "post",
       body: {
@@ -211,8 +243,7 @@ const toggleConverter = () => {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 30px;
-  padding-top: 25px;
+  padding: 30px;
   /* gap: 8px; */
   /* height: 100%; */
   background: #ffffff;
@@ -223,6 +254,9 @@ const toggleConverter = () => {
   z-index: 1;
   @media (max-width: 1150px) {
     margin: auto;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 15px;
   }
 }
 
@@ -238,6 +272,7 @@ const toggleConverter = () => {
   font-size: 14px;
   color: #7c859d;
   margin-top: 8px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -247,7 +282,7 @@ const toggleConverter = () => {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 40px 0;
+  // margin: 40px 0;
   height: 100%;
   /* border: solid; */
 }
@@ -339,25 +374,32 @@ const toggleConverter = () => {
   border-radius: 100%;
   background-color: white;
 }
+.div2 .no-shadow {
+  &.inp {
+    box-shadow: none;
+    border: 1px solid #dcdee5;
+    border-radius: 16px;
+  }
+}
 .calculatorform .btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    background-color: #2f67fa;
-    border-radius: 30px;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  background-color: #2f67fa;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
 }
 .calculatorform .conv {
-    padding: 10px 15px;
-    background-color: #ebf0ff;
-    border-radius: 30px;
-    margin: 30px 0 0;
-    color: #2f67fa;
+  padding: 10px 15px;
+  background-color: #ebf0ff;
+  border-radius: 30px;
+  margin: 30px 0 0;
+  color: #2f67fa;
 }
 </style>
