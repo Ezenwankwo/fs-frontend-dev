@@ -401,5 +401,8 @@ const toggleConverter = () => {
   border-radius: 30px;
   margin: 30px 0 0;
   color: #2f67fa;
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 }
 </style>

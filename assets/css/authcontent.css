@@ -390,12 +390,14 @@ input, select {
 }
 
 
-.Aumain .section .cnt .frm .qs .spq .sp input{
+.Aumain .section .cnt .frm .qs .spq .sp input,
+.Aumain .section .cnt .frm .qs .spq .sp select{
     width: 100%; outline: none;
     border: solid 1px #DCDEE5;
     border-radius: 30px;
     padding: 0 25px;
     height: 55px;
+    background-color: #fff !important;
 }
 
 .Aumain .section .cnt .frm .qs .spq .sp2{
@@ -1475,7 +1477,8 @@ input, select {
     font-size: 15px;
 }
 
-.Aumain .section .cnt .frm .qs .spq .sp input{
+.Aumain .section .cnt .frm .qs .spq .sp input
+.Aumain .section .cnt .frm .qs .spq .sp select{
     width: 100%; outline: none;
     border: solid 1px #DCDEE5;
     border-radius: 10px;

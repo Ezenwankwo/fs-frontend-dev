@@ -11,13 +11,6 @@
             name="bank_or_network"
             @change="updateOriginatingAcctount"
             class="select w-full font-medium"
-            style="
-              border-radius: 30px;
-              border: solid 1px #dcdee5;
-              padding: 0 25px;
-              height: 55px;
-              outline: none;
-            "
           >
             <option v-for="(bank, index) in banks" :key="index">
               {{ bank }}
@@ -125,7 +118,7 @@
     <span class="spq">
       <div class="links">
         <NuxtLink :to="backTo" class="a a1"> Back </NuxtLink>
-        <button class="a a2" type="button" @click="handleCreateAccount">
+        <button class="a a2" type="submit" @click="handleCreateAccount">
           Save & Continue
         </button>
       </div>
