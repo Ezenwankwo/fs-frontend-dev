@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AuthHeader />
+        <NavBar/>
         <div class="font-sans antialiased bg-white dark:bg-black text-black dark:text-white grid min-h-screen place-content-center overflow-hidden"
             data-v-bc8852ab="">
             <div class="fixed left-0 right-0 spotlight z-10" data-v-bc8852ab=""></div>

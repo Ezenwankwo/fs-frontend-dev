@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <ConversionHeader />
-        <div class="cont">
-            <!-- <div class="Close_auth" id="close_auth">
+  <div>
+    <NavBar />
+    <div class="cont">
+      <!-- <div class="Close_auth" id="close_auth">
                 <div class="modal">
                     <span class="sp1">
                         <Icon name="bi:x-lg" />
@@ -56,45 +56,189 @@
                     </form>
                 </div>
             </div> -->
-            <main class="Aumain">
-                <section class="section">
-                    <div class="lists">
-                        <p class="p1">Convert Currency</p>
-                        <p class="p2">Create or accept offers at your preferred rate.</p>
-                        <ul>
-                            <li class="last">
-                                <span>
-                                    <i class="material-icons-outlined"><Icon name="solar:folder-line-duotone" /></i>
-                                </span>
-                                <p>Review amount </p>
-                            </li>
-                            <li class="last">
-                                <span>
-                                    <i class="material-icons-outlined"><Icon name="bi:bank" /></i>
-                                </span>
-                                <p>Bank details </p>
-                            </li>
-                            <li class="last">
-                                <span>
-                                    <i class="material-icons-outlined"><Icon name="majesticons:money-line" /></i>
-                                </span>
-                                <p>Confirm payment </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cnt">
-                        <div class="fl1">
-
-                            <slot />
-
-                        </div>
-                        <p class="cl"><Icon name="bi:x-lg" /> Close</p>
-                    </div>
-
-
-                </section>
-
-            </main>
-        </div>
+      <main class="Aumain">
+        <section class="container section">
+          <div class="lists">
+            <p class="p1">Convert Currency</p>
+            <p class="p2">Create or accept offers at your preferred rate.</p>
+            <ul>
+              <li
+                class="last"
+                v-bind:class="{
+                  done: tradeProgress && tradeProgress.includes('review'),
+                  active: activeTradeProgress === 'review',
+                }"
+                @click="handldTradeProgress('review')"
+              >
+                <span>
+                  <i class="material-icons-outlined"
+                    ><Icon name="solar:folder-line-duotone"
+                  /></i>
+                </span>
+                <p>
+                  Review amount
+                  <img
+                    v-if="tradeProgress && tradeProgress.includes('review')"
+                    src="~/assets/svg/check.svg"
+                    alt="check"
+                    class="ml-auto"
+                  />
+                </p>
+              </li>
+              <li
+                class="last"
+                v-bind:class="{
+                  done: tradeProgress && tradeProgress.includes('bank'),
+                  active: activeTradeProgress === 'bank',
+                }"
+                @click="handldTradeProgress('bank')"
+              >
+                <span>
+                  <i class="material-icons-outlined"><Icon name="bi:bank" /></i>
+                </span>
+                <p>
+                  Bank details
+                  <img
+                    v-if="tradeProgress && tradeProgress.includes('bank')"
+                    src="~/assets/svg/check.svg"
+                    alt="check"
+                    class="ml-auto"
+                  />
+                </p>
+              </li>
+              <li
+                class="last"
+                v-bind:class="{
+                  done: tradeProgress && tradeProgress.includes('confirm'),
+                  active: activeTradeProgress === 'confirm',
+                }"
+                @click="handldTradeProgress('confirm')"
+              >
+                <span>
+                  <i class="material-icons-outlined"
+                    ><Icon name="majesticons:money-line"
+                  /></i>
+                </span>
+                <p>
+                  Confirm payment
+                  <img
+                    v-if="tradeProgress && tradeProgress.includes('confirm')"
+                    src="~/assets/svg/check.svg"
+                    alt="check"
+                    class="ml-auto"
+                  />
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="cnt">
+            <div class="fl1">
+              <slot />
+            </div>
+            <p class="cl" @click="handleCancelTrade" v-if="activeTradeProgress.toLowerCase() != 'completed'">
+              <Icon name="bi:x-lg" /> Close
+            </p>
+          </div>
+        </section>
+      </main>
     </div>
+  </div>
 </template>
+
+<script setup>
+import { storeToRefs } from "pinia";
+import { useConversionStore } from "~~/store/conversion";
+
+const router = useRouter();
+
+const store = useConversionStore();
+const { tradeProgress, activeTradeProgress } = storeToRefs(store);
+
+const handleCancelTrade = () => {
+  if (activeTradeProgress.value.toLowerCase() != "completed"){
+    const cancelTrade = confirm("Are you sure you want to cancel?");
+  
+    if (cancelTrade) {
+      useConversionStore().resetAccount();
+      navigateTo("/");
+    }
+  }
+};
+
+const handldTradeProgress = (section) => {
+  const navigator = {
+    review: "/review_amount",
+    bank: "/originating_account",
+    confirm: "/escrow_account",
+  };
+  if (
+    tradeProgress.value &&
+    tradeProgress.value.includes(section) &&
+    activeTradeProgress.value.toLowerCase() != "completed"
+  ) {
+    navigateTo(navigator[section]);
+  }
+};
+</script>
+
+<style lang="less" scoped>
+.Aumain .section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    /* border: solid; */
+    height: 100%;
+    padding: 0 7%;
+    padding-left: 5%;
+  }
+}
+.Aumain .section .lists .p1 {
+  font-family: "Lora", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #373d4a;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  text-align: left;
+}
+.Aumain .section .lists .p2 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #7c859d;
+  width: 85%;
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  margin-top: 10px;
+}
+.Aumain .section .lists ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    justify-content: left;
+  }
+}
+</style>

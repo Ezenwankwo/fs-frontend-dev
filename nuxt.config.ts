@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
     css: [
         '~/assets/css/conversion.css',
-        '~/assets/css/home.css',
         '~/assets/css/p2pindex.css',
         '~/assets/css/dynamictable.css',
         '~/assets/css/dynamichistory.css',
@@ -37,7 +36,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-           baseURL: 'http://localhost:8000' //'https://finstack.herokuapp.com'
+           baseURL: 'https://finstack-production.herokuapp.com' //'http://localhost:8000' //'https://finstack.herokuapp.com'
         }
     },
 })

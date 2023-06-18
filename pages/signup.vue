@@ -67,15 +67,15 @@ export default {
                 <button type="submit">
                     Create account
                 </button>
-                <p class="tc">By continuing you agree to our <a href="">Terms and conditions</a> and <a href="">Privacy
-                        Policy</a> </p>
-                <div class="or"><span></span>
+                <p class="tc">By continuing you agree to our <NuxtLink to="/terms">Terms and conditions</NuxtLink> and <NuxtLink to="/privacy">Privacy
+                        Policy</NuxtLink> </p>
+                <!-- <div class="or"><span></span>
                     <p>OR</p><span></span>
                 </div>
                 <div class="social_in">
                     <a href=""><img src="~/assets/google_img.svg" alt="" /> Continue with Google</a>
                     <a href=""><img src="~/assets/guest_user.svg" alt="" /> Sign in as a Guest</a>
-                </div>
+                </div> -->
                 <p class="already">Already have an account?
                     <NuxtLink to="/login">Log in</NuxtLink>
                 </p>
@@ -131,6 +131,7 @@ main .sectioni .t1 {
     font-size: 22px;
     font-weight: 700;
     text-align: center;
+    color: #18191B;
     /* width: 10%; */
 }
 
