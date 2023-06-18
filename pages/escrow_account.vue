@@ -2,8 +2,8 @@
   <form action="" class="frm Idi escrow">
     <div class="qs qs2">
       <div class="spq spq2">
-          <div class="sp sp2 sp3">
-            <p class="top">Kindly make your transfer into the account below</p>
+        <div class="sp sp2 sp3">
+          <p class="top">Kindly make your transfer into the account below</p>
         </div>
       </div>
 
@@ -14,7 +14,11 @@
               <p class="tx tx1">Account Number</p>
               <div class="spt">
                 <p class="tx tx2">{{ escrow.number_or_address }}</p>
-                <Icon v-if="escrow.number_or_address" @click="coptToClip" name="material-symbols:file-copy-outline" />
+                <Icon
+                  v-if="escrow.number_or_address"
+                  @click="coptToClip"
+                  name="material-symbols:file-copy-outline"
+                />
               </div>
             </div>
             <div class="det">
@@ -41,18 +45,25 @@
         </div>
       </div>
 
-      <span class="spq">
+      <div class="spq">
         <div class="links">
-          <button @click="handleNext" type="button" class="a a2 text-center w-full">
+          <button
+            @click="handleNext"
+            type="button"
+            class="a a2 text-center w-full"
+          >
             I have transferred<b class="mx-2"
               >{{ payment.from_currency }} {{ payment.amount }}</b
             >to the account above!
           </button>
         </div>
-      </span>
-      <span class="spq">
-        <p class="pr">Having issues? <a class="a" href="mailto:finstackhq@gmail.com">Contact support</a></p>
-      </span>
+      </div>
+      <div class="spq">
+        <p class="pr">
+          Having issues?
+          <a class="a" href="mailto:finstackhq@gmail.com">Contact support</a>
+        </p>
+      </div>
     </div>
   </form>
 </template>
@@ -115,27 +126,25 @@ useFetch(`${config.public.baseURL}/trades/`, {
 });
 
 const handleNext = () => {
-    useConversionStore().setTradeProgress("confirm");
-    navigateTo("/processing");
-}
+  useConversionStore().setTradeProgress("confirm");
+  navigateTo("/processing");
+};
 
 const coptToClip = () => {
   navigator.clipboard.writeText(escrow.value.number_or_address);
   useNotification().toast.success("Account Copied!");
-}
+};
 
 onMounted(() => {
   nextTick(() => {
     useConversionStore().setActiveTradeProgress("confirm");
-    setTimeout(() => {
-      if (!escrow.value.number_or_address){
-        useNotification().toast.error("Please check your entry, and try again!");
-        useConversionStore().setTradeProgress("review", true);
-        navigateTo("/review_amount")
-      }
-    }, 1000)
-  })
-})
+    if (!escrow.value.number_or_address) {
+      useNotification().toast.error("Please check your entry, and try again!");
+      useConversionStore().setTradeProgress("review", true);
+      navigateTo("/review_amount");
+    }
+  });
+});
 </script>
 
 <style lang="less" scoped>
@@ -143,15 +152,15 @@ onMounted(() => {
   max-width: 455px;
   margin: auto;
 }
-@media screen and (max-width: 600px){
-    .Aumain .section .cnt .frm .qs .spq .links .a2  {
-        font-size: 12px;
-    }
-    .Aumain .section .cnt .frm .qs .spq .sp2 .details {
-        row-gap: 20px;
-    }
-    .Aumain .section .cnt .frm .qs .spq .sp2 .details .det {
-        row-gap: 5px;
-    }
+@media screen and (max-width: 600px) {
+  .Aumain .section .cnt .frm .qs .spq .links .a2 {
+    font-size: 12px;
+  }
+  .Aumain .section .cnt .frm .qs .spq .sp2 .details {
+    row-gap: 20px;
+  }
+  .Aumain .section .cnt .frm .qs .spq .sp2 .details .det {
+    row-gap: 5px;
+  }
 }
 </style>
