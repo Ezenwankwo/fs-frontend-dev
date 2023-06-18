@@ -6,7 +6,7 @@
     <account-form
       backTo="/originating_account"
       storeType="receiving"
-      :handleCreateAccount="gotoNextPage"
+      :handleCreateAccount="createAccount"
     />
   </form>
 </template>
@@ -43,14 +43,6 @@ const bank = computed(() => {
   }
 });
 
-const gotoNextPage = () => {
-  const account = { ...receivingAccount.value };
-  delete account.other_bank;
-  if (!Object.values(account).includes("")) {
-    createAccount()
-  }
-};
-
 const createAccount = () => {
   useFetch(`${config.public.baseURL}/wallets/accounts/`, {
     method: "post",
@@ -68,6 +60,7 @@ const createAccount = () => {
     },
     onResponse({ request, response, options }) {
       if (response.ok) {
+        useConversionStore().setReceivingAccount(response._data.data);
         useFetch(
           `${config.public.baseURL}/wallets/transactions/escrow-account/`,
           {
