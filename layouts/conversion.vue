@@ -155,7 +155,7 @@ const store = useConversionStore();
 const { tradeProgress, activeTradeProgress } = storeToRefs(store);
 
 const handleCancelTrade = () => {
-  if (tradeProgress.value.toLowerCase() != "completed"){
+  if (activeTradeProgress.value.toLowerCase() != "completed"){
     const cancelTrade = confirm("Are you sure you want to cancel?");
   
     if (cancelTrade) {

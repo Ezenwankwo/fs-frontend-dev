@@ -90,6 +90,7 @@ const createAccount = () => {
           }
         );
       } else {
+        useConversionStore().setTradeProgress("bank", true);
         useNotification().toast.error(response._data.message);
       }
     },

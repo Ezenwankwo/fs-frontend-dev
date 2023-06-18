@@ -109,6 +109,7 @@ useFetch(`${config.public.baseURL}/trades/`, {
       useConversionStore().setTrade(response._data.data);
     } else {
       useNotification().toast.error(response._data.message);
+      useConversionStore().setTradeProgress("confirm", true);
     }
   },
 });
