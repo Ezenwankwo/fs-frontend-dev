@@ -1,57 +1,57 @@
 <template>
-  <form action="" class="frm Idi">
+  <form action="" class="frm Idi escrow">
     <div class="qs qs2">
-      <span class="spq spq2">
-        <span class="sp sp2 sp3">
-          <p class="top">Kindly make your transfer into the account below</p>
-        </span>
-      </span>
+      <div class="spq spq2">
+          <div class="sp sp2 sp3">
+            <p class="top">Kindly make your transfer into the account below</p>
+        </div>
+      </div>
 
-      <span class="spq">
-        <span class="sp sp2">
+      <div class="spq">
+        <div class="sp sp2">
           <div class="details">
             <div class="det">
               <p class="tx tx1">Account Number</p>
-              <span class="spt">
+              <div class="spt">
                 <p class="tx tx2">{{ escrow.number_or_address }}</p>
                 <Icon name="material-symbols:file-copy-outline" />
-              </span>
+              </div>
             </div>
             <div class="det">
               <p class="tx tx1">Account Name</p>
-              <span class="spt">
+              <div class="spt">
                 <p class="tx tx2">{{ escrow.holder_name }}</p>
-              </span>
+              </div>
             </div>
             <div class="det">
               <p class="tx tx1">Bank</p>
-              <span class="spt">
+              <div class="spt">
                 <p class="tx tx2">{{ escrow.bank_or_network }}</p>
-              </span>
+              </div>
             </div>
             <div class="det">
               <p class="tx tx1">Expected payment</p>
-              <span class="spt">
+              <div class="spt">
                 <p class="tx tx2">
                   {{ payment.from_currency }} {{ payment.amount }}
                 </p>
-              </span>
+              </div>
             </div>
           </div>
-        </span>
-      </span>
+        </div>
+      </div>
 
       <span class="spq">
         <div class="links">
-          <NuxtLink to="/processing" class="a a2 text-center">
+          <button @click="handleNext" type="button" class="a a2 text-center w-full">
             I have transferred<b class="mx-2"
               >{{ payment.from_currency }} {{ payment.amount }}</b
             >to the account above!
-          </NuxtLink>
+          </button>
         </div>
       </span>
       <span class="spq">
-        <p class="pr">Having issues? <a class="a">Try another account</a></p>
+        <p class="pr">Having issues? <a class="a" href="mailto:finstackhq@gmail.com">Contact support</a></p>
       </span>
     </div>
   </form>
@@ -88,7 +88,7 @@ const originatingAccount = useConversionStore().$state.originatingAccount;
 const receivingAccount = useConversionStore().$state.receivingAccount;
 const exchange = useConversionStore().$state.exchange;
 
-const tradeRes = await useFetch(`${config.public.baseURL}/trades/`, {
+useFetch(`${config.public.baseURL}/trades/`, {
   method: "post",
   body: {
     seller: "finstack",
@@ -113,7 +113,30 @@ const tradeRes = await useFetch(`${config.public.baseURL}/trades/`, {
   },
 });
 
+const handleNext = () => {
+    useConversionStore().setTradeProgress("confirm");
+    navigateTo("/processing");
+}
+
 onMounted(() => {
     useConversionStore().setActiveTradeProgress("confirm");
 })
 </script>
+
+<style lang="less" scoped>
+.escrow {
+  max-width: 455px;
+  margin: auto;
+}
+@media screen and (max-width: 600px){
+    .Aumain .section .cnt .frm .qs .spq .links .a2  {
+        font-size: 12px;
+    }
+    .Aumain .section .cnt .frm .qs .spq .sp2 .details {
+        row-gap: 20px;
+    }
+    .Aumain .section .cnt .frm .qs .spq .sp2 .details .det {
+        row-gap: 5px;
+    }
+}
+</style>
