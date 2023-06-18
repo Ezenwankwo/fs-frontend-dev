@@ -3,10 +3,7 @@
     <NuxtLayout :name="updateLayout">
       <div class="mt-32 text-center">
         <img src="~/assets/load.gif" alt="" class="w-2/5 m-auto" />
-        <p
-          v-if="referral === '/receiving_account'"
-          class="mb-6 text-center"
-        >
+        <p v-if="referral === '/receiving_account'" class="mb-6 text-center">
           Please wait while we connect you with <br />
           one of our agents
         </p>
@@ -14,10 +11,7 @@
           Please wait while we confirm and<br />
           process your payment...
         </p>
-        <p
-          v-if="referral === '/buy-details'"
-          class="mb-6 text-center"
-        >
+        <p v-if="referral === '/buy-details'" class="mb-6 text-center">
           Processing, please wait
         </p>
         <button
@@ -62,18 +56,17 @@ const checkTransaction = async () => {
   const trade = useConversionStore().$state.trade;
   try {
     const response = await $api(`/trades/${trade.public_id}/`);
-    const status = response.data.status.toLowerCase()
-    console.log(response.data);
+    const status = response.data.status.toLowerCase();
     if (status == "pending") {
       useNotification().toast.info("We are still processing this trade!");
-    }else if (status == "confirmed") {
-        moveTo()
+    } else if (status == "completed") {
+      moveTo();
     }
   } catch (error) {
     useNotification().toast.error(error.data.message);
   }
 };
 onMounted(() => {
-    useConversionStore().setActiveTradeProgress("completed");
-})
+  useConversionStore().setActiveTradeProgress("completed");
+});
 </script>
