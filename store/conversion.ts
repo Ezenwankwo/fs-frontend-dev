@@ -5,7 +5,7 @@ interface StoreType {
   escrowAccount: Record<string, any>;
   trade: Record<string, any>;
   wallet: Record<string, any>;
-  tradeProgress: Array<"review"|"bank"|"confirm"|"completed">;
+  tradeProgress: Array<"review"|"bank"|"confirm">;
   activeTradeProgress: "review"|"bank"|"confirm"|"completed";
 }
 
@@ -78,12 +78,19 @@ export const useConversionStore = defineStore('conversion', {
       setWallet(wallet: any[]) {
         this.wallet = wallet
       },
-      setTradeProgress(section: "review"|"bank"|"confirm") {
-        if (!this.tradeProgress.includes(section)) {
-          this.tradeProgress.push(section)
+      setTradeProgress(section: "review"|"bank"|"confirm", reset=false) {
+        if (reset){
+          const sectionIndex = this.tradeProgress.indexOf(section);
+          if (sectionIndex !== -1){
+            this.tradeProgress.splice(sectionIndex, this.tradeProgress.length)
+          }
+        }else{
+          if (!this.tradeProgress.includes(section)) {
+            this.tradeProgress.push(section)
+          }
         }
       },
-      setActiveTradeProgress(section: "review"|"bank"|"confirm") {
+      setActiveTradeProgress(section: "review"|"bank"|"confirm"|"completed") {
         this.activeTradeProgress = section
       },
     },
