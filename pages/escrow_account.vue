@@ -125,7 +125,16 @@ const coptToClip = () => {
 }
 
 onMounted(() => {
+  nextTick(() => {
     useConversionStore().setActiveTradeProgress("confirm");
+    setTimeout(() => {
+      if (!escrow.value.number_or_address){
+        useNotification().toast.error("Please check your entry, and try again!");
+        useConversionStore().setTradeProgress("review", true);
+        navigateTo("/review_amount")
+      }
+    }, 1000)
+  })
 })
 </script>
 

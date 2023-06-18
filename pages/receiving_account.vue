@@ -79,9 +79,13 @@ const createAccount = () => {
             },
             onResponse({ request, response, options }) {
               if (response.ok) {
-                useConversionStore().setEscrowAccount(response._data.data);
-                useConversionStore().setTradeProgress("bank");
-                navigateTo("/escrow_account");
+                (async () => {
+                  await useConversionStore().setEscrowAccount(
+                    response._data.data
+                  );
+                  useConversionStore().setTradeProgress("bank");
+                  navigateTo("/escrow_account");
+                })();
               } else {
                 // useNotification().toast.error(response._data.message)
                 navigateTo("/processing");
