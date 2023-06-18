@@ -5,8 +5,8 @@ interface StoreType {
   escrowAccount: Record<string, any>;
   trade: Record<string, any>;
   wallet: Record<string, any>;
-  tradeProgress: Array<"review"|"bank"|"confirm">;
-  activeTradeProgress: "review"|"bank"|"confirm";
+  tradeProgress: Array<"review"|"bank"|"confirm"|"completed">;
+  activeTradeProgress: "review"|"bank"|"confirm"|"completed";
 }
 
 export const useConversionStore = defineStore('conversion', {

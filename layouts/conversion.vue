@@ -135,7 +135,7 @@
             <div class="fl1">
               <slot />
             </div>
-            <p class="cl" @click="handleCancelTrade">
+            <p class="cl" @click="handleCancelTrade" v-if="activeTradeProgress.toLowerCase() != 'completed'">
               <Icon name="bi:x-lg" /> Close
             </p>
           </div>
@@ -155,25 +155,30 @@ const store = useConversionStore();
 const { tradeProgress, activeTradeProgress } = storeToRefs(store);
 
 const handleCancelTrade = () => {
-  const cancelTrade = confirm("Are you sure you want to cancel?");
-
-  if (cancelTrade) {
-    useConversionStore().resetAccount()
-    navigateTo("/");
+  if (tradeProgress.value.toLowerCase() != "completed"){
+    const cancelTrade = confirm("Are you sure you want to cancel?");
+  
+    if (cancelTrade) {
+      useConversionStore().resetAccount();
+      navigateTo("/");
+    }
   }
 };
 
 const handldTradeProgress = (section) => {
   const navigator = {
-    "review": "/review_amount",
-    "bank": "/originating_account",
-    "confirm": "/escrow_account",
-  }
-  if (tradeProgress.value && tradeProgress.value.includes(section)){
+    review: "/review_amount",
+    bank: "/originating_account",
+    confirm: "/escrow_account",
+  };
+  if (
+    tradeProgress.value &&
+    tradeProgress.value.includes(section) &&
+    activeTradeProgress.value.toLowerCase() != "completed"
+  ) {
     navigateTo(navigator[section]);
   }
 };
-
 </script>
 
 <style lang="less" scoped>
