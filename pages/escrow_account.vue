@@ -14,7 +14,7 @@
               <p class="tx tx1">Account Number</p>
               <div class="spt">
                 <p class="tx tx2">{{ escrow.number_or_address }}</p>
-                <Icon name="material-symbols:file-copy-outline" />
+                <Icon v-if="escrow.number_or_address" @click="coptToClip" name="material-symbols:file-copy-outline" />
               </div>
             </div>
             <div class="det">
@@ -117,6 +117,11 @@ useFetch(`${config.public.baseURL}/trades/`, {
 const handleNext = () => {
     useConversionStore().setTradeProgress("confirm");
     navigateTo("/processing");
+}
+
+const coptToClip = () => {
+  navigator.clipboard.writeText(escrow.value.number_or_address);
+  useNotification().toast.success("Account Copied!");
 }
 
 onMounted(() => {
