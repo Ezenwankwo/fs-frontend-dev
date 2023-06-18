@@ -57,7 +57,7 @@
                 </div>
             </div> -->
             <main class="Aumain">
-                <section class="section">
+                <section class="container section">
                     <div class="lists">
                         <p class="p1">Become a seller</p>
                         <p class="p2">Create or accept offers at your preferred rate.</p>
