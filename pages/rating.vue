@@ -12,11 +12,15 @@
           <div class="rating--box">
             <p class="rating--text">Rate our service</p>
             <div class="rating">
-              <i class="rating-star"></i>
-              <i class="rating-star"></i>
-              <i class="rating-star"></i>
-              <i class="rating-star"></i>
-              <i class="rating-star"></i>
+              <i
+                v-for="rate in [1, 2, 3, 4, 5]"
+                :key="rate"
+                class="rating-star"
+                v-bind:class="{
+                  active: rate <= trade.rating,
+                }"
+                @click="() => rateTrade(rate)"
+              ></i>
             </div>
           </div>
           <p class="review-request">Leave a review on</p>
@@ -28,6 +32,10 @@
             <img src="~/assets/svg/twitter.svg" alt="twitter" />
             twitter
           </button>
+
+          <div class="new-trade" v-if="trade.rating">
+            <p @click="resetAndHome" class="pointer">Perform another transaction?</p>
+          </div>
         </div>
       </div>
     </div>
@@ -35,36 +43,30 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
 import { useConversionStore } from "~~/store/conversion";
-import { useAuthStore } from "~~/store/auth";
 definePageMeta({
   middleware: ["auth"],
 });
-const token = useAuthStore().$state.user.access;
-const config = useRuntimeConfig();
-const trade = useConversionStore().$state.trade;
-const exchange = useConversionStore().$state.exchange;
-const score = ref(2);
-const rateTrade = () => {
-  const res = useFetch(`${config.public.baseURL}/trades/${trade.public_id}/`, {
-    method: "PATCH",
-    body: {
-      rating: score.value,
-    },
-    onRequest({ request, options }) {
-      options.headers = options.headers || {};
-      options.headers.authorization = `Bearer ${token}`;
-    },
-    onResponse({ request, response, options }) {
-      if (response.ok) {
-        useConversionStore().setTrade(response._data.data);
-        useNotification().toast.success("Thank you for your feedback.");
-      } else {
-        useNotification().toast.error(response._data.message);
-      }
-    },
-  });
+
+const store = useConversionStore();
+const { trade } = storeToRefs(store);
+
+const rateTrade = async (rating) => {
+  try {
+    const response = await $api(`/trades/${trade.value.public_id}/`, {
+      method: "PATCH",
+      body: {
+        rating,
+      },
+    });
+    useConversionStore().setTrade(response.data);
+    useNotification().toast.success("Thank you for your feedback.");
+  } catch (error) {
+    useNotification().toast.error(error.data.message);
+  }
 };
+
 const facebookReview = () => {
   const appId = "YOUR_FACEBOOK_APP_ID";
   const pageId = "YOUR_FACEBOOK_PAGE_ID";
@@ -84,6 +86,21 @@ const twitterReview = () => {
 
   window.open(tweetLink, "_blank");
 };
+
+const resetAndHome = () => {
+  useConversionStore().resetAccount();
+  navigateTo("/");
+};
+
+onMounted(() => {
+  nextTick(() => {
+    if (!trade.value.public_id) {
+      useNotification().toast.error("Please check your entry, and try again!");
+      useConversionStore().resetAccount();
+      navigateTo("/");
+    }
+  });
+});
 </script>
 
 <style lang="less" scoped>
@@ -218,5 +235,11 @@ const twitterReview = () => {
     background: #1877f2;
     border-color: #1877f2;
   }
+}
+.new-trade {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1877f2;
 }
 </style>
