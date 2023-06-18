@@ -121,51 +121,42 @@ const createIdentity = () => {
   );
   formData.append("selfie", dataURLtoFile(selfie.value, selfieName.value));
 
-  const informationRes = useFetch(
-    `${config.public.baseURL}/users/personal-informations/`,
-    {
-      method: "post",
-      body: {
-        country: countryResidence.value,
-        first_name: firstName.value,
-        last_name: lastName.value,
-        phone_number: phoneNumber.value,
-        date_of_birth: dateOfBirth.value,
-        residential_address: address.value,
-        region: stateRegion.value,
-      },
-      onRequest({ request, options }) {
-        options.headers = options.headers || {};
-        options.headers.authorization = `Bearer ${token}`;
-      },
-      onResponse({ request, response, options }) {
-        if (response.ok) {
-          console.log("created personal information");
-        } else {
-          useNotification().toast.error(response._data.message);
-        }
-      },
-    }
-  );
-
-  const identityRes = useFetch(
-    `${config.public.baseURL}/users/identity-informations/`,
-    {
-      method: "post",
-      body: formData,
-      onRequest({ request, options }) {
-        options.headers = options.headers || {};
-        options.headers.authorization = `Bearer ${token}`;
-      },
-      onResponse({ request, response, options }) {
-        if (response.ok) {
-          console.log("created identity info");
-        } else {
-          useNotification().toast.error(response._data.message);
-        }
-      },
-    }
-  );
-  navigateTo("/identity_success");
+  useFetch(`${config.public.baseURL}/users/personal-informations/`, {
+    method: "post",
+    body: {
+      country: countryResidence.value,
+      first_name: firstName.value,
+      last_name: lastName.value,
+      phone_number: phoneNumber.value,
+      date_of_birth: dateOfBirth.value,
+      residential_address: address.value,
+      region: stateRegion.value,
+    },
+    onRequest({ request, options }) {
+      options.headers = options.headers || {};
+      options.headers.authorization = `Bearer ${token}`;
+    },
+    onResponse({ request, response, options }) {
+      if (response.ok) {
+        useFetch(`${config.public.baseURL}/users/identity-informations/`, {
+          method: "post",
+          body: formData,
+          onRequest({ request, options }) {
+            options.headers = options.headers || {};
+            options.headers.authorization = `Bearer ${token}`;
+          },
+          onResponse({ request, response, options }) {
+            if (response.ok) {
+              navigateTo("/identity_success");
+            } else {
+              useNotification().toast.error(response._data.message);
+            }
+          },
+        });
+      } else {
+        useNotification().toast.error(response._data.message);
+      }
+    },
+  });
 };
 </script>
