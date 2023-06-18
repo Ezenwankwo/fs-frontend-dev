@@ -36,6 +36,9 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
+            facebookAppID: '640121161370306', 
+            facebookPageID: '103601009195286', 
+            twitterUsername: 'Finstack_HQ' ,
            baseURL: 'https://finstack-production.herokuapp.com' //'http://localhost:8000' //'https://finstack.herokuapp.com'
         }
     },

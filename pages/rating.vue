@@ -56,6 +56,7 @@ definePageMeta({
 
 const store = useConversionStore();
 const { trade } = storeToRefs(store);
+const config = useRuntimeConfig();
 
 const rateTrade = async (rating) => {
   try {
@@ -73,21 +74,18 @@ const rateTrade = async (rating) => {
 };
 
 const facebookReview = () => {
-  const appId = "YOUR_FACEBOOK_APP_ID";
-  const pageId = "YOUR_FACEBOOK_PAGE_ID";
-  const reviewLink = `https://www.facebook.com/${pageId}/reviews/?app_id=${appId}`;
+  const reviewLink = `https://www.facebook.com/${config.public.facebookPageID}/reviews/?app_id=${config.public.facebookAppID}`;
 
   window.open(reviewLink, "_blank");
 };
 
 const twitterReview = () => {
-  const twitterUsername = "YOUR_TWITTER_USERNAME"; // Replace with your Twitter username
   const reviewText =
-    "I had a great experience with XYZ company! Highly recommended. #XYZCompany"; // Replace with your desired review text
+    "I had a great experience with @Finstack_HQ! Highly recommended. #Finstack #Finstack_HQ"; 
 
   const tweetLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
     reviewText
-  )}&via=${twitterUsername}`;
+  )}&via=${config.public.twitterUsername}`;
 
   window.open(tweetLink, "_blank");
 };
