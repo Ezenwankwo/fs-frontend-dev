@@ -1,5 +1,8 @@
 <script>
 import { useAuthStore } from '~~/store/auth';
+definePageMeta({
+  middleware: ["redirect-home"],
+});
 export default {
     data() {
         return {
@@ -125,6 +128,7 @@ main .sectioni .t1 {
     font-size: 22px;
     font-weight: 700;
     text-align: center;
+    color: #18191B;
     /* width: 10%; */
 }
 

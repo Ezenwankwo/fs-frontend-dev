@@ -1,6 +1,6 @@
 <template>
    <div>
-    <AuthHeader />
+    <NavBar/>
     <main class='Aumain'>
         <section class='section'>
             <div class="cnt">
