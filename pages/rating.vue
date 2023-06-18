@@ -34,7 +34,12 @@
           </button>
 
           <div class="new-trade" v-if="trade.rating">
-            <p @click="resetAndHome" class="pointer">Perform another transaction?</p>
+            <button
+              @click="resetAndHome"
+              class="pointer text-[#2F67FA] font-semibold"
+            >
+              Perform another transaction?
+            </button>
           </div>
         </div>
       </div>
