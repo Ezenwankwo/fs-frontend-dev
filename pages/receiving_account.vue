@@ -21,29 +21,25 @@ definePageMeta({
 });
 
 const store = useConversionStore();
+
 const { receivingAccount } = storeToRefs(store);
-const {
-  account_type,
-  other_bank,
-  bank_or_network,
-  holder_name,
-  number_or_address,
-} = receivingAccount.value;
 
 const exchange = useConversionStore().$state.exchange;
 
 const token = useAuthStore().$state.user.access;
 const config = useRuntimeConfig();
 
-const bank = computed(() => {
-  if (bank_or_network == "Other") {
-    return other_bank;
-  } else {
-    return bank_or_network;
-  }
-});
-
 const createAccount = () => {
+  const {
+    account_type,
+    other_bank,
+    bank_or_network,
+    holder_name,
+    number_or_address,
+  } = receivingAccount.value;
+
+  const bank = bank_or_network == "Other" ? other_bank : bank_or_network;
+
   useFetch(`${config.public.baseURL}/wallets/accounts/`, {
     method: "post",
     body: {
