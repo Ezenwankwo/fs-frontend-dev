@@ -5,23 +5,23 @@
         <div class="w-full text-center">
           <img src="~/assets/success.svg" alt="" class="mx-auto" />
           <!-- <nuxt-img src="/nuxt.png" /> -->
-          <div class="mb-6">
+          <div class="mb-[32px]">
             <p class="text-[#373D4A] font-bold">
               You’ve been credited {{ exchange.to_currency }}
               {{ exchange.value }}
             </p>
-            <p class="text-lg text-[#373D4A]">
+            <p class="text-lg text-[#373D4A] mt-[8px]">
               Please confirm the credit transaction
             </p>
           </div>
           <button
-            class="btn block rounded-full normal-case bg-[#2F67FA] mb-6 border border-0 mx-auto"
+            class="btn block text-white rounded-full normal-case bg-[#2F67FA] mb-6 border border-0 mx-auto"
             @click="updateTradeStatus"
           >
             Yes, I have received {{ exchange.to_currency }} {{ exchange.value }}
           </button>
-          <p class="mb-2">Didn’t get the credit?</p>
-          <p class="text-[#2F67FA]">Reach out to our customer support</p>
+          <p class="mb-2 text-[#373D4A] font-semibold">Didn’t get the credit?</p>
+          <a href="mailto:finstackhq@gmail.com" class="text-[#2F67FA] font-semibold">Reach out to our customer support</a>
         </div>
       </div>
     </div>
