@@ -59,7 +59,7 @@ const checkTransaction = async () => {
     const status = response.data.status.toLowerCase();
     if (status == "pending") {
       useNotification().toast.info("We are still processing this trade!");
-    } else if (status == "completed") {
+    } else if (status == "confirmed") {
       moveTo();
     }
   } catch (error) {
