@@ -19,6 +19,7 @@ export const useConversionStore = defineStore('conversion', {
           number_or_address: "",
           holder_name: "",
           bank_or_network: "",
+          public_id: "",
         },
         receivingAccount: {
           other_bank: "",
@@ -26,6 +27,7 @@ export const useConversionStore = defineStore('conversion', {
           number_or_address: "",
           holder_name: "",
           bank_or_network: "",
+          public_id: "",
         },
         escrowAccount: {},
         trade: {},
