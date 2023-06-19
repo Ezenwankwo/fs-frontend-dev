@@ -1,3 +1,6 @@
+input, select {
+    background-color: #fff !important;
+}
 .cont{
     display: flex;
     align-items: flex-start;
@@ -14,18 +17,13 @@
     position: absolute;
 }
 
-.Aumain .section{
-    display: flex; flex-direction: row;
-    align-items: center; justify-content: left;
+.Aumain .section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
     width: 100%;
-    /* border: solid; */
-    height: 100%;
-    /* border: solid; */
-    padding: 0 7%;
-    /* position: absolute; */
-
-    padding-left: 5%;
-}
+  }
 
 .Aumain .section .lists{
     display: flex;flex-direction: column;
@@ -315,23 +313,13 @@
 
 .Aumain .section .cnt .frm{
     width: 100%;
-    /* border: solid; */
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: scroll;
     padding-top: 40px;
-    position: absolute;
     background-color: white;
-}
-
-.Aumain .section .cnt .Idi{
-    padding-left: 20%;
-    padding-right: 20%;
-    margin: 0 auto;
-    row-gap: 10px;
 }
 
 .Aumain .section .cnt .BAS_prev{
@@ -402,12 +390,14 @@
 }
 
 
-.Aumain .section .cnt .frm .qs .spq .sp input{
+.Aumain .section .cnt .frm .qs .spq .sp input,
+.Aumain .section .cnt .frm .qs .spq .sp select{
     width: 100%; outline: none;
     border: solid 1px #DCDEE5;
     border-radius: 30px;
     padding: 0 25px;
     height: 55px;
+    background-color: #fff !important;
 }
 
 .Aumain .section .cnt .frm .qs .spq .sp2{
@@ -618,7 +608,7 @@
 }
 
 .Aumain .section .cnt .frm .qs .spq .links .a{
-   padding: 13px 30px;
+   padding: 15px;
    border: solid 2px #2F67FA;
    border-radius: 30px;
    font-size: 16px; font-weight: 500;
@@ -897,7 +887,7 @@
  .Aumain .section .cnt .frm .qs .spq .sp2 .details{
     width: 100%;
     background-color: #F9FAFB;
-    padding: 32px 0;
+    padding: 32px 10px;
     border-radius: 16px;
     height: fit-content;
     display: flex;
@@ -1105,12 +1095,6 @@
     .Aumain .section .cnt{
         margin-left: 40px;
     }
-    .Aumain .section .cnt .Idi{
-        padding-left:0%;
-        padding-right: 0%;
-        margin: 0 auto;
-        row-gap: 10px;
-    }
 
     .Aumain .section .cnt .BAS_prev{
         width: 400px;
@@ -1208,21 +1192,6 @@
 
     .Aumain .section .lists ul li span{
         display: none;
-    }
-
-
-
-    .Aumain .section{
-        display: flex; flex-direction: row;
-        align-items: center; justify-content: left;
-        width: 100%;
-        /* border: solid; */
-        height: 100%;
-        /* border: solid; */
-        padding: 0 7%;
-        /* position: absolute; */
-    
-        padding-left: 5%;
     }
 }
 
@@ -1508,7 +1477,8 @@
     font-size: 15px;
 }
 
-.Aumain .section .cnt .frm .qs .spq .sp input{
+.Aumain .section .cnt .frm .qs .spq .sp input
+.Aumain .section .cnt .frm .qs .spq .sp select{
     width: 100%; outline: none;
     border: solid 1px #DCDEE5;
     border-radius: 10px;

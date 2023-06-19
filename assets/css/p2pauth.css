@@ -255,47 +255,6 @@
     justify-content: left;
     color: #2F67FA;
  }
- 
-
-
-
-
- .Aumain .section .cnt .frm .qs .spq .links{
-    width: 100%; display: flex; 
-    justify-content: right;
-    gap: 13px;
-}
-
-.Aumain .section .cnt .frm .qs .spq .links .a{
-   padding: 13px 30px;
-   border: solid 2px #2F67FA;
-   border-radius: 30px;
-   font-size: 16px; font-weight: 500;
-   cursor: pointer;
-
-}
-
-.Aumain .section .cnt .frm .qs .spq .links .a1{
-    color: #2F67FA;
-    background-color: white;
-    cursor: pointer;
-
-}
-
-.Aumain .section .cnt .frm .qs .spq .links .a2{
-    background-color: #2F67FA;
-    color: white;
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
 
 /* Default styles */
 
@@ -362,11 +321,6 @@
     .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
       font-size: 14px;
     }
-  
-    .Aumain .section .cnt .frm .qs .spq .links .a {
-      padding: 10px 20px;
-      font-size: 14px;
-    }
   }
   
   /* Mobile styles */
@@ -428,11 +382,6 @@
     }
   
     .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
-      font-size: 12px;
-    }
-  
-    .Aumain .section .cnt .frm .qs .spq .links .a {
-      padding: 8px 16px;
       font-size: 12px;
     }
   }
@@ -591,15 +540,6 @@
     }
   
     .Aumain .section .cnt .frm .dash .dash_card .dash_view_all_users p {
-      font-size: 14px;
-    }
-  
-    .Aumain .section .cnt .frm .qs .spq .links {
-      justify-content: center;
-    }
-  
-    .Aumain .section .cnt .frm .qs .spq .links .a {
-      padding: 10px 20px;
       font-size: 14px;
     }
   }

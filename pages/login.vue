@@ -1,5 +1,8 @@
 <script>
 import { useAuthStore } from '~~/store/auth';
+definePageMeta({
+  middleware: ["redirect-home"],
+});
 export default {
     data() {
         return {
@@ -63,13 +66,13 @@ export default {
                     Log in
                 </button>
 
-                <div class="or"><span></span>
+                <!-- <div class="or"><span></span>
                     <p>OR</p><span></span>
                 </div>
 
                 <div class="social_in">
                     <a href=""><img src="~/assets/google_img.svg" alt="" /> Continue with Google</a>
-                </div>
+                </div> -->
                 <p class="already">Don't have an account?
                     <NuxtLink to="/signup">Sign up</NuxtLink>
                 </p>
@@ -125,6 +128,7 @@ main .sectioni .t1 {
     font-size: 22px;
     font-weight: 700;
     text-align: center;
+    color: #18191B;
     /* width: 10%; */
 }
 
