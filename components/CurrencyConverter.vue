@@ -104,7 +104,7 @@
 </template>
 
 <script setup>
-import vSelect from "vue-select";
+//import vSelect from "vue-select";
 
 import { useConversionStore } from "~~/store/conversion";
 
