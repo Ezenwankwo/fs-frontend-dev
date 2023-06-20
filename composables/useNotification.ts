@@ -1,5 +1,5 @@
-import { useToast } from 'vue-toastification'
-
+import * as pkg from "vue-toastification"
+const { useToast } = pkg
 
 export default function useNotification () {
   console.log('🟢 useNotification')
