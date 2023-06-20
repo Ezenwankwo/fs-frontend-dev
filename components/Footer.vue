@@ -4,8 +4,7 @@
       <span class="sp"
         ><img src="~/assets/logo.png" alt="" class="logo" />
         <p class="t">
-          Finstack is a non-profit organization or accept offers at your
-          preferred rate on our Peer to peer marketplace.
+          Finstack deals on currency conversion, fast and secure remittances, hassle-free crypto exchange, convenient gift card trading, and a dynamic peer-to-peer section for trading various digital assets.
         </p> </span
       ><span class="sp asp"
         ><a href="" class="title">REACH US</a><a href="/blog_index">our blog</a
@@ -27,10 +26,13 @@
       </span>
     </div>
     <div class="two">
-      <span class="sp1"
-        ><a href=""><Icon name="ic:round-facebook" /></a
-        ><a href=""><Icon name="mdi:twitter" /></a
-        ><a href=""><Icon name="mdi:instagram" /></a></span
+      <span class="sp1">
+        <a href="https://web.facebook.com/profile.php?id=100086549431659" target="_blank"><Icon name="ic:round-facebook" /></a>
+        <a href="https://twitter.com/Finstack_HQ" target="_blank"><Icon name="mdi:twitter" /></a
+        ><a href="https://www.instagram.com/finstack_hq/" target="_blank"><Icon name="mdi:instagram" /></a>
+        <a href="https://www.tiktok.com/@finstackhq" target="_blank"><Icon name="ic:baseline-tiktok" /></a>
+        <a href="https://www.tiktok.com/@finstackhq" target="_blank"><Icon name="ph:youtube-logo-fill" /></a>
+        </span
       ><span class="sp2"
         ><NuxtLink to="/terms">Terms and conditions</NuxtLink
         ><NuxtLink to="/privacy">Privacy Policy</NuxtLink

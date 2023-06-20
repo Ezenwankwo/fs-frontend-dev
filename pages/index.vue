@@ -5,11 +5,10 @@
       <div class="container">
         <section class="sectioni1">
           <div class="div div1">
-            <p class="txt1">BANKING THE UNBANKED</p>
-            <h1>Currency Trading Made Simple and Easy</h1>
+            <p class="txt1">YOUR GATEWAY TO DIGITAL VALUE</p>
+            <h1>Currency / Gift Card Trading Made Simple and Easy</h1>
             <p class="txt2">
-              Creating seamless exchange procedure for everyone. Buy, sell,
-              save, trade and exchange fiat currencies with 3 simple steps.
+              Creating seamless exchange procedure for everyone. Easily buy, sell, save, trade, and exchange fiat currencies, gift cards and cryptocurrencies with 3 simple steps.
             </p>
             <span class="links">
               <NuxtLink class="a1" to="/signup">Get Started</NuxtLink>
@@ -41,7 +40,7 @@
         </div>
         <div class="text">
           <p class="txt1">WE ARE ON AN INVALUABLE MISSION</p>
-          <p class="txt2">Reducing the hassle of currency exchange</p>
+          <p class="txt2">Reducing the hassle of currency/gift card exchange</p>
           <span class="spans"
             ><span class="bc"
               ><img src="~/assets/icon_img1.svg" alt="wame" /></span
@@ -58,18 +57,16 @@
             ><span class="txt">
               <p class="top">Exchange Giftcards</p>
               <p class="btm">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace
+                Exchange your gift cards hassle free
               </p>
             </span></span
           ><span class="spans"
             ><span class="bc"
               ><img src="~/assets/icon_img3.svg" alt="wame" /></span
             ><span class="txt">
-              <p class="top">Fast and Secure Transactions</p>
+              <p class="top">Swift and Secure Transactions</p>
               <p class="btm">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace
+                Experirence fast and secure transactions for your peace of mind
               </p>
             </span></span
           ><span class="spans"
@@ -78,8 +75,7 @@
             ><span class="txt">
               <p class="top">24/7 Customer Support</p>
               <p class="btm">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace
+                We provide round-the-clock customer support to assist you whenever you need it.
               </p>
             </span></span
           ><span class="links">
@@ -383,8 +379,7 @@
               </div>
               <p class="txt1">Select currency pair</p>
               <p class="t">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace offers at your preferred
+                Choose the specific combination of currencies or gift cards you want to trade
               </p> </span
             ><span>
               <div class="box">
@@ -392,8 +387,7 @@
               </div>
               <p class="txt1">Transfer Local Money</p>
               <p class="t">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace offers at your preferred
+                Easily and securely transfer your funds using your preferred local payment method
               </p> </span
             ><span>
               <div class="box">
@@ -401,8 +395,7 @@
               </div>
               <p class="txt1">Receive funds</p>
               <p class="t">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace offers at your preferred
+                Receive your funds after completing a successful transaction
               </p>
             </span>
           </div>
@@ -520,10 +513,7 @@
                 Become a Seller. Place your offer on the Peer 2 Peer Marketplace
               </p>
               <p class="t3">
-                Create or accept offers at your preferred rate on our Peer to
-                peer marketplace Create or accept offers at your preferred rate
-                on our Peer to peer marketplaceCreate or accept offers at your
-                preferred rate on our Peer to peer marketplace
+                Unlock new opportunities by becoming a seller on our Peer 2 Peer Marketplace. Exchange currencies, sell and buy gift cards  to a wide audience and reach potential buyers. Seamlessly place your offer, set your terms, and embark on a journey of successful transactions. Join our thriving community of sellers and unleash the power of online commerce today.
               </p>
               <span class="links"
                 ><a class="a1" href="/seller_up">Start registration</a
@@ -555,8 +545,7 @@
               <div class="txt">
                 <p class="t1">Frequently Asked Questions</p>
                 <p class="t2">
-                  Create or accept offers at your preferred rate on our Peer to
-                  peer marketplace Create or accept offers.
+                  Discover answers to common queries about our all-in-one platform to stay informed and make the most out of your experience.
                 </p>
               </div>
               <div
@@ -621,7 +610,7 @@
             <span class="sp">
               <p class="t1">Stay up to date</p>
               <p class="t2">
-                Stay on the grind. Stay on the grind. Stay on the grind
+                Stay Informed. Empower Your Finances.
               </p> </span
             ><a href="/blog_index">
               <p>View all updates</p>
@@ -648,7 +637,8 @@
                   <Icon name="ic:round-chevron-right" />
                 </i>
               </p> </a
-            ><a href="/blog_index">
+            >
+            <a href="/blog_index">
               <!-- <div
                 class="img"
                 style="
@@ -666,8 +656,9 @@
                 <i class="material-icons">
                   <Icon name="ic:round-chevron-right" />
                 </i>
-              </p> </a
-            ><a href="/blog_index">
+              </p>
+              </a>
+              <a href="/blog_index">
               <!-- <div
                 class="img"
                 style="
@@ -694,7 +685,7 @@
         <div class="back"></div>
         <div class="text">
           <p class="t1">Ready to join the train?</p>
-          <p class="t2">One - liner body text comes here</p>
+          <p class="t2">We are your gateway to digital value</p>
           <NuxtLink>Create a free account</NuxtLink>
         </div>
       </section>
@@ -866,6 +857,15 @@ const toggle = (index) => {
         i !== index ? (faq.isOpen = false) : (faq.isOpen = true)
       );
 };
+onMounted(async () => {
+  await nextTick(async () => {
+    await useFetch(`${config.public.baseURL}/trades/listing/currencies/finstack`, {
+      onResponse({ request, response, options }) {
+        console.log(response._data.data)
+      }
+    })
+  })
+})
 </script>
 
 <style lang="less" scoped>
@@ -1136,7 +1136,7 @@ header .div3 svg {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   /* border: solid white; */
 }

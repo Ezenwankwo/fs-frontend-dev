@@ -16,6 +16,7 @@ export default defineNuxtConfig({
         '~/assets/css/currencybrkcard.css',
         '~/assets/css/p2pauth.css',
         '~/assets/css/advertiserstable.css',
+        '~/assets/css/blogs.css',
     ],      
     modules: [
         '@nuxtjs/tailwindcss',
