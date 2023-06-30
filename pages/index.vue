@@ -105,10 +105,9 @@
               <p><Icon name="bi:calendar" /> Last Updated: Feb 02, 2023</p>
             </span>
             <form>
-              <select>
-                <option class="opt">Select Currency</option>
-                <option value="" v-for="currency in currencies" :key="currency">
-                  {{ currency }}
+              <select v-model="currency" @change="handleCurrencyChange">
+                <option :value="curr" v-for="curr in currencies" :key="currency">
+                  {{ curr }}
                 </option>
               </select>
             </form>
@@ -121,38 +120,17 @@
                 <p class="c c3"><span>Change</span></p>
                 <p class="c c4"></p>
               </div>
-              <!-- <div class="lists" v-for="curr in currChange" :key="curr">
-              <p class="c c1">
-                <img src="~/assets/country_img1.svg" alt="" />
-                <a class="ct2">
-                  <h4>{{ curr.name }}</h4>
-                  <span>{{ curr.abbv }}</span>
-                </a>
-              </p>
-              <p class="c c2">
-                <a class="price" href="javascript:void(0)"><span class="N">{{ curr.price }}</span></a>
-              </p>
-              <p class="c c3">
-                <span class="perct">{{ curr.change }}</span>
-              </p>
-              <p class="c c4">
-                <NuxtLink to="/signup">
-                  <span>Buy/Sell</span>
-                  <Icon name="ic:round-chevron-right" />
-                </NuxtLink>
-              </p>
-            </div> -->
-              <NuxtLink class="lists"
-                ><span class="c c1"
+            <div class="lists" v-for="listing in listings" :key="listing">
+                <span class="c c1"
                   ><img src="~/assets/country_img1.svg" alt="" />
                   <span class="ct2">
                     <h4>Dollar</h4>
-                    <p>USD</p>
+                    <p>{{ currency }}</p>
                   </span></span
                 ><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p> </span
+                  <p class="price"><span class="">{{ listing.buy_currency }} {{ Number(listing.price).toLocaleString() }}</span></p> </span
                 ><span class="c c3">
-                  <p class="perct">+0.87%</p>
+                  <p class="perct">+{{ listing.percentage_change }}%</p>
                 </span>
                 <span class="c c4">
                   <NuxtLink to="/signup">
@@ -160,89 +138,9 @@
                     <Icon name="ic:round-chevron-right" />
                   </NuxtLink>
                 </span>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/country_img2.svg" alt="" />
-                  <span class="ct2">
-                    <h4>Pounds</h4>
-                    <p>GBP</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦</span> 905</p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img
-                    src="~/assets/nigeria.png"
-                    alt=""
-                    class="rounded-full"
-                  />
-                  <span class="ct2">
-                    <h4>Naira</h4>
-                    <p>NGN</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/country_img4.svg" alt="" />
-                  <span class="ct2">
-                    <h4>Ethereum</h4>
-                    <p>ETH</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/country_img5.svg" alt="" />
-                  <span class="ct2">
-                    <h4>USDT</h4>
-                    <p>USDT</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 730</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
+              </div>
             </div>
-            <div class="items">
+            <div class="items" v-if="prices.length > 0">
               <div class="lists top_lists top_lists2">
                 <span class="c c1"> <p>Currency</p> </span
                 ><span class="c c2"> <p>Price</p> </span
@@ -250,109 +148,27 @@
                   <p>Change</p>
                 </span>
               </div>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/country_img3.svg" alt="" />
-                  <span class="ct2">
-                    <h4>Euro</h4>
-                    <p>EUR</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
+              <div v-for="price in prices" :key="price">
+                <div class="lists">
+                  <span class="c c1"
+                    ><img src="~/assets/country_img3.svg" alt="" />
+                    <span class="ct2">
+                      <h4>Euro</h4>
+                      <p>{{ currency }}</p>
+                    </span></span
+                  ><span class="c c2">
+                    <p class="price"><span class="">{{ price.buy_currency }} 745</span></p> </span
+                  ><span class="c c3">
+                    <p class="perct">+{{ price.percentage_change }}%</p>
+                  </span>
+                  <div class="c c4">
+                    <NuxtLink to="/signup">
+                      <p>Buy/Sell</p>
+                      <Icon name="ic:round-chevron-right" />
+                    </NuxtLink>
+                  </div>
                 </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/Binance-BNB-Icon-Logo.wine.svg" alt="" />
-                  <span class="ct2">
-                    <h4>BNB</h4>
-                    <p>BNB</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 905</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink class="lists"
-                ><span class="c c1"
-                  ><img src="~/assets/litecoin-ltc-logo.svg" alt="" />
-                  <span class="ct2">
-                    <h4>Lite coin</h4>
-                    <p>LTC</p>
-                  </span></span
-                ><span class="c c2">
-                  <p class="price"><span class="N">₦ 745</span></p> </span
-                ><span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink to="/signup" class="lists">
-                <span class="c c1"
-                  ><img src="~/assets/country_img5.svg" alt="" />
-                  <span class="ct2">
-                    <h4>USDT</h4>
-                    <p>USDT</p>
-                  </span></span
-                >
-                <span class="c c2">
-                  <p class="price">
-                    <span class="N">₦ 730</span>
-                  </p>
-                </span>
-                <span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
-              <NuxtLink to="/signup" class="lists">
-                <span class="c c1"
-                  ><img src="~/assets/country_img5.svg" alt="" />
-                  <span class="ct2">
-                    <h4>USDT</h4>
-                    <p>USDT</p>
-                  </span></span
-                >
-                <span class="c c2">
-                  <p class="price">
-                    <span class="N">₦ 730</span>
-                  </p>
-                </span>
-                <span class="c c3">
-                  <p class="perct">+0.87%</p>
-                </span>
-                <div class="c c4">
-                  <NuxtLink to="/signup">
-                    <p>Buy/Sell</p>
-                    <Icon name="ic:round-chevron-right" />
-                  </NuxtLink>
-                </div>
-              </NuxtLink>
+              </div>
             </div>
           </div>
           <div class="see">
@@ -722,20 +538,17 @@
 </template>
 
 <script setup>
-import { useConversionStore } from "~~/store/conversion";
+import { useAuthStore } from "~~/store/auth";
 
 definePageMeta({
   layout: "external",
 });
 
-const converterLoading = ref(false);
-const fromCurrency = ref("NGN");
-const toCurrency = ref("USD");
-const amount = ref(1000);
-const result = ref(0);
-const rate = ref(0);
 const config = useRuntimeConfig();
 const currencies = ref([]);
+const currency = ref("")
+const listings = ref([])
+const prices = ref([])
 
 const currChange = ref([
   {
@@ -842,6 +655,13 @@ const faqData = ref([
   },
 ]);
 
+const handleCurrencyChange = async () => {
+  const res = await useFetch(`${config.public.baseURL}/trades/listings/currencies/finstack/?sell_currency=${currency.value}`)
+  const arr = res.data.value.data
+  listings.value = arr.slice(0, 5)
+  prices.value = arr.slice(5, 10)
+}
+
 const toggleAccordion = (index) => {
   dataFaq.value[index].isOpen = dataFaq.value[index].isOpen
     ? !dataFaq.value[index].isOpen
@@ -859,11 +679,16 @@ const toggle = (index) => {
 };
 onMounted(async () => {
   await nextTick(async () => {
-    await useFetch(`${config.public.baseURL}/trades/listing/currencies/finstack`, {
-      onResponse({ request, response, options }) {
-        console.log(response._data.data)
-      }
-    })
+    const result = await useFetch(`${config.public.baseURL}/trades/currencies/`)
+    currencies.value = result.data.value.data
+    currency.value = currencies.value[1]
+
+    const res = await useFetch(`${config.public.baseURL}/trades/listings/currencies/finstack/?sell_currency=${currency.value}`)
+    const arr = res.data.value.data
+    listings.value = arr.slice(0, 5)
+    prices.value = arr.slice(5, 10)
+
+    currChange.find(element => element.abbv === currency)
   })
 })
 </script>
